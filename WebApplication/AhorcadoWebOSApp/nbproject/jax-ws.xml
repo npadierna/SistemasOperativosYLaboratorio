@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="CategoryWS">
+      <implementation-class>co.edu.udea.os.ahorcado.service.webservice.impl.CategoryWS</implementation-class>
+    </service>
+    <service name="CategoryWordsWS">
+      <implementation-class>co.edu.udea.os.ahorcado.service.webservice.impl.CategoryWordsWS</implementation-class>
+    </service>
+    <service name="RecordWS">
+      <implementation-class>co.edu.udea.os.ahorcado.service.webservice.impl.RecordWS</implementation-class>
+    </service>
+    <service name="WordWS">
+      <implementation-class>co.edu.udea.os.ahorcado.service.webservice.impl.WordWS</implementation-class>
+    </service>
+    <service name="PlayerWS">
+      <implementation-class>co.edu.udea.os.ahorcado.service.webservice.impl.PlayerWS</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
