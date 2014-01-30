@@ -18,6 +18,8 @@ public interface IPlayerDAO {
 
     public Player findPlayer(String key);
 
+    public Player findPlayerByLogin(String userName, String password);
+
     public String savePlayer(Player player);
 
     public Player updatePlayer(Player player);

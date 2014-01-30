@@ -160,17 +160,18 @@ public abstract class AbstractEntityDAO implements IEntityDAO {
     @SuppressWarnings("unchecked")
     public List<IEntityContext> executeNamedQuery(String namedQuery,
             String paramName, Object paramValue) {
-        Query query = null;
+        List<IEntityContext> resultList = null;
 
         try {
-            query = this.getEntityManager().createNamedQuery(namedQuery);
+            Query query = this.getEntityManager().createNamedQuery(namedQuery);
             query.setParameter(paramName, paramValue);
+            resultList = query.getResultList();
         } catch (IllegalArgumentException e) {
             System.out.println(" - Fatal error while the DAO was trying to execute the named query.");
             e.printStackTrace();
         }
 
-        return (query.getResultList());
+        return (resultList);
     }
 
     private String removeDot(String string) {

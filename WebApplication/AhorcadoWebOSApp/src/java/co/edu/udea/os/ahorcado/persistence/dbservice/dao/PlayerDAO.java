@@ -1,6 +1,7 @@
 package co.edu.udea.os.ahorcado.persistence.dbservice.dao;
 
 import co.edu.udea.os.ahorcado.persistence.dbservice.IPlayerDAO;
+import co.edu.udea.os.ahorcado.persistence.entity.IEntityContext;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,20 @@ public class PlayerDAO extends AbstractEntityDAO implements IPlayerDAO {
     public Player findPlayer(String key) {
 
         return ((Player) super.find(Player.class, key));
+    }
+
+    @Override()
+    @SuppressWarnings("unchecked")
+    public Player findPlayerByLogin(String userName, String password) {
+        List<Player> foundPlayers = this.findPlayersByAttributes(Player.class,
+                "userName", userName, "password", password);
+
+        if ((foundPlayers != null) && !(foundPlayers.isEmpty())) {
+
+            return (foundPlayers.get(0));
+        }
+
+        return (null);
     }
 
     @Override()

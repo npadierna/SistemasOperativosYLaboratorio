@@ -1,8 +1,10 @@
 package co.edu.udea.os.ahorcado.persistence.dbservice.dao;
 
 import co.edu.udea.os.ahorcado.persistence.dbservice.ICategoryWordsDAO;
+import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK;
+import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
@@ -35,6 +37,14 @@ public class CategoryWordsDAO extends AbstractEntityDAO
     public List<CategoryWords> findAllCategoriesWords() {
 
         return ((List<CategoryWords>) super.findAll(CategoryWords.class));
+    }
+
+    @Override()
+    public List<CategoryWords> findAllCategoriesWordsForCategory(
+            Category category) {
+
+        return (this.executeNamedQueryForCategoriesWords(
+                "CategoryWords.findByCategory", "category", category.getName()));
     }
 
     @Override()

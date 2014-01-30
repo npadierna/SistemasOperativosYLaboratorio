@@ -1,5 +1,6 @@
 package co.edu.udea.os.ahorcado.persistence.dbservice;
 
+import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import co.edu.udea.os.ahorcado.persistence.entity.RecordPK;
 import java.util.List;
@@ -14,6 +15,8 @@ public interface IRecordDAO {
     public Record deleteRecord(Record record);
 
     public List<Record> findAllRecords();
+
+    public List<Record> findAllRecordsForPlayer(Player player);
 
     public List<Record> findRecordsByAttributes(Object... attributes);
 

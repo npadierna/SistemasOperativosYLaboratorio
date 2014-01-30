@@ -8,6 +8,7 @@ import co.edu.udea.os.ahorcado.persistence.dbservice.IWordDAO;
 import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
+import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import co.edu.udea.os.ahorcado.service.config.IFirstRunAppConfiguration;
 import java.util.ArrayList;
@@ -42,7 +43,9 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         this.createDefaultWords();
         this.createDefaultCategoriesWords();
         this.createDefaultPlayers();
-        this.createDefaultRecords();;
+        this.createDefaultRecords();
+
+        //this.test();
     }
 
     @Override()
@@ -288,5 +291,18 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
             this.wordDAO.saveWord(word);
             this.words.add(word);
         }
+    }
+
+    private void test() {
+        Player p = new Player("test_user", "test_user", "test_user@test.com");
+        this.playerDAO.savePlayer(p);
+
+        p.setEmail("test_user2@test.com");
+        this.playerDAO.updatePlayer(p);
+
+        this.playerDAO.deletePlayer(p);
+        Player temp = this.playerDAO.findPlayer("test_user");
+
+        List<Record> records = this.recordDAO.findAllRecords();
     }
 }

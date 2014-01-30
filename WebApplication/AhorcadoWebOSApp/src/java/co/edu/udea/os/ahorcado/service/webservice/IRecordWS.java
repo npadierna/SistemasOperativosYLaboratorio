@@ -1,6 +1,6 @@
 package co.edu.udea.os.ahorcado.service.webservice;
 
-import co.edu.udea.os.ahorcado.persistence.entity.Player;
+import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import java.util.List;
 import javax.jws.WebService;
@@ -13,5 +13,11 @@ import javax.jws.WebService;
 @WebService()
 public interface IRecordWS {
 
-    List<Record> findRecordsByPlayer(Player player);
+    public List<Record> findAllRecordsForPlayer(String playerUserName);
+
+    public Record findRecordForCategoryWord(CategoryWords categoryWord);
+
+    public Record findBestRecordForCategory(String categoryName);
+
+    public List<Record> findRecordsForAllCategories();
 }

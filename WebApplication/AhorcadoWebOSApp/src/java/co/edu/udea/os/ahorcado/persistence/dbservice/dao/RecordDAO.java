@@ -1,6 +1,7 @@
 package co.edu.udea.os.ahorcado.persistence.dbservice.dao;
 
 import co.edu.udea.os.ahorcado.persistence.dbservice.IRecordDAO;
+import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import co.edu.udea.os.ahorcado.persistence.entity.RecordPK;
 import java.util.ArrayList;
@@ -34,6 +35,18 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
     public List<Record> findAllRecords() {
 
         return ((List<Record>) super.findAll(Record.class));
+    }
+
+    @Override()
+    public List<Record> findAllRecordsForPlayer(Player player) {
+        List<Record> records = null;
+
+        if ((player != null) && (player.getKey() != null)) {
+            records = this.findRecordsByAttributes("player_user_name",
+                    player.getKey());
+        }
+
+        return (records);
     }
 
     @Override()

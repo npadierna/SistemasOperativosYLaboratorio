@@ -4,6 +4,7 @@ import co.edu.udea.os.ahorcado.persistence.dbservice.IWordDAO;
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import co.edu.udea.os.ahorcado.service.webservice.IWordWS;
 import co.edu.udea.os.ahorcado.service.webservice.WebServiceContext;
+import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
 import javax.ws.rs.GET;
@@ -34,7 +35,13 @@ public class WordWS implements IWordWS {
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public List<Word> findAllWords() {
+        List<Word> words = this.wordDAO.findAllWords();
 
-        return (this.wordDAO.findAllWords());
+        if ((words != null) && (!words.isEmpty())) {
+
+            return (words);
+        }
+
+        return (null);
     }
 }

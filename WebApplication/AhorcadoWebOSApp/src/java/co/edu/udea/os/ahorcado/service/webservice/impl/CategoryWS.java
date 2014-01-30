@@ -34,7 +34,13 @@ public class CategoryWS implements ICategoryWS {
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public List<Category> findAllCategories() {
+        List<Category> categories = this.categoryDAO.findAllCategories();
 
-        return (this.categoryDAO.findAllCategories());
+        if ((categories != null) && (!categories.isEmpty())) {
+
+            return (categories);
+        }
+
+        return (null);
     }
 }

@@ -5,7 +5,11 @@ import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.service.webservice.IPlayerWS;
 import co.edu.udea.os.ahorcado.service.webservice.WebServiceContext;
 import javax.jws.WebService;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,9 +30,13 @@ public class PlayerWS implements IPlayerWS {
         super();
     }
 
+    @GET()
+    @Path(WebServiceContext.PlayerWSContext.LOGIN_PATH)
+    @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
-    public Player findPlayerByLogin(String userName, String password) {
+    public Player findPlayerByLogin(@QueryParam("username") String userName,
+            @QueryParam("password") String password) {
 
-        return (null);
+        return (this.playerDAO.findPlayerByLogin(userName, password));
     }
 }

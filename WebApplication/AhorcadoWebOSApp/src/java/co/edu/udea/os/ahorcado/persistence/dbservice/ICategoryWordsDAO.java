@@ -1,5 +1,6 @@
 package co.edu.udea.os.ahorcado.persistence.dbservice;
 
+import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK;
 import java.util.List;
@@ -15,6 +16,8 @@ public interface ICategoryWordsDAO {
 
     public List<CategoryWords> findAllCategoriesWords();
 
+    public List<CategoryWords> findAllCategoriesWordsForCategory(Category category);
+    
     public List<CategoryWords> findCategoriesWordsByAttributes(
             Object... attributes);
 
