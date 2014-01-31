@@ -63,26 +63,27 @@ ENGINE = InnoDB;
 -- Table `AhorcadoOSApp`.`RECORD`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `AhorcadoOSApp`.`RECORD` (
+  `user_name` VARCHAR(35) NOT NULL ,
   `category` VARCHAR(25) NOT NULL ,
   `word` VARCHAR(15) NOT NULL ,
   `points` INT UNSIGNED NOT NULL ,
   `date` DATE NOT NULL ,
-  `player_user_name` VARCHAR(35) NOT NULL ,
-  PRIMARY KEY (`category`, `word`) ,
-  INDEX `fk_RECORD_PLAYER1_idx` (`player_user_name` ASC) ,
-  CONSTRAINT `fk_RECORD_WORDS_CATEGORY1`
-    FOREIGN KEY (`category` , `word` )
-    REFERENCES `AhorcadoOSApp`.`CATEGORY_WORDS` (`category` , `word` )
+  PRIMARY KEY (`user_name`, `category`, `word`) ,
+  INDEX `fk_RECORD_CATEGORY_WORDS1_idx` (`category` ASC, `word` ASC) ,
+  CONSTRAINT `fk_RECORD_PLAYER1`
+    FOREIGN KEY (`user_name` )
+    REFERENCES `AhorcadoOSApp`.`PLAYER` (`user_name` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_RECORD_PLAYER1`
-    FOREIGN KEY (`player_user_name` )
-    REFERENCES `AhorcadoOSApp`.`PLAYER` (`user_name` )
+  CONSTRAINT `fk_RECORD_CATEGORY_WORDS1`
+    FOREIGN KEY (`category` , `word` )
+    REFERENCES `AhorcadoOSApp`.`CATEGORY_WORDS` (`category` , `word` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 USE `AhorcadoOSApp` ;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
