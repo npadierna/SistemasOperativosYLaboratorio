@@ -17,12 +17,17 @@ public class RecordPK implements Serializable {
 
     private static final long serialVersionUID = 1975712992744627200L;
     @Basic(optional = false)
-    @NotNull()
+    @NotNull
+    @Size(min = 1, max = 35)
+    @Column(name = "user_name")
+    private String userName;
+    @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 25)
     @Column(name = "category")
     private String category;
     @Basic(optional = false)
-    @NotNull()
+    @NotNull
     @Size(min = 1, max = 15)
     @Column(name = "word")
     private String word;
@@ -31,9 +36,19 @@ public class RecordPK implements Serializable {
         super();
     }
 
-    public RecordPK(String category, String word) {
+    public RecordPK(String userName, String category, String word) {
+        this.userName = userName;
         this.category = category;
         this.word = word;
+    }
+
+    public String getUserName() {
+
+        return (this.userName);
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getCategory() {
@@ -57,6 +72,7 @@ public class RecordPK implements Serializable {
     @Override()
     public int hashCode() {
         int hash = 0;
+        hash += (userName != null ? userName.hashCode() : 0);
         hash += (category != null ? category.hashCode() : 0);
         hash += (word != null ? word.hashCode() : 0);
 
@@ -71,6 +87,13 @@ public class RecordPK implements Serializable {
         }
 
         RecordPK other = (RecordPK) object;
+        if ((this.userName == null && other.userName != null)
+                || (this.userName != null
+                && !this.userName.equals(other.userName))) {
+
+            return (false);
+        }
+
         if ((this.category == null && other.category != null)
                 || (this.category != null
                 && !this.category.equals(other.category))) {
@@ -78,8 +101,8 @@ public class RecordPK implements Serializable {
             return (false);
         }
 
-        if ((this.word == null && other.word != null) || (this.word != null
-                && !this.word.equals(other.word))) {
+        if ((this.word == null && other.word != null)
+                || (this.word != null && !this.word.equals(other.word))) {
 
             return (false);
         }
@@ -90,7 +113,7 @@ public class RecordPK implements Serializable {
     @Override()
     public String toString() {
 
-        return ("co.edu.udea.os.ahorcado.persistence.entity.RecordPK[ category="
-                + this.category + ", word=" + this.word + " ]");
+        return ("co.example.db.RecordPK[ userName=" + userName + ", category="
+                + category + ", word=" + word + " ]");
     }
 }

@@ -11,7 +11,6 @@ import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity()
 @NamedQueries({
     @NamedQuery(name = "Record.findAll", query = "SELECT r FROM Record r"),
+    @NamedQuery(name = "Record.findByUserName", query = "SELECT r FROM Record r WHERE r.recordPK.userName = :userName"),
     @NamedQuery(name = "Record.findByCategory", query = "SELECT r FROM Record r WHERE r.recordPK.category = :category"),
     @NamedQuery(name = "Record.findByWord", query = "SELECT r FROM Record r WHERE r.recordPK.word = :word"),
     @NamedQuery(name = "Record.findByPoints", query = "SELECT r FROM Record r WHERE r.points = :points"),
@@ -49,16 +49,17 @@ public class Record implements IEntityContext, Serializable {
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
     private Date date;
-    @JoinColumn(name = "player_user_name", referencedColumnName = "user_name")
-    @ManyToOne(optional = false)
-    private Player playerUserName;
     @JoinColumns({
         @JoinColumn(name = "category", referencedColumnName = "category",
-                insertable = false, updatable = false),
+            insertable = false, updatable = false),
         @JoinColumn(name = "word", referencedColumnName = "word",
-                insertable = false, updatable = false)})
-    @OneToOne(optional = false)
+            insertable = false, updatable = false)})
+    @ManyToOne(optional = false)
     private CategoryWords categoryWords;
+    @JoinColumn(name = "user_name", referencedColumnName = "user_name",
+            insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Player player;
 
     public Record() {
         super();
@@ -74,8 +75,8 @@ public class Record implements IEntityContext, Serializable {
         this.date = date;
     }
 
-    public Record(String category, String word) {
-        this.recordPK = new RecordPK(category, word);
+    public Record(String userName, String category, String word) {
+        this.recordPK = new RecordPK(userName, category, word);
     }
 
     public RecordPK getRecordPK() {
@@ -105,13 +106,13 @@ public class Record implements IEntityContext, Serializable {
         this.date = date;
     }
 
-    public Player getPlayerUserName() {
-
-        return (this.playerUserName);
+    public Player getPlayer() {
+        
+        return (this.player);
     }
 
-    public void setPlayerUserName(Player playerUserName) {
-        this.playerUserName = playerUserName;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public CategoryWords getCategoryWords() {

@@ -37,11 +37,17 @@ public class CategoryWordsWS implements ICategoryWordsWS {
         super();
     }
 
-//    @GET()
-//    @Path("")
+    @GET()
+    @Path(WebServiceContext.CategoryWordsWSContext.CATEGORY_ONE_WORD_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public Word findOneWordForCategory(@QueryParam("categoryname") String categoryName) {
+        List<Word> words = this.findAllWordsForCategory(categoryName);
+
+        if ((words != null) && (!words.isEmpty())) {
+
+            return (words.get((int) (Math.random() * words.size())));
+        }
 
         return (null);
     }

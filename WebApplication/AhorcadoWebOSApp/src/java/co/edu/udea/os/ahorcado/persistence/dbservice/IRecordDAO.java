@@ -1,5 +1,6 @@
 package co.edu.udea.os.ahorcado.persistence.dbservice;
 
+import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import co.edu.udea.os.ahorcado.persistence.entity.RecordPK;
@@ -17,6 +18,9 @@ public interface IRecordDAO {
     public List<Record> findAllRecords();
 
     public List<Record> findAllRecordsForPlayer(Player player);
+
+    public Record findBestRecordForPlayerInCategory(Player player,
+            Category category);
 
     public List<Record> findRecordsByAttributes(Object... attributes);
 

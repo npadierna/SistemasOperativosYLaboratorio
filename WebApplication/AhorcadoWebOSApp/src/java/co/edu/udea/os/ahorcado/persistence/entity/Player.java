@@ -52,7 +52,7 @@ public class Player implements IEntityContext, Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "email")
     private String email;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "playerUserName")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "player")
     private List<Record> recordList;
 
     public Player() {

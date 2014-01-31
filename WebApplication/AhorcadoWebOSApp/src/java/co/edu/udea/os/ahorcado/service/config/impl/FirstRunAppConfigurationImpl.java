@@ -45,7 +45,7 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         this.createDefaultPlayers();
         this.createDefaultRecords();
 
-        //this.test();
+        this.test();
     }
 
     @Override()
@@ -304,5 +304,6 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         Player temp = this.playerDAO.findPlayer("test_user");
 
         List<Record> records = this.recordDAO.findAllRecords();
+        List<CategoryWords> categoriesWords = this.categoryWordsDAO.findAllCategoriesWords();
     }
 }

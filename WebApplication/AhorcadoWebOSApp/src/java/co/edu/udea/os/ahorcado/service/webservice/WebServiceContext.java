@@ -7,6 +7,8 @@ package co.edu.udea.os.ahorcado.service.webservice;
  */
 public final class WebServiceContext {
 
+    public static final String ROOT = "/rest";
+
     private WebServiceContext() {
         super();
     }
@@ -19,6 +21,7 @@ public final class WebServiceContext {
     public static final class CategoryWordsWSContext {
 
         public static final String CATEGORY_ALL_WORDS_PATH = "/categories/allwords";
+        public static final String CATEGORY_ONE_WORD_PATH = "/categories/oneword";
         public static final String ROOT_PATH = "/categorieswords";
     }
 
@@ -30,7 +33,10 @@ public final class WebServiceContext {
 
     public static final class RecordWSContext {
 
+        public static final String CATEGORY_ALL_BEST_RECORDS_PATH = "/categories/allrecords";
+        public static final String CATEGORY_BEST_RECORD_PATH = "/categories/bestrecord";
         public static final String PLAYER_ALL_RECORDS_PATH = "/players/allrecords";
+        public static final String PLAYER_BEST_RECORD_FOR_CATEGORY_PATH = "/players/bestrecord";
         public static final String ROOT_PATH = "/records";
     }
 
