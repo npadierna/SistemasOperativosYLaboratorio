@@ -305,5 +305,9 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
 
         List<Record> records = this.recordDAO.findAllRecords();
         List<CategoryWords> categoriesWords = this.categoryWordsDAO.findAllCategoriesWords();
+        
+        p = this.playerDAO.findPlayer("npadierna");
+        Category c = this.categoryDAO.findCategory("Deportes");
+        Record record = this.recordDAO.findBestRecordForPlayerInCategory(p, c);
     }
 }

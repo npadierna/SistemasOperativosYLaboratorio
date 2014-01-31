@@ -113,7 +113,8 @@ public class RecordPK implements Serializable {
     @Override()
     public String toString() {
 
-        return ("co.example.db.RecordPK[ userName=" + userName + ", category="
-                + category + ", word=" + word + " ]");
+        return ("co.edu.udea.os.ahorcado.persistence.entity.RecordPK[ userName="
+                + userName + ", category=" + category + ", word=" + word
+                + " ]");
     }
 }

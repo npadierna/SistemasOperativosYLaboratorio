@@ -31,7 +31,7 @@ public class PlayerWS implements IPlayerWS {
     }
 
     @GET()
-    @Path(WebServiceContext.PlayerWSContext.LOGIN_PATH)
+    @Path(WebServiceContext.PlayerWSContext.PLAYER_LOGIN_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public Player findPlayerByLogin(@QueryParam("username") String userName,

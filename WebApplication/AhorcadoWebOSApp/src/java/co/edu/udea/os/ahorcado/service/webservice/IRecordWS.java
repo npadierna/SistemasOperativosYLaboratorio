@@ -3,6 +3,7 @@ package co.edu.udea.os.ahorcado.service.webservice;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import java.util.List;
 import javax.jws.WebService;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -16,6 +17,8 @@ public interface IRecordWS {
 
     public Record findBestRecordForPlayerInCategory(String playerUserName,
             String categoryName);
+
+    public Response saveBestRecordForPlayer(Record record);
 
     public Record findBestRecordForCategory(String categoryName);
 

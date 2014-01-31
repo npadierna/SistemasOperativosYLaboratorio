@@ -22,6 +22,8 @@ public interface IRecordDAO {
     public Record findBestRecordForPlayerInCategory(Player player,
             Category category);
 
+    public Record findBestRecordForCategory(Category category);
+
     public List<Record> findRecordsByAttributes(Object... attributes);
 
     public Record findRecord(RecordPK key);

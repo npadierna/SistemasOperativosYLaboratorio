@@ -18,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -51,9 +52,9 @@ public class Record implements IEntityContext, Serializable {
     private Date date;
     @JoinColumns({
         @JoinColumn(name = "category", referencedColumnName = "category",
-            insertable = false, updatable = false),
+                insertable = false, updatable = false),
         @JoinColumn(name = "word", referencedColumnName = "word",
-            insertable = false, updatable = false)})
+                insertable = false, updatable = false)})
     @ManyToOne(optional = false)
     private CategoryWords categoryWords;
     @JoinColumn(name = "user_name", referencedColumnName = "user_name",
@@ -106,8 +107,9 @@ public class Record implements IEntityContext, Serializable {
         this.date = date;
     }
 
+    @XmlTransient()
     public Player getPlayer() {
-        
+
         return (this.player);
     }
 
@@ -115,6 +117,7 @@ public class Record implements IEntityContext, Serializable {
         this.player = player;
     }
 
+    @XmlTransient()
     public CategoryWords getCategoryWords() {
 
         return (this.categoryWords);

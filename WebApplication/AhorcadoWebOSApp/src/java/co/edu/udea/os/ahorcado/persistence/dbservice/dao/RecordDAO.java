@@ -60,7 +60,22 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
 
             if ((records != null) && (!records.isEmpty())) {
 
-                return (records.get(0));
+                return (this.findHigherRecord(records));
+            }
+        }
+
+        return (null);
+    }
+
+    @Override()
+    public Record findBestRecordForCategory(Category category) {
+        if ((category != null) && (category.getKey() != null)) {
+            List<Record> records = this.findRecordsByAttributes(
+                    "recordPK.category", category.getKey());
+
+            if ((records != null) && (!records.isEmpty())) {
+
+                return (this.findHigherRecord(records));
             }
         }
 
@@ -112,5 +127,24 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
         }
 
         return (recordsFound);
+    }
+
+    private Record findHigherRecord(List<Record> records) {
+        Record record = records.get(0);
+
+        for (int index = 1; index < records.size(); index++) {
+            Record r = records.get(index);
+
+            if (record.getPoints() <= r.getPoints()) {
+                if ((record.getPoints() == r.getPoints())
+                        && (record.getDate().before(r.getDate()))) {
+                    record = r;
+                    continue;
+                }
+                record = r;
+            }
+        }
+
+        return (record);
     }
 }

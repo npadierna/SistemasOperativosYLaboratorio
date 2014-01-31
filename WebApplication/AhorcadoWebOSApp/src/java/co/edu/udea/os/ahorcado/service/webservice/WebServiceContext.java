@@ -27,7 +27,7 @@ public final class WebServiceContext {
 
     public static final class PlayerWSContext {
 
-        public static final String LOGIN_PATH = "/login";
+        public static final String PLAYER_LOGIN_PATH = "/login";
         public static final String ROOT_PATH = "/players";
     }
 
