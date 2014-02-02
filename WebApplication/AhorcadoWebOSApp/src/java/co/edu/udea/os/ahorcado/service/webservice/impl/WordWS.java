@@ -3,7 +3,7 @@ package co.edu.udea.os.ahorcado.service.webservice.impl;
 import co.edu.udea.os.ahorcado.persistence.dbservice.IWordDAO;
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import co.edu.udea.os.ahorcado.service.webservice.IWordWS;
-import co.edu.udea.os.ahorcado.service.webservice.WebServiceContext;
+import co.edu.udea.os.ahorcado.service.webservice.WebServicePath;
 import java.util.List;
 import javax.jws.WebService;
 import javax.ws.rs.GET;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  * @author Neiber Padierna P&eacute;rez
  */
 @Component()
-@Path(WebServiceContext.WordWSContext.ROOT_PATH)
+@Path(WebServicePath.WordWSContext.ROOT_PATH)
 @WebService(endpointInterface = "co.edu.udea.os.ahorcado.service.webservice.IWordWS")
 public class WordWS implements IWordWS {
 

@@ -7,7 +7,7 @@ import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import co.edu.udea.os.ahorcado.service.webservice.IRecordWS;
-import co.edu.udea.os.ahorcado.service.webservice.WebServiceContext;
+import co.edu.udea.os.ahorcado.service.webservice.WebServicePath;
 import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
  * @author Neiber Padierna P&eacute;rez
  */
 @Component()
-@Path(WebServiceContext.RecordWSContext.ROOT_PATH)
+@Path(WebServicePath.RecordWSContext.ROOT_PATH)
 @WebService(endpointInterface = "co.edu.udea.os.ahorcado.service.webservice.IRecordWS")
 public class RecordWS implements IRecordWS {
 
@@ -44,7 +44,7 @@ public class RecordWS implements IRecordWS {
     }
 
     @GET()
-    @Path(WebServiceContext.RecordWSContext.PLAYER_ALL_RECORDS_PATH)
+    @Path(WebServicePath.RecordWSContext.PLAYER_ALL_RECORDS_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public List<Record> findAllRecordsForPlayer(
@@ -65,7 +65,7 @@ public class RecordWS implements IRecordWS {
     }
 
     @GET()
-    @Path(WebServiceContext.RecordWSContext.PLAYER_BEST_RECORD_FOR_CATEGORY_PATH)
+    @Path(WebServicePath.RecordWSContext.PLAYER_BEST_RECORD_FOR_CATEGORY_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public Record findBestRecordForPlayerInCategory(
@@ -110,7 +110,7 @@ public class RecordWS implements IRecordWS {
     }
 
     @GET()
-    @Path(WebServiceContext.RecordWSContext.CATEGORY_BEST_RECORD_PATH)
+    @Path(WebServicePath.RecordWSContext.CATEGORY_BEST_RECORD_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public Record findBestRecordForCategory(
@@ -126,7 +126,7 @@ public class RecordWS implements IRecordWS {
     }
 
     @GET()
-    @Path(WebServiceContext.RecordWSContext.CATEGORY_ALL_BEST_RECORDS_PATH)
+    @Path(WebServicePath.RecordWSContext.CATEGORY_ALL_BEST_RECORDS_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public List<Record> findBestRecordsForAllCategories() {

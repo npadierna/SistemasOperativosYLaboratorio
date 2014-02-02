@@ -45,7 +45,7 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         this.createDefaultPlayers();
         this.createDefaultRecords();
 
-        this.test();
+        //this.test();
     }
 
     @Override()

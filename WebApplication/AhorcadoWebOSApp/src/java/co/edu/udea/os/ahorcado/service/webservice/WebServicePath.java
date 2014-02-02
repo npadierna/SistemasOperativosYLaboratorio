@@ -5,11 +5,11 @@ package co.edu.udea.os.ahorcado.service.webservice;
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public final class WebServiceContext {
+public final class WebServicePath {
 
-    public static final String ROOT = "/rest";
+    public static final String WEB_SERVICE_CONTEXT = "/rest";
 
-    private WebServiceContext() {
+    private WebServicePath() {
         super();
     }
 

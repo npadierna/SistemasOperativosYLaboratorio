@@ -6,7 +6,7 @@ import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import co.edu.udea.os.ahorcado.service.webservice.ICategoryWordsWS;
-import co.edu.udea.os.ahorcado.service.webservice.WebServiceContext;
+import co.edu.udea.os.ahorcado.service.webservice.WebServicePath;
 import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
@@ -24,7 +24,7 @@ import org.springframework.stereotype.Component;
  * @author Neiber Padierna P&eacute;rez
  */
 @Component()
-@Path(WebServiceContext.CategoryWordsWSContext.ROOT_PATH)
+@Path(WebServicePath.CategoryWordsWSContext.ROOT_PATH)
 @WebService(endpointInterface = "co.edu.udea.os.ahorcado.service.webservice.ICategoryWordsWS")
 public class CategoryWordsWS implements ICategoryWordsWS {
 
@@ -38,7 +38,7 @@ public class CategoryWordsWS implements ICategoryWordsWS {
     }
 
     @GET()
-    @Path(WebServiceContext.CategoryWordsWSContext.CATEGORY_ONE_WORD_PATH)
+    @Path(WebServicePath.CategoryWordsWSContext.CATEGORY_ONE_WORD_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public Word findOneWordForCategory(@QueryParam("categoryname") String categoryName) {
@@ -53,7 +53,7 @@ public class CategoryWordsWS implements ICategoryWordsWS {
     }
 
     @GET()
-    @Path(WebServiceContext.CategoryWordsWSContext.CATEGORY_ALL_WORDS_PATH)
+    @Path(WebServicePath.CategoryWordsWSContext.CATEGORY_ALL_WORDS_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
     public List<Word> findAllWordsForCategory(@QueryParam("categoryname") String categoryName) {
