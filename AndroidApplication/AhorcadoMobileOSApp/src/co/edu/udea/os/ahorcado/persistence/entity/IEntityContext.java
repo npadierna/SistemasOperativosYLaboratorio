@@ -1,6 +1,5 @@
 package co.edu.udea.os.ahorcado.persistence.entity;
 
-import org.json.JSONObject;
 
 /**
  * 
@@ -12,8 +11,4 @@ public interface IEntityContext {
 	public Object getKey();
 
 	public void setKey(Object key);
-
-	public JSONObject packEntityToJsonObject(IEntityContext entityContext);
-
-	public IEntityContext unpackJsonOjectToEntity(JSONObject jsonObject);
 }

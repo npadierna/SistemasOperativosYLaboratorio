@@ -3,6 +3,7 @@ package co.edu.udea.os.ahorcado.persistence.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -10,9 +11,12 @@ import org.json.JSONObject;
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class Category implements IEntityContext, Serializable {
+public class Category implements IEntityContext, IJSONContext, Serializable {
 
 	private static final long serialVersionUID = 3484225594024590336L;
+
+	private static final String NAME = "name";
+
 	private String name;
 	private List<CategoryWords> categoryWordsList;
 
@@ -22,6 +26,10 @@ public class Category implements IEntityContext, Serializable {
 
 	public Category(String name) {
 		this.name = name;
+	}
+
+	public Category(JSONObject jsonObject) throws JSONException {
+		this.unpackJsonOjectToEntity(jsonObject);
 	}
 
 	public String getName() {
@@ -54,15 +62,18 @@ public class Category implements IEntityContext, Serializable {
 	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IEntityContext entityContext) {
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
 
 		return (null);
 	}
 
 	@Override()
-	public IEntityContext unpackJsonOjectToEntity(JSONObject jsonObject) {
+	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
+			throws JSONException {
+		this.setCategoryWordsList(null);
+		this.setName(jsonObject.getString(Category.NAME));
 
-		return (null);
+		return (this);
 	}
 
 	@Override()

@@ -2,122 +2,129 @@ package co.edu.udea.os.ahorcado.persistence.entity;
 
 import java.io.Serializable;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
+ * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class CategoryWords implements IEntityContext, Serializable {
+public class CategoryWords implements IEntityContext, IJSONContext,
+		Serializable {
 
-    private static final long serialVersionUID = 3074146297965430784L;
-    protected CategoryWordsPK categoryWordsPK;
-    private Record record;
-    private Word word1;
-    private Category category1;
+	private static final long serialVersionUID = 3074146297965430784L;
 
-    public CategoryWords() {
-        super();
-    }
+	protected CategoryWordsPK categoryWordsPK;
+	private Record record;
+	private Word word1;
+	private Category category1;
 
-    public CategoryWords(CategoryWordsPK categoryWordsPK) {
-        this.categoryWordsPK = categoryWordsPK;
-    }
+	public CategoryWords() {
+		super();
+	}
 
-    public CategoryWords(String category, String word) {
-        this.categoryWordsPK = new CategoryWordsPK(category, word);
-    }
+	public CategoryWords(CategoryWordsPK categoryWordsPK) {
+		this.categoryWordsPK = categoryWordsPK;
+	}
 
-    public CategoryWordsPK getCategoryWordsPK() {
+	public CategoryWords(String category, String word) {
+		this.categoryWordsPK = new CategoryWordsPK(category, word);
+	}
 
-        return (this.categoryWordsPK);
-    }
+	public CategoryWords(JSONObject jsonObject) throws JSONException {
+		this.unpackJsonOjectToEntity(jsonObject);
+	}
 
-    public void setCategoryWordsPK(CategoryWordsPK categoryWordsPK) {
-        this.categoryWordsPK = categoryWordsPK;
-    }
+	public CategoryWordsPK getCategoryWordsPK() {
 
-    public Record getRecord() {
+		return (this.categoryWordsPK);
+	}
 
-        return (this.record);
-    }
+	public void setCategoryWordsPK(CategoryWordsPK categoryWordsPK) {
+		this.categoryWordsPK = categoryWordsPK;
+	}
 
-    public void setRecord(Record record) {
-        this.record = record;
-    }
+	public Record getRecord() {
 
-    public Word getWord1() {
+		return (this.record);
+	}
 
-        return (this.word1);
-    }
+	public void setRecord(Record record) {
+		this.record = record;
+	}
 
-    public void setWord1(Word word1) {
-        this.word1 = word1;
-    }
+	public Word getWord1() {
 
-    public Category getCategory1() {
+		return (this.word1);
+	}
 
-        return (this.category1);
-    }
+	public void setWord1(Word word1) {
+		this.word1 = word1;
+	}
 
-    public void setCategory1(Category category1) {
-        this.category1 = category1;
-    }
+	public Category getCategory1() {
 
-    @Override()
-    public Object getKey() {
+		return (this.category1);
+	}
 
-        return (this.categoryWordsPK);
-    }
-
-    @Override()
-    public void setKey(Object key) {
-        this.categoryWordsPK = (CategoryWordsPK) key;
-    }
+	public void setCategory1(Category category1) {
+		this.category1 = category1;
+	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IEntityContext entityContext) {
+	public Object getKey() {
+
+		return (this.categoryWordsPK);
+	}
+
+	@Override()
+	public void setKey(Object key) {
+		this.categoryWordsPK = (CategoryWordsPK) key;
+	}
+
+	@Override()
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
 
 		return (null);
 	}
 
 	@Override()
-	public IEntityContext unpackJsonOjectToEntity(JSONObject jsonObject) {
+	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject) {
 
 		return (null);
 	}
 
-    @Override()
-    public int hashCode() {
-        int hash = 0;
-        hash += (categoryWordsPK != null ? categoryWordsPK.hashCode() : 0);
+	@Override()
+	public int hashCode() {
+		int hash = 0;
+		hash += (categoryWordsPK != null ? categoryWordsPK.hashCode() : 0);
 
-        return (hash);
-    }
+		return (hash);
+	}
 
-    @Override()
-    public boolean equals(Object object) {
-        if (!(object instanceof CategoryWords)) {
+	@Override()
+	public boolean equals(Object object) {
+		if (!(object instanceof CategoryWords)) {
 
-            return (false);
-        }
+			return (false);
+		}
 
-        CategoryWords other = (CategoryWords) object;
-        if ((this.categoryWordsPK == null && other.categoryWordsPK != null)
-                || (this.categoryWordsPK != null
-                && !this.categoryWordsPK.equals(other.categoryWordsPK))) {
+		CategoryWords other = (CategoryWords) object;
+		if ((this.categoryWordsPK == null && other.categoryWordsPK != null)
+				|| (this.categoryWordsPK != null && !this.categoryWordsPK
+						.equals(other.categoryWordsPK))) {
 
-            return (false);
-        }
+			return (false);
+		}
 
-        return (true);
-    }
+		return (true);
+	}
 
-    @Override()
-    public String toString() {
+	@Override()
+	public String toString() {
 
-        return ("co.edu.udea.os.ahorcado.persistence.entity.CategoryWords[ categoryWordsPK="
-                + this.categoryWordsPK + " ]");
-    }
+		return ("co.edu.udea.os.ahorcado.persistence.entity.CategoryWords[ categoryWordsPK="
+				+ this.categoryWordsPK + " ]");
+	}
 }

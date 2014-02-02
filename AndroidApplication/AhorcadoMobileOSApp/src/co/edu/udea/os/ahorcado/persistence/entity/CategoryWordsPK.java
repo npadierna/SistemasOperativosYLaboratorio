@@ -2,81 +2,102 @@ package co.edu.udea.os.ahorcado.persistence.entity;
 
 import java.io.Serializable;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
- *
+ * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class CategoryWordsPK implements Serializable {
+public class CategoryWordsPK implements IJSONContext, Serializable {
 
-    private static final long serialVersionUID = 8693019297638724608L;
-    private String category;
-    private String word;
+	private static final long serialVersionUID = 8693019297638724608L;
 
-    public CategoryWordsPK() {
-        super();
-    }
+	private String category;
+	private String word;
 
-    public CategoryWordsPK(String category, String word) {
-        this.category = category;
-        this.word = word;
-    }
+	public CategoryWordsPK() {
+		super();
+	}
 
-    public String getCategory() {
+	public CategoryWordsPK(String category, String word) {
+		this.category = category;
+		this.word = word;
+	}
 
-        return (this.category);
-    }
+	public CategoryWordsPK(JSONObject jsonObject) throws JSONException {
+		this.unpackJsonOjectToEntity(jsonObject);
+	}
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
+	public String getCategory() {
 
-    public String getWord() {
+		return (this.category);
+	}
 
-        return (this.word);
-    }
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
-    public void setWord(String word) {
-        this.word = word;
-    }
+	public String getWord() {
 
-    @Override()
-    public int hashCode() {
-        int hash = 0;
-        hash += (category != null ? category.hashCode() : 0);
-        hash += (word != null ? word.hashCode() : 0);
+		return (this.word);
+	}
 
-        return (hash);
-    }
+	public void setWord(String word) {
+		this.word = word;
+	}
 
-    @Override()
-    public boolean equals(Object object) {
-        if (!(object instanceof CategoryWordsPK)) {
+	@Override()
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
 
-            return (false);
-        }
+		return (null);
+	}
 
-        CategoryWordsPK other = (CategoryWordsPK) object;
-        if ((this.category == null && other.category != null)
-                || (this.category != null
-                && !this.category.equals(other.category))) {
+	@Override()
+	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
+			throws JSONException {
 
-            return (false);
-        }
+		return (this);
+	}
 
-        if ((this.word == null && other.word != null) || (this.word != null
-                && !this.word.equals(other.word))) {
+	@Override()
+	public int hashCode() {
+		int hash = 0;
+		hash += (category != null ? category.hashCode() : 0);
+		hash += (word != null ? word.hashCode() : 0);
 
-            return (false);
-        }
+		return (hash);
+	}
 
-        return (true);
-    }
+	@Override()
+	public boolean equals(Object object) {
+		if (!(object instanceof CategoryWordsPK)) {
 
-    @Override()
-    public String toString() {
+			return (false);
+		}
 
-        return ("co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK[ category="
-                + this.category + ", word=" + this.word + " ]");
-    }
+		CategoryWordsPK other = (CategoryWordsPK) object;
+		if ((this.category == null && other.category != null)
+				|| (this.category != null && !this.category
+						.equals(other.category))) {
+
+			return (false);
+		}
+
+		if ((this.word == null && other.word != null)
+				|| (this.word != null && !this.word.equals(other.word))) {
+
+			return (false);
+		}
+
+		return (true);
+	}
+
+	@Override()
+	public String toString() {
+
+		return ("co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK[ category="
+				+ this.category + ", word=" + this.word + " ]");
+	}
 }

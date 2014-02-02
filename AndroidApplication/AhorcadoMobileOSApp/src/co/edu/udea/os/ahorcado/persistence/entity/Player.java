@@ -3,124 +3,141 @@ package co.edu.udea.os.ahorcado.persistence.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
+ * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class Player implements IEntityContext, Serializable {
+public class Player implements IEntityContext, IJSONContext, Serializable {
 
-    private static final long serialVersionUID = 7756565228171404288L;
-    private String userName;
-    private String password;
-    private String email;
-    private List<Record> recordList;
+	private static final long serialVersionUID = 7756565228171404288L;
 
-    public Player() {
-        super();
-    }
+	private static final String EMAIL = "email";
+	private static final String PASSWORD = "password";
+	private static final String USER_NAME = "userName";
 
-    public Player(String userName) {
-        this.userName = userName;
-    }
+	private String userName;
+	private String password;
+	private String email;
+	private List<Record> recordList;
 
-    public Player(String userName, String password, String email) {
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-    }
+	public Player() {
+		super();
+	}
 
-    public String getUserName() {
+	public Player(String userName) {
+		this.userName = userName;
+	}
 
-        return (this.userName);
-    }
+	public Player(String userName, String password, String email) {
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public Player(JSONObject jsonObject) throws JSONException {
+		this.unpackJsonOjectToEntity(jsonObject);
+	}
 
-    public String getPassword() {
+	public String getUserName() {
 
-        return (this.password);
-    }
+		return (this.userName);
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getEmail() {
+	public String getPassword() {
 
-        return (this.email);
-    }
+		return (this.password);
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public List<Record> getRecordList() {
+	public String getEmail() {
 
-        return (this.recordList);
-    }
+		return (this.email);
+	}
 
-    public void setRecordList(List<Record> recordList) {
-        this.recordList = recordList;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    @Override()
-    public Object getKey() {
+	public List<Record> getRecordList() {
 
-        return (this.userName);
-    }
+		return (this.recordList);
+	}
 
-    @Override()
-    public void setKey(Object key) {
-        this.userName = (String) key;
-    }
+	public void setRecordList(List<Record> recordList) {
+		this.recordList = recordList;
+	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IEntityContext entityContext) {
+	public Object getKey() {
+
+		return (this.userName);
+	}
+
+	@Override()
+	public void setKey(Object key) {
+		this.userName = (String) key;
+	}
+
+	@Override()
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
 
 		return (null);
 	}
 
 	@Override()
-	public IEntityContext unpackJsonOjectToEntity(JSONObject jsonObject) {
+	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
+			throws JSONException {
+		this.setEmail(jsonObject.getString(Player.EMAIL));
+		// JSONObject o = jsonObject.getJSONObject(Player.KEY);
+		// this.setKey(o.getString("$"));
+		this.setPassword(jsonObject.getString(Player.PASSWORD));
+		this.setRecordList(null);
+		this.setUserName(jsonObject.getString(Player.USER_NAME));
 
-		return (null);
+		return (this);
 	}
 
-    @Override()
-    public int hashCode() {
-        int hash = 0;
-        hash += (userName != null ? userName.hashCode() : 0);
+	@Override()
+	public int hashCode() {
+		int hash = 0;
+		hash += (userName != null ? userName.hashCode() : 0);
 
-        return (hash);
-    }
+		return (hash);
+	}
 
-    @Override()
-    public boolean equals(Object object) {
-        if (!(object instanceof Player)) {
+	@Override()
+	public boolean equals(Object object) {
+		if (!(object instanceof Player)) {
 
-            return (false);
-        }
+			return (false);
+		}
 
-        Player other = (Player) object;
-        if ((this.userName == null && other.userName != null)
-                || (this.userName != null
-                && !this.userName.equals(other.userName))) {
+		Player other = (Player) object;
+		if ((this.userName == null && other.userName != null)
+				|| (this.userName != null && !this.userName
+						.equals(other.userName))) {
 
-            return (false);
-        }
+			return (false);
+		}
 
-        return (true);
-    }
+		return (true);
+	}
 
-    @Override()
-    public String toString() {
+	@Override()
+	public String toString() {
 
-        return ("co.edu.udea.os.ahorcado.persistence.entity.Player[ userName="
-                + this.userName + " ]");
-    }
+		return ("co.edu.udea.os.ahorcado.persistence.entity.Player[ userName="
+				+ this.userName + " ]");
+	}
 }

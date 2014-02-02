@@ -3,22 +3,25 @@ package co.edu.udea.os.ahorcado.service.webservice.impl;
 import java.util.List;
 
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
+import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.service.webservice.IWordWS;
 
 /**
- *
+ * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class WordWS implements IWordWS {
+public class WordWS extends WebServiceContext implements IWordWS {
 
-    public WordWS() {
-        super();
-    }
+	private static final String TAG = WordWS.class.getSimpleName();
 
-    @Override()
-    public List<Word> findAllWords() {
+	public WordWS(WebServiceServer webServiceServer) {
+		super(webServiceServer);
+	}
 
-        return (null);
-    }
+	@Override()
+	public List<Word> findAllWords() {
+
+		return (null);
+	}
 }

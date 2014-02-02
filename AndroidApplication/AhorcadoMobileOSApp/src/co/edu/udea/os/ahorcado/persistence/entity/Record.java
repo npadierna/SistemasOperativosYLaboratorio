@@ -1,140 +1,173 @@
 package co.edu.udea.os.ahorcado.persistence.entity;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
+
 /**
- *
+ * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class Record implements IEntityContext, Serializable {
+public class Record implements IEntityContext, IJSONContext, Serializable {
 
-    private static final long serialVersionUID = 9084931501438312448L;
-    protected RecordPK recordPK;
-    private int points;
-    private Date date;
-    private CategoryWords categoryWords;
-    private Player player;
+	private static final long serialVersionUID = 9084931501438312448L;
 
-    public Record() {
-        super();
-    }
+	private static final String DATE = "date";
+	private static final String POINTS = "points";
+	private static final String RECORD_PK = "recordPK";
 
-    public Record(RecordPK recordPK) {
-        this.recordPK = recordPK;
-    }
+	protected RecordPK recordPK;
+	private int points;
+	private Date date;
+	private CategoryWords categoryWords;
+	private Player player;
 
-    public Record(RecordPK recordPK, int points, Date date) {
-        this.recordPK = recordPK;
-        this.points = points;
-        this.date = date;
-    }
+	public Record() {
+		super();
+	}
 
-    public Record(String userName, String category, String word) {
-        this.recordPK = new RecordPK(userName, category, word);
-    }
+	public Record(RecordPK recordPK) {
+		this.recordPK = recordPK;
+	}
 
-    public RecordPK getRecordPK() {
+	public Record(RecordPK recordPK, int points, Date date) {
+		this.recordPK = recordPK;
+		this.points = points;
+		this.date = date;
+	}
 
-        return (this.recordPK);
-    }
+	public Record(String userName, String category, String word) {
+		this.recordPK = new RecordPK(userName, category, word);
+	}
 
-    public void setRecordPK(RecordPK recordPK) {
-        this.recordPK = recordPK;
-    }
+	public Record(JSONObject jsonObject) throws JSONException {
+		this.unpackJsonOjectToEntity(jsonObject);
+	}
 
-    public int getPoints() {
+	public RecordPK getRecordPK() {
 
-        return (this.points);
-    }
+		return (this.recordPK);
+	}
 
-    public void setPoints(int points) {
-        this.points = points;
-    }
+	public void setRecordPK(RecordPK recordPK) {
+		this.recordPK = recordPK;
+	}
 
-    public Date getDate() {
+	public int getPoints() {
 
-        return (this.date);
-    }
+		return (this.points);
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public void setPoints(int points) {
+		this.points = points;
+	}
 
-    public Player getPlayer() {
+	public Date getDate() {
 
-        return (this.player);
-    }
+		return (this.date);
+	}
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public CategoryWords getCategoryWords() {
+	public Player getPlayer() {
 
-        return (this.categoryWords);
-    }
+		return (this.player);
+	}
 
-    public void setCategoryWords(CategoryWords categoryWords) {
-        this.categoryWords = categoryWords;
-    }
+	public void setPlayer(Player player) {
+		this.player = player;
+	}
 
-    @Override()
-    public Object getKey() {
+	public CategoryWords getCategoryWords() {
 
-        return (this.recordPK);
-    }
+		return (this.categoryWords);
+	}
 
-    @Override()
-    public void setKey(Object key) {
-        this.recordPK = (RecordPK) key;
-    }
+	public void setCategoryWords(CategoryWords categoryWords) {
+		this.categoryWords = categoryWords;
+	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IEntityContext entityContext) {
+	public Object getKey() {
+
+		return (this.recordPK);
+	}
+
+	@Override()
+	public void setKey(Object key) {
+		this.recordPK = (RecordPK) key;
+	}
+
+	@Override()
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
 
 		return (null);
 	}
 
 	@Override()
-	public IEntityContext unpackJsonOjectToEntity(JSONObject jsonObject) {
+	@SuppressLint("SimpleDateFormat")
+	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
+			throws JSONException {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		this.setCategoryWords(null);
 
-		return (null);
+		StringBuilder date = new StringBuilder(
+				jsonObject.getString(Record.DATE));
+		date.delete(date.indexOf("T"), date.length());
+
+		try {
+			this.setDate(dateFormat.parse(date.toString()));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		this.setPlayer(null);
+		this.setPoints(jsonObject.getInt(Record.POINTS));
+		this.setRecordPK(new RecordPK(jsonObject
+				.getJSONObject(Record.RECORD_PK)));
+
+		return (this);
 	}
 
-    @Override()
-    public int hashCode() {
-        int hash = 0;
-        hash += (recordPK != null ? recordPK.hashCode() : 0);
+	@Override()
+	public int hashCode() {
+		int hash = 0;
+		hash += (recordPK != null ? recordPK.hashCode() : 0);
 
-        return (hash);
-    }
+		return (hash);
+	}
 
-    @Override()
-    public boolean equals(Object object) {
-        if (!(object instanceof Record)) {
+	@Override()
+	public boolean equals(Object object) {
+		if (!(object instanceof Record)) {
 
-            return (false);
-        }
+			return (false);
+		}
 
-        Record other = (Record) object;
-        if ((this.recordPK == null && other.recordPK != null)
-                || (this.recordPK != null
-                && !this.recordPK.equals(other.recordPK))) {
+		Record other = (Record) object;
+		if ((this.recordPK == null && other.recordPK != null)
+				|| (this.recordPK != null && !this.recordPK
+						.equals(other.recordPK))) {
 
-            return (false);
-        }
+			return (false);
+		}
 
-        return (true);
-    }
+		return (true);
+	}
 
-    @Override()
-    public String toString() {
+	@Override()
+	public String toString() {
 
-        return ("co.edu.udea.os.ahorcado.persistence.entity.Record[ recordPK="
-                + this.recordPK + " ]");
-    }
+		return ("co.edu.udea.os.ahorcado.persistence.entity.Record[ recordPK="
+				+ this.recordPK + " ]");
+	}
 }

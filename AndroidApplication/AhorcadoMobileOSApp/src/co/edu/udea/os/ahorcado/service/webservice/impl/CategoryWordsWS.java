@@ -3,28 +3,32 @@ package co.edu.udea.os.ahorcado.service.webservice.impl;
 import java.util.List;
 
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
+import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.service.webservice.ICategoryWordsWS;
 
 /**
- *
+ * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class CategoryWordsWS implements ICategoryWordsWS {
+public class CategoryWordsWS extends WebServiceContext implements
+		ICategoryWordsWS {
 
-    public CategoryWordsWS() {
-        super();
-    }
+	private static final String TAG = CategoryWordsWS.class.getSimpleName();
 
-    @Override()
-    public Word findOneWordForCategory(String categoryName) {
+	public CategoryWordsWS(WebServiceServer webServiesServer) {
+		super(webServiesServer);
+	}
 
-        return (null);
-    }
+	@Override()
+	public Word findOneWordForCategory(String categoryName) {
 
-    @Override()
-    public List<Word> findAllWordsForCategory(String categoryName) {
+		return (null);
+	}
 
-        return (null);
-    }
+	@Override()
+	public List<Word> findAllWordsForCategory(String categoryName) {
+
+		return (null);
+	}
 }
