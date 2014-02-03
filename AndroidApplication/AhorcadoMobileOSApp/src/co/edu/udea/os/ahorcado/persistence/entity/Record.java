@@ -1,6 +1,7 @@
 package co.edu.udea.os.ahorcado.persistence.entity;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -108,9 +109,18 @@ public class Record implements IEntityContext, IJSONContext, Serializable {
 	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
+	@SuppressLint("SimpleDateFormat")
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
+			throws JSONException {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		JSONObject jsonObject = new JSONObject();
 
-		return (null);
+		jsonObject.put(Record.DATE, dateFormat.format(this.getDate()));
+		jsonObject.put(Record.POINTS, Integer.toString(this.getPoints()));
+		jsonObject.put(Record.RECORD_PK, this.getRecordPK()
+				.packEntityToJsonObject(this.getRecordPK()));
+
+		return (jsonObject);
 	}
 
 	@Override()

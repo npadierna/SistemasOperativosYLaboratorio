@@ -64,9 +64,15 @@ public class RecordPK implements IJSONContext, Serializable {
 	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
+			throws JSONException {
+		JSONObject jsonObject = new JSONObject();
 
-		return (null);
+		jsonObject.put(RecordPK.CATEGORY, this.getCategory());
+		jsonObject.put(RecordPK.USER_NAME, this.getUserName());
+		jsonObject.put(RecordPK.WORD, this.getWord());
+
+		return (jsonObject);
 	}
 
 	@Override()

@@ -1,6 +1,7 @@
 package co.edu.udea.os.ahorcado.service.webservice;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -23,7 +24,9 @@ public interface IRecordWS {
 	public Record findBestRecordForPlayerInCategory(String playerUserName,
 			String categoryName);
 
-	public boolean saveBestRecordForPlayer(Record record);
+	public boolean saveBestRecordForPlayer(Record record)
+			throws URISyntaxException, JSONException,
+			UnsupportedEncodingException, ClientProtocolException, IOException;
 
 	public Record findBestRecordForCategory(String categoryName);
 

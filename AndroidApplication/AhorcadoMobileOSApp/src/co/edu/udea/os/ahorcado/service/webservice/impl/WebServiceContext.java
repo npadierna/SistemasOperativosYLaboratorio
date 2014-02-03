@@ -70,11 +70,11 @@ public abstract class WebServiceContext {
 	}
 
 	private String buildQueriesForPath(Map<String, String> parameters) {
-		StringBuilder stringForQueries = new StringBuilder();
-
 		if ((parameters != null) && (!parameters.isEmpty())) {
+			StringBuilder stringForQueries = new StringBuilder();
 			Set<String> keySet = parameters.keySet();
 			int counter = parameters.size();
+
 			for (String key : keySet) {
 				stringForQueries.append(key).append(EQUAL)
 						.append(parameters.get(key));
@@ -84,8 +84,10 @@ public abstract class WebServiceContext {
 					stringForQueries.append(AMPERSAND);
 				}
 			}
+
+			return (stringForQueries.toString());
 		}
 
-		return (stringForQueries.toString());
+		return (null);
 	}
 }
