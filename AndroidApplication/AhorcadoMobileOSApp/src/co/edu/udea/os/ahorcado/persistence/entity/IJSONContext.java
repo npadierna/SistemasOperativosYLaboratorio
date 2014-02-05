@@ -5,7 +5,8 @@ import org.json.JSONObject;
 
 public interface IJSONContext {
 
-	public JSONObject packEntityToJsonObject(IJSONContext entityContext);
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
+			throws JSONException;
 
 	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
 			throws JSONException;

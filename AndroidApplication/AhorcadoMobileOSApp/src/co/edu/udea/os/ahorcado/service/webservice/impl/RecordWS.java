@@ -11,10 +11,13 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.util.Log;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
@@ -68,7 +71,28 @@ public class RecordWS extends WebServiceContext implements IRecordWS {
 	}
 
 	@Override()
-	public boolean saveBestRecordForPlayer(Record record) {
+	public boolean saveBestRecordForPlayer(Record record)
+			throws URISyntaxException, JSONException, ClientProtocolException,
+			IOException {
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpPut put = new HttpPut(
+				super.buildURIForHTTPMethod(
+						new String[] { WebServicePath.RecordWSContext.ROOT_PATH },
+						null));
+
+		put.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
+				WebServiceContext.CONTENT_TYPE_VALUE);
+
+		JSONObject jsonObject = record.packEntityToJsonObject(record);
+		Log.d(TAG, jsonObject.toString(4));
+
+		StringEntity stringEntity = new StringEntity(jsonObject.toString());
+		put.setEntity(stringEntity);
+
+		HttpResponse httpResponse = httpClient.execute(put);
+		String stringResponse = EntityUtils.toString(httpResponse.getEntity());
+
+		Log.d(TAG, "Response: " + stringResponse);
 
 		return (false);
 	}
