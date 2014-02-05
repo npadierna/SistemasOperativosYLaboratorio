@@ -90,17 +90,21 @@ public class Player implements IEntityContext, IJSONContext, Serializable {
 	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
+			throws JSONException {
+		JSONObject jsonObject = new JSONObject();
 
-		return (null);
+		jsonObject.put(Player.EMAIL, this.getEmail());
+		jsonObject.put(Player.PASSWORD, this.getPassword());
+		jsonObject.put(Player.USER_NAME, this.getUserName());
+
+		return (jsonObject);
 	}
 
 	@Override()
 	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
 			throws JSONException {
 		this.setEmail(jsonObject.getString(Player.EMAIL));
-		// JSONObject o = jsonObject.getJSONObject(Player.KEY);
-		// this.setKey(o.getString("$"));
 		this.setPassword(jsonObject.getString(Player.PASSWORD));
 		this.setRecordList(null);
 		this.setUserName(jsonObject.getString(Player.USER_NAME));

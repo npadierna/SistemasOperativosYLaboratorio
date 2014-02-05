@@ -22,13 +22,18 @@ public interface IRecordWS {
 			JSONException;
 
 	public Record findBestRecordForPlayerInCategory(String playerUserName,
-			String categoryName);
+			String categoryName) throws URISyntaxException,
+			ClientProtocolException, IOException, JSONException;
 
-	public boolean saveBestRecordForPlayer(Record record)
+	public Record saveBestRecordForPlayer(Record record)
 			throws URISyntaxException, JSONException,
 			UnsupportedEncodingException, ClientProtocolException, IOException;
 
-	public Record findBestRecordForCategory(String categoryName);
+	public Record findBestRecordForCategory(String categoryName)
+			throws URISyntaxException, ClientProtocolException, IOException,
+			JSONException;
 
-	public List<Record> findBestRecordsForAllCategories();
+	public List<Record> findBestRecordsForAllCategories()
+			throws URISyntaxException, ClientProtocolException, IOException,
+			JSONException;
 }

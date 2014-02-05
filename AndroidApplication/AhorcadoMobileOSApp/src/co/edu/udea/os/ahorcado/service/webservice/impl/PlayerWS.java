@@ -50,10 +50,17 @@ public class PlayerWS extends WebServiceContext implements IPlayerWS {
 				WebServiceContext.CONTENT_TYPE_VALUE);
 
 		HttpResponse httpResponse = httpClient.execute(get);
-		String stringResponse = EntityUtils.toString(httpResponse.getEntity());
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
 
-		Log.d(TAG, "Response: " + stringResponse);
+			Log.d(TAG, "Response: " + stringResponse);
 
-		return (new Player(new JSONObject(stringResponse)));
+			return (new Player(new JSONObject(stringResponse)));
+		}
+
+		Log.d(TAG, "Response: NULL.");
+
+		return (null);
 	}
 }

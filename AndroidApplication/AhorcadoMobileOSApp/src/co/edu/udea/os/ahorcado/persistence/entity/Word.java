@@ -62,9 +62,13 @@ public class Word implements IEntityContext, IJSONContext, Serializable {
 	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
+			throws JSONException {
+		JSONObject jsonObject = new JSONObject();
 
-		return (null);
+		jsonObject.put(Word.NAME, this.getName());
+
+		return (jsonObject);
 	}
 
 	@Override()

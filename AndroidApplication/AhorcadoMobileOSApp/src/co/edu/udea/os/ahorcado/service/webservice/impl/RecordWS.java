@@ -55,23 +55,57 @@ public class RecordWS extends WebServiceContext implements IRecordWS {
 				WebServiceContext.CONTENT_TYPE_VALUE);
 
 		HttpResponse httpResponse = httpClient.execute(get);
-		String stringResponse = EntityUtils.toString(httpResponse.getEntity());
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
 
-		Log.d(TAG, "Response: " + stringResponse);
+			Log.d(TAG, "Response: " + stringResponse);
 
-		return (this.toRecordsArrayFromJSONArray(new JSONArray(super
-				.formatToJSONArrayString(stringResponse))));
-	}
+			return (this.toRecordsArrayFromJSONArray(new JSONArray(super
+					.formatToJSONArrayString(stringResponse))));
+		}
 
-	@Override()
-	public Record findBestRecordForPlayerInCategory(String playerUserName,
-			String categoryName) {
+		Log.d(TAG, "Response: NULL.");
 
 		return (null);
 	}
 
 	@Override()
-	public boolean saveBestRecordForPlayer(Record record)
+	public Record findBestRecordForPlayerInCategory(String playerUserName,
+			String categoryName) throws URISyntaxException,
+			ClientProtocolException, IOException, JSONException {
+		Map<String, String> parameters = new HashMap<String, String>();
+		parameters.put("username", playerUserName);
+		parameters.put("categoryname", categoryName);
+
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpGet get = new HttpGet(
+				super.buildURIForHTTPMethod(
+						new String[] {
+								WebServicePath.RecordWSContext.ROOT_PATH,
+								WebServicePath.RecordWSContext.PLAYER_BEST_RECORD_FOR_CATEGORY_PATH },
+						parameters));
+
+		get.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
+				WebServiceContext.CONTENT_TYPE_VALUE);
+
+		HttpResponse httpResponse = httpClient.execute(get);
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
+
+			Log.d(TAG, "Response: " + stringResponse);
+
+			return (new Record(new JSONObject(stringResponse)));
+		}
+
+		Log.d(TAG, "Response: NULL.");
+
+		return (null);
+	}
+
+	@Override()
+	public Record saveBestRecordForPlayer(Record record)
 			throws URISyntaxException, JSONException, ClientProtocolException,
 			IOException {
 		HttpClient httpClient = new DefaultHttpClient();
@@ -84,27 +118,83 @@ public class RecordWS extends WebServiceContext implements IRecordWS {
 				WebServiceContext.CONTENT_TYPE_VALUE);
 
 		JSONObject jsonObject = record.packEntityToJsonObject(record);
-		Log.d(TAG, jsonObject.toString(4));
 
 		StringEntity stringEntity = new StringEntity(jsonObject.toString());
 		put.setEntity(stringEntity);
 
 		HttpResponse httpResponse = httpClient.execute(put);
-		String stringResponse = EntityUtils.toString(httpResponse.getEntity());
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
 
-		Log.d(TAG, "Response: " + stringResponse);
+			Log.d(TAG, "Response: " + stringResponse);
 
-		return (false);
-	}
+			return (new Record(jsonObject));
+		}
 
-	@Override()
-	public Record findBestRecordForCategory(String categoryName) {
+		Log.d(TAG, "Response: NULL.");
 
 		return (null);
 	}
 
 	@Override()
-	public List<Record> findBestRecordsForAllCategories() {
+	public Record findBestRecordForCategory(String categoryName)
+			throws URISyntaxException, ClientProtocolException, IOException,
+			JSONException {
+		Map<String, String> parameters = new HashMap<String, String>();
+		parameters.put("categoryname", categoryName);
+
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpGet get = new HttpGet(super.buildURIForHTTPMethod(new String[] {
+				WebServicePath.RecordWSContext.ROOT_PATH,
+				WebServicePath.RecordWSContext.CATEGORY_BEST_RECORD_PATH },
+				parameters));
+
+		get.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
+				WebServiceContext.CONTENT_TYPE_VALUE);
+
+		HttpResponse httpResponse = httpClient.execute(get);
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
+
+			Log.d(TAG, "Response: " + stringResponse);
+
+			return (new Record(new JSONObject(stringResponse)));
+		}
+
+		Log.d(TAG, "Response: NULL.");
+
+		return (null);
+	}
+
+	@Override()
+	public List<Record> findBestRecordsForAllCategories()
+			throws URISyntaxException, ClientProtocolException, IOException,
+			JSONException {
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpGet get = new HttpGet(
+				super.buildURIForHTTPMethod(
+						new String[] {
+								WebServicePath.RecordWSContext.ROOT_PATH,
+								WebServicePath.RecordWSContext.CATEGORY_ALL_BEST_RECORDS_PATH },
+						null));
+
+		get.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
+				WebServiceContext.CONTENT_TYPE_VALUE);
+
+		HttpResponse httpResponse = httpClient.execute(get);
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
+
+			Log.d(TAG, "Response: " + stringResponse);
+
+			return (this.toRecordsArrayFromJSONArray(new JSONArray(super
+					.formatToJSONArrayString(stringResponse))));
+		}
+
+		Log.d(TAG, "Response: NULL.");
 
 		return (null);
 	}

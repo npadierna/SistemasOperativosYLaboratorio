@@ -37,19 +37,26 @@ public class WordWS extends WebServiceContext implements IWordWS {
 	public List<Word> findAllWords() throws URISyntaxException,
 			ClientProtocolException, IOException, JSONException {
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet get = new HttpGet(super.buildURIForHTTPMethod(new String[] {
-				WebServicePath.WordWSContext.ROOT_PATH }, null));
+		HttpGet get = new HttpGet(super.buildURIForHTTPMethod(
+				new String[] { WebServicePath.WordWSContext.ROOT_PATH }, null));
 
 		get.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
 				WebServiceContext.CONTENT_TYPE_VALUE);
 
 		HttpResponse httpResponse = httpClient.execute(get);
-		String stringResponse = EntityUtils.toString(httpResponse.getEntity());
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
 
-		Log.d(TAG, "Response: " + stringResponse);
+			Log.d(TAG, "Response: " + stringResponse);
 
-		return (this.toWordsArrayFromJSONArray(new JSONArray(super
-				.formatToJSONArrayString(stringResponse))));
+			return (this.toWordsArrayFromJSONArray(new JSONArray(super
+					.formatToJSONArrayString(stringResponse))));
+		}
+
+		Log.d(TAG, "Response: NULL.");
+
+		return (null);
 	}
 
 	private List<Word> toWordsArrayFromJSONArray(JSONArray jsonArray)

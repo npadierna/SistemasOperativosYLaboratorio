@@ -45,12 +45,19 @@ public class CategoryWS extends WebServiceContext implements ICategoryWS {
 				WebServiceContext.CONTENT_TYPE_VALUE);
 
 		HttpResponse httpResponse = httpClient.execute(get);
-		String stringResponse = EntityUtils.toString(httpResponse.getEntity());
+		if (httpResponse.getEntity() != null) {
+			String stringResponse = EntityUtils.toString(httpResponse
+					.getEntity());
 
-		Log.d(TAG, "Response: " + stringResponse);
+			Log.d(TAG, "Response: " + stringResponse);
 
-		return (this.toCategoriesArrayFromJSONArray(new JSONArray(super
-				.formatToJSONArrayString(stringResponse))));
+			return (this.toCategoriesArrayFromJSONArray(new JSONArray(super
+					.formatToJSONArrayString(stringResponse))));
+		}
+
+		Log.d(TAG, "Response: NULL.");
+
+		return (null);
 	}
 
 	private List<Category> toCategoriesArrayFromJSONArray(JSONArray jsonArray)
