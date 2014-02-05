@@ -16,8 +16,9 @@ public interface ICategoryWordsDAO {
 
     public List<CategoryWords> findAllCategoriesWords();
 
-    public List<CategoryWords> findAllCategoriesWordsForCategory(Category category);
-    
+    public List<CategoryWords> findAllCategoriesWordsForCategory(
+            Category category);
+
     public List<CategoryWords> findCategoriesWordsByAttributes(
             Object... attributes);
 

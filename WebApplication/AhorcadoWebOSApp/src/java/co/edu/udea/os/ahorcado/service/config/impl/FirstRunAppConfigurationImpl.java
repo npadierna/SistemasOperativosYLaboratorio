@@ -86,7 +86,8 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
             int counter = 0;
             for (Category c : this.categories) {
                 for (int index = 0; index <= 4; index++) {
-                    this.categoryWordsDAO.saveCategoryWords(new CategoryWords(c.getName(),
+                    this.categoryWordsDAO.saveCategoryWords(new CategoryWords(
+                            c.getName(),
                             this.words.get(index + counter).getName()));
                 }
                 counter += 5;
@@ -99,9 +100,11 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         System.out.println(" * Creating the default \"PLAYER\" data.");
 
         if (this.playerDAO.countPlayers() == 0) {
-            Player player = new Player("npadierna", "123", "npadierna@gmail.com");
+            Player player = new Player("npadierna", "123",
+                    "npadierna@gmail.com");
             this.playerDAO.savePlayer(player);
-            player = new Player("anderssongs5", "465", "anderssongarciasotelo@gmail.com");
+            player = new Player("anderssongs5", "465",
+                    "anderssongarciasotelo@gmail.com");
             this.playerDAO.savePlayer(player);
         }
     }
@@ -304,8 +307,9 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         Player temp = this.playerDAO.findPlayer("test_user");
 
         List<Record> records = this.recordDAO.findAllRecords();
-        List<CategoryWords> categoriesWords = this.categoryWordsDAO.findAllCategoriesWords();
-        
+        List<CategoryWords> categoriesWords =
+                this.categoryWordsDAO.findAllCategoriesWords();
+
         p = this.playerDAO.findPlayer("npadierna");
         Category c = this.categoryDAO.findCategory("Deportes");
         Record record = this.recordDAO.findBestRecordForPlayerInCategory(p, c);

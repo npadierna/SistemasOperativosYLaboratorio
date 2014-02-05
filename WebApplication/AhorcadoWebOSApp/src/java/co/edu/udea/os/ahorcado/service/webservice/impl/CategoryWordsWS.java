@@ -41,7 +41,8 @@ public class CategoryWordsWS implements ICategoryWordsWS {
     @Path(WebServicePath.CategoryWordsWSContext.CATEGORY_ONE_WORD_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
-    public Word findOneWordForCategory(@QueryParam("categoryname") String categoryName) {
+    public Word findOneWordForCategory(
+            @QueryParam("categoryname") String categoryName) {
         List<Word> words = this.findAllWordsForCategory(categoryName);
 
         if ((words != null) && (!words.isEmpty())) {
@@ -56,12 +57,14 @@ public class CategoryWordsWS implements ICategoryWordsWS {
     @Path(WebServicePath.CategoryWordsWSContext.CATEGORY_ALL_WORDS_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
-    public List<Word> findAllWordsForCategory(@QueryParam("categoryname") String categoryName) {
+    public List<Word> findAllWordsForCategory(
+            @QueryParam("categoryname") String categoryName) {
         Category category = this.categoryDAO.findCategory(categoryName);
 
         if (category != null) {
             List<CategoryWords> categoriesWords =
-                    this.categoryWordsDAO.findAllCategoriesWordsForCategory(category);
+                    this.categoryWordsDAO.findAllCategoriesWordsForCategory(
+                    category);
 
             if ((categoriesWords != null) && (!categoriesWords.isEmpty())) {
 

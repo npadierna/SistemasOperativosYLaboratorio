@@ -84,6 +84,7 @@ public class RecordWS implements IRecordWS {
     }
 
     @Consumes(value = {MediaType.APPLICATION_JSON})
+    @Produces(value = {MediaType.APPLICATION_JSON})
     @PUT()
     @Override()
     public Response saveBestRecordForPlayer(Record record) {

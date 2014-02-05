@@ -19,7 +19,8 @@ public class FirstRunAhorcadoServlet implements ServletContextListener {
 
         ApplicationContext appContext =
                 WebApplicationContextUtils.getWebApplicationContext(sce.getServletContext());
-        IFirstRunAppConfiguration initialConfig = (IFirstRunAppConfiguration) appContext.getBean("firstRunAppConfiguration");
+        IFirstRunAppConfiguration initialConfig =
+                (IFirstRunAppConfiguration) appContext.getBean("firstRunAppConfiguration");
         initialConfig.createDefaultData();
     }
 

@@ -55,8 +55,9 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
             Category category) {
         if ((player != null) && (player.getKey() != null) && (category != null)
                 && (category.getKey() != null)) {
-            List<Record> records = this.findRecordsByAttributes("recordPK.userName",
-                    player.getKey(), "recordPK.category", category.getKey());
+            List<Record> records = this.findRecordsByAttributes(
+                    "recordPK.userName", player.getKey(), "recordPK.category",
+                    category.getKey());
 
             if ((records != null) && (!records.isEmpty())) {
 

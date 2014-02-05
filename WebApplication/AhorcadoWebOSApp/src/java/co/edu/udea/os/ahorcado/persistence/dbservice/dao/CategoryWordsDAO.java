@@ -4,7 +4,6 @@ import co.edu.udea.os.ahorcado.persistence.dbservice.ICategoryWordsDAO;
 import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK;
-import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Repository;
