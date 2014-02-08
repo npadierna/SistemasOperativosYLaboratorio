@@ -1,6 +1,6 @@
 package co.edu.udea.os.ahorcado.service.webservice;
 
-import co.edu.udea.os.ahorcado.persistence.entity.Word;
+import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import java.util.List;
 import javax.jws.WebService;
 
@@ -12,7 +12,7 @@ import javax.jws.WebService;
 @WebService()
 public interface ICategoryWordsWS {
 
-    public Word findOneWordForCategory(String categoryName);
+    public CategoryWords findOneWordForCategory(String categoryName);
 
-    public List<Word> findAllWordsForCategory(String categoryName);
+    public List<CategoryWords> findAllWordsForCategory(String categoryName);
 }

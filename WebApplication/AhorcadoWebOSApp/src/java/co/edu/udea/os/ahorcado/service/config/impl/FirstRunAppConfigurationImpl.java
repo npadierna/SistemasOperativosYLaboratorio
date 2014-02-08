@@ -53,25 +53,25 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         System.out.println(" * Creating the default \"CATEGORY\" data.");
 
         if (this.categoryDAO.countCategories() == 0) {
-            Category category = new Category("Comida");
+            Category category = new Category("COMIDA");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Deportes");
+            category = new Category("DEPORTE");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Hogar");
+            category = new Category("HOGAR");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Música");
+            category = new Category("MUSICA");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Naturaleza");
+            category = new Category("NATURALEZA");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Ocio");
+            category = new Category("OCIO");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Religión");
+            category = new Category("RELIGION");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Ropa");
+            category = new Category("ROPA");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Tecnología");
+            category = new Category("TECNOLOGIA");
             this.categoryDAO.saveCategory(category);
-            category = new Category("Verbos");
+            category = new Category("VERBOS");
             this.categoryDAO.saveCategory(category);
         }
 
@@ -125,172 +125,172 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
             this.words = new ArrayList<>();
 
             /* Category: Comida */
-            Word word = new Word("Hierba");
+            Word word = new Word("HIERBA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Sabroso");
+            word = new Word("SABROSO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Carta");
+            word = new Word("CARTA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Agrio");
+            word = new Word("AGRIO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Probar");
+            word = new Word("PROBAR");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Deportes */
-            word = new Word("Karate");
+            word = new Word("KARATE");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Taekwondo");
+            word = new Word("TAEKWONDO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Basquet");
+            word = new Word("BASQUET");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Esgrima");
+            word = new Word("ESGRIMA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Automovilismo");
+            word = new Word("AUTOMOVILISMO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Hogar */
-            word = new Word("Moderno");
+            word = new Word("MODERNO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Calefaccion");
+            word = new Word("CALEFACCION");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Polvo");
+            word = new Word("POLVO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Sucio");
+            word = new Word("SUCIO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Limpio");
+            word = new Word("LIMPIO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Música */
-            word = new Word("Reggae");
+            word = new Word("REGGAE");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Clasica");
+            word = new Word("CLASICA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Balada");
+            word = new Word("BALADA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Jazz");
+            word = new Word("JAZZ");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Vallenato");
+            word = new Word("VALLENATO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Naturaleza */
-            word = new Word("Alud");
+            word = new Word("ALUD");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Roca");
+            word = new Word("ROCA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Conejo");
+            word = new Word("CONEJO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Tronco");
+            word = new Word("TRONCO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Lluvioso");
+            word = new Word("LLUVIOSO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Ocio */
-            word = new Word("Hincha");
+            word = new Word("HINCHA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Aplausos");
+            word = new Word("APLAUSOS");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Sentimental");
+            word = new Word("SENTIMENTAL");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Arte");
+            word = new Word("ARTE");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Tiempo");
+            word = new Word("TIEMPO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Religión */
-            word = new Word("Budismo");
+            word = new Word("BUDISMO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Evangelismo");
+            word = new Word("EVANGELISMO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Luteranismo");
+            word = new Word("LUTERANISMO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Hinduismo");
+            word = new Word("HINDUISMO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Cristianismo");
+            word = new Word("CRISTIANISMO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Ropa */
-            word = new Word("Impermeable");
+            word = new Word("IMPERMEABLE");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Camison");
+            word = new Word("CAMISON");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Pulsera");
+            word = new Word("PULSERA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Joyas");
+            word = new Word("JOYAS");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Reloj");
+            word = new Word("RELOJ");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Tecnología */
-            word = new Word("Impresora");
+            word = new Word("IMPRESORA");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Celular");
+            word = new Word("CELULAR");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Teclado");
+            word = new Word("TECLADO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Internet");
+            word = new Word("INTERNET");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Videojuego");
+            word = new Word("VIDEOJUEGO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
 
             /* Category: Verbos */
-            word = new Word("Tocar");
+            word = new Word("TOCAR");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Salir");
+            word = new Word("SALIR");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Llamar");
+            word = new Word("LLAMAR");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Pedir");
+            word = new Word("PEDIR");
             this.wordDAO.saveWord(word);
             this.words.add(word);
-            word = new Word("Jugar");
+            word = new Word("JUGAR");
             this.wordDAO.saveWord(word);
             this.words.add(word);
         }

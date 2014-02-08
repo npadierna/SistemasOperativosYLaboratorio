@@ -41,13 +41,15 @@ public class CategoryWordsWS implements ICategoryWordsWS {
     @Path(WebServicePath.CategoryWordsWSContext.CATEGORY_ONE_WORD_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
-    public Word findOneWordForCategory(
+    public CategoryWords findOneWordForCategory(
             @QueryParam("categoryname") String categoryName) {
-        List<Word> words = this.findAllWordsForCategory(categoryName);
+        List<CategoryWords> categoriesWords =
+                this.findAllWordsForCategory(categoryName);
 
-        if ((words != null) && (!words.isEmpty())) {
+        if ((categoriesWords != null) && (!categoriesWords.isEmpty())) {
 
-            return (words.get((int) (Math.random() * words.size())));
+            return (categoriesWords.get((int) (Math.random()
+                    * categoriesWords.size())));
         }
 
         return (null);
@@ -57,7 +59,7 @@ public class CategoryWordsWS implements ICategoryWordsWS {
     @Path(WebServicePath.CategoryWordsWSContext.CATEGORY_ALL_WORDS_PATH)
     @Produces(value = {MediaType.APPLICATION_JSON})
     @Override()
-    public List<Word> findAllWordsForCategory(
+    public List<CategoryWords> findAllWordsForCategory(
             @QueryParam("categoryname") String categoryName) {
         Category category = this.categoryDAO.findCategory(categoryName);
 
@@ -68,25 +70,10 @@ public class CategoryWordsWS implements ICategoryWordsWS {
 
             if ((categoriesWords != null) && (!categoriesWords.isEmpty())) {
 
-                return (this.createWordsFromCategoryWords(categoriesWords));
+                return (categoriesWords);
             }
         }
 
         return (null);
-    }
-
-    private List<Word> createWordsFromCategoryWords(
-            List<CategoryWords> categoriesWords) {
-        if ((categoriesWords == null) || (categoriesWords.isEmpty())) {
-
-            return (null);
-        }
-
-        List<Word> words = new ArrayList<>();
-        for (CategoryWords categoryWords : categoriesWords) {
-            words.add(new Word(categoryWords.getCategoryWordsPK().getWord()));
-        }
-
-        return (words);
     }
 }

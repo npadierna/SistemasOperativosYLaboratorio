@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -73,6 +74,7 @@ public class CategoryWords implements IEntityContext, Serializable {
         this.record = record;
     }
 
+    @XmlTransient()
     public Word getWord1() {
 
         return (this.word1);
@@ -82,6 +84,7 @@ public class CategoryWords implements IEntityContext, Serializable {
         this.word1 = word1;
     }
 
+    @XmlTransient()
     public Category getCategory1() {
 
         return (this.category1);
