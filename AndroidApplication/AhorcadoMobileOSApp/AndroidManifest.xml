@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="co.edu.udea.os.ahorcado.GameMainActivity"
+            android:name="co.edu.udea.os.ahorcado.activities.login.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" >
@@ -29,6 +29,9 @@
                 <category android:name="android.intent.category.LAUNCHER" >
                 </category>
             </intent-filter>
+        </activity>
+        <activity android:name="co.edu.udea.os.ahorcado.activities.dashboard.DashboardActivity"
+            android:label="@string/app_name" >           
         </activity>
     </application>
 

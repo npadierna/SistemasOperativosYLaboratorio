@@ -1,7 +1,6 @@
 package co.edu.udea.os.ahorcado.service.webservice;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.util.List;
 
@@ -18,22 +17,22 @@ import co.edu.udea.os.ahorcado.persistence.entity.Record;
 public interface IRecordWS {
 
 	public List<Record> findAllRecordsForPlayer(String playerUserName)
-			throws URISyntaxException, ClientProtocolException, IOException,
-			JSONException;
-
-	public Record findBestRecordForPlayerInCategory(String playerUserName,
-			String categoryName) throws URISyntaxException,
-			ClientProtocolException, IOException, JSONException;
-
-	public Record saveBestRecordForPlayer(Record record)
-			throws URISyntaxException, JSONException,
-			UnsupportedEncodingException, ClientProtocolException, IOException;
-
-	public Record findBestRecordForCategory(String categoryName)
-			throws URISyntaxException, ClientProtocolException, IOException,
-			JSONException;
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException;
 
 	public List<Record> findBestRecordsForAllCategories()
-			throws URISyntaxException, ClientProtocolException, IOException,
-			JSONException;
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException;
+
+	public Record findBestRecordForCategory(String categoryName)
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException;
+
+	public Record findBestRecordForPlayerInCategory(String playerUserName,
+			String categoryName) throws ClientProtocolException, IOException,
+			JSONException, URISyntaxException;
+
+	public Record saveBestRecordForPlayer(Record record)
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException;
 }

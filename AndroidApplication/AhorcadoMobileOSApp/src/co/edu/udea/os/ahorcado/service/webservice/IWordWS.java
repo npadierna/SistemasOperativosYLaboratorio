@@ -16,6 +16,6 @@ import co.edu.udea.os.ahorcado.persistence.entity.Word;
  */
 public interface IWordWS {
 
-	public List<Word> findAllWords() throws URISyntaxException,
-			ClientProtocolException, IOException, JSONException;
+	public List<Word> findAllWords() throws ClientProtocolException,
+			IOException, JSONException, URISyntaxException;
 }

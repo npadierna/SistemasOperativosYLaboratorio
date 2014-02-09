@@ -16,6 +16,6 @@ import co.edu.udea.os.ahorcado.persistence.entity.Category;
  */
 public interface ICategoryWS {
 
-	public List<Category> findAllCategories() throws URISyntaxException,
-			ClientProtocolException, IOException, JSONException;
+	public List<Category> findAllCategories() throws ClientProtocolException,
+			IOException, JSONException, URISyntaxException;
 }

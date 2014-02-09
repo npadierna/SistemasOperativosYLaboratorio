@@ -5,11 +5,9 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpResponse;
+import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,20 +32,14 @@ public class CategoryWS extends WebServiceContext implements ICategoryWS {
 	}
 
 	@Override()
-	public List<Category> findAllCategories() throws URISyntaxException,
-			ClientProtocolException, IOException, JSONException {
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet get = new HttpGet(super.buildURIForHTTPMethod(
+	public List<Category> findAllCategories() throws ClientProtocolException,
+			IOException, JSONException, URISyntaxException {
+		HttpGet get = new HttpGet();
+		HttpEntity httpEntity = super.executeHTTPMethod(
 				new String[] { WebServicePath.CategoryWSContext.ROOT_PATH },
-				null));
-
-		get.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
-				WebServiceContext.CONTENT_TYPE_VALUE);
-
-		HttpResponse httpResponse = httpClient.execute(get);
-		if (httpResponse.getEntity() != null) {
-			String stringResponse = EntityUtils.toString(httpResponse
-					.getEntity());
+				null, get);
+		if (httpEntity != null) {
+			String stringResponse = EntityUtils.toString(httpEntity);
 
 			Log.d(TAG, "Response: " + stringResponse);
 

@@ -1,17 +1,26 @@
 package co.edu.udea.os.ahorcado.service.webservice;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
-import co.edu.udea.os.ahorcado.persistence.entity.Word;
+import org.apache.http.client.ClientProtocolException;
+import org.json.JSONException;
+
+import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 
 /**
- *
+ * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
 public interface ICategoryWordsWS {
 
-    public Word findOneWordForCategory(String categoryName);
+	public List<CategoryWords> findAllWordsForCategory(String categoryName)
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException;
 
-    public List<Word> findAllWordsForCategory(String categoryName);
+	public CategoryWords findOneWordForCategory(String categoryName)
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException;
 }

@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Ahorcado</string>
+    <!-- Application Name -->
+    <string name="app_name">Ahorcado OS</string>
+    
+    <!-- Category List Activity -->
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    
+    <!-- Login Activity -->
+    <string name="user_name_text_view">Nombre Usuario</string>
+    <string name="password_text_view">Contraseña</string>
+    <string name="user_name_hint_text_view">Usuario</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="create_account_button">Crear Cuenta</string>
 
 </resources>

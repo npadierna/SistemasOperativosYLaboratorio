@@ -1,9 +1,16 @@
 package co.edu.udea.os.ahorcado.service.webservice.impl;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.Set;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.util.Log;
 import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
@@ -35,31 +42,19 @@ public abstract class WebServiceContext {
 		this.webServiceServer = webServiceServer;
 	}
 
-	public URI buildURIForHTTPMethod(String[] paths,
-			Map<String, String> parameters) throws URISyntaxException {
-		StringBuilder stringForPaths = new StringBuilder();
+	protected HttpEntity executeHTTPMethod(String[] paths,
+			Map<String, String> parameters, HttpRequestBase httpRequestBase)
+			throws URISyntaxException, ClientProtocolException, IOException {
+		HttpClient httpClient = new DefaultHttpClient();
 
-		if ((paths != null) && (paths.length != 0)) {
-			for (String s : paths) {
-				stringForPaths.append(s);
-			}
-		}
-		Log.d(TAG, "Total Paths: " + stringForPaths.toString());
+		httpRequestBase.setURI(this.buildURIForHTTPMethod(paths, parameters));
+		httpRequestBase.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
+				WebServiceContext.CONTENT_TYPE_VALUE);
 
-		URI uri = new URI(this.getWebServiceServer().getProtocol(), "", this
-				.getWebServiceServer().getIp(), Integer.parseInt(this
-				.getWebServiceServer().getPort()), SLASH
-				+ this.getWebServiceServer().getContext() + SLASH
-				+ this.getWebServiceServer().getWebService()
-				+ stringForPaths.toString(),
-				this.buildQueriesForPath(parameters), null);
-
-		Log.d(TAG, "URI Content: " + uri.toString());
-
-		return (uri);
+		return (httpClient.execute(httpRequestBase).getEntity());
 	}
 
-	public String formatToJSONArrayString(String jsonArray) {
+	protected String formatToJSONArrayString(String jsonArray) {
 		StringBuilder newFormatToArray = new StringBuilder(jsonArray);
 
 		int indexOf = jsonArray.indexOf(":[");
@@ -89,5 +84,29 @@ public abstract class WebServiceContext {
 		}
 
 		return (null);
+	}
+
+	private URI buildURIForHTTPMethod(String[] paths,
+			Map<String, String> parameters) throws URISyntaxException {
+		StringBuilder stringForPaths = new StringBuilder();
+
+		if ((paths != null) && (paths.length != 0)) {
+			for (String s : paths) {
+				stringForPaths.append(s);
+			}
+		}
+		Log.d(TAG, "Total Paths: " + stringForPaths.toString());
+
+		URI uri = new URI(this.getWebServiceServer().getProtocol(), "", this
+				.getWebServiceServer().getIp(), Integer.parseInt(this
+				.getWebServiceServer().getPort()), SLASH
+				+ this.getWebServiceServer().getContext() + SLASH
+				+ this.getWebServiceServer().getWebService()
+				+ stringForPaths.toString(),
+				this.buildQueriesForPath(parameters), null);
+
+		Log.d(TAG, "URI Content: " + uri.toString());
+
+		return (uri);
 	}
 }

@@ -5,11 +5,9 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.http.HttpResponse;
+import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,24 +33,19 @@ public class PlayerWS extends WebServiceContext implements IPlayerWS {
 
 	@Override()
 	public Player findPlayerByLogin(String userName, String password)
-			throws URISyntaxException, ClientProtocolException, IOException,
-			JSONException {
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException {
 		Map<String, String> parameters = new HashMap<String, String>();
 		parameters.put("username", userName);
 		parameters.put("password", password);
 
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet get = new HttpGet(super.buildURIForHTTPMethod(new String[] {
+		HttpGet get = new HttpGet();
+		HttpEntity httpEntity = super.executeHTTPMethod(new String[] {
 				WebServicePath.PlayerWSContext.ROOT_PATH,
-				WebServicePath.PlayerWSContext.PLAYER_LOGIN_PATH }, parameters));
-
-		get.setHeader(WebServiceContext.CONTENT_TYPE_KEY,
-				WebServiceContext.CONTENT_TYPE_VALUE);
-
-		HttpResponse httpResponse = httpClient.execute(get);
-		if (httpResponse.getEntity() != null) {
-			String stringResponse = EntityUtils.toString(httpResponse
-					.getEntity());
+				WebServicePath.PlayerWSContext.PLAYER_LOGIN_PATH }, parameters,
+				get);
+		if (httpEntity != null) {
+			String stringResponse = EntityUtils.toString(httpEntity);
 
 			Log.d(TAG, "Response: " + stringResponse);
 

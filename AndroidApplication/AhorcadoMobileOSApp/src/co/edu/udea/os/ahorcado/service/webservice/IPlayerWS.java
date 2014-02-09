@@ -16,6 +16,6 @@ import co.edu.udea.os.ahorcado.persistence.entity.Player;
 public interface IPlayerWS {
 
 	public Player findPlayerByLogin(String userName, String password)
-			throws URISyntaxException, ClientProtocolException, IOException,
-			JSONException;
+			throws ClientProtocolException, IOException, JSONException,
+			URISyntaxException;
 }
