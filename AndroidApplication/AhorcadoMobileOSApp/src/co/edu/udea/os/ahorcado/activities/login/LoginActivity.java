@@ -28,6 +28,9 @@ public class LoginActivity extends Activity {
 
 	private static final String TAG = LoginActivity.class.getSimpleName();
 
+	public static final String PLAYER = "Logged Player";
+	public static final String WEB_SERVER_CONFIG = "Web Server Configuration";
+
 	private Player player = null;
 	private WebServiceServer webServiceServer;
 
@@ -38,8 +41,14 @@ public class LoginActivity extends Activity {
 
 		if (!this.setServerConfig()) {
 			AlertDialog.Builder alertDialogBuilder = (new AlertDialogCustomized(
-					this)).createAlertDialog("Test", "This is a test.", false);
-			alertDialogBuilder.setPositiveButton("Okay",
+					this))
+					.createAlertDialog(
+							super.getResources().getString(
+									R.string.server_error_title),
+							super.getResources().getString(
+									R.string.server_error_text), false);
+			alertDialogBuilder.setPositiveButton(super.getResources()
+					.getString(R.string.okay),
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
 							LoginActivity.this.finish();
@@ -69,7 +78,11 @@ public class LoginActivity extends Activity {
 			userName = userName.trim();
 
 			ProgressDialog progressDialog = (new ProgressBarCustomized(this))
-					.createProgressDialog("Test", "Testing", false);
+					.createProgressDialog(
+							super.getResources().getString(
+									R.string.login_title_progress_dialog),
+							super.getResources().getString(
+									R.string.login_text_progress_dialog), false);
 			LoginAsyncTask loginAsyncTask = new LoginAsyncTask(
 					this.webServiceServer, progressDialog);
 
@@ -77,13 +90,24 @@ public class LoginActivity extends Activity {
 			try {
 				this.player = loginAsyncTask.get();
 				if (this.player != null) {
+					Bundle bundle = new Bundle();
+					bundle.putParcelable(PLAYER, this.player);
+					bundle.putParcelable(WEB_SERVER_CONFIG,
+							this.webServiceServer);
+
 					Intent intent = new Intent(this, DashboardActivity.class);
+					intent.putExtras(bundle);
 					super.startActivity(intent);
 				} else {
 					AlertDialog.Builder alertDialogBuilder = (new AlertDialogCustomized(
-							this)).createAlertDialog("Test", "This is a test.",
+							this)).createAlertDialog(
+							super.getResources().getString(
+									R.string.user_error_title_alert_dialog),
+							super.getResources().getString(
+									R.string.user_error_text_alert_dialog),
 							false);
-					alertDialogBuilder.setPositiveButton("Okay",
+					alertDialogBuilder.setPositiveButton(super.getResources()
+							.getString(R.string.okay),
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int id) {

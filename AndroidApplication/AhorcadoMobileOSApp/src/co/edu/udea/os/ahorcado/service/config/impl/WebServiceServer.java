@@ -1,6 +1,9 @@
 package co.edu.udea.os.ahorcado.service.config.impl;
 
-public class WebServiceServer {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class WebServiceServer implements Parcelable {
 
 	private String context;
 	private String ip;
@@ -15,6 +18,14 @@ public class WebServiceServer {
 		this.setPort(null);
 		this.setProtocol(null);
 		this.setWebService(null);
+	}
+
+	public WebServiceServer(Parcel parcel) {
+		this.setContext(parcel.readString());
+		this.setIp(parcel.readString());
+		this.setPort(parcel.readString());
+		this.setProtocol(parcel.readString());
+		this.setWebService(parcel.readString());
 	}
 
 	public String getContext() {
@@ -63,6 +74,21 @@ public class WebServiceServer {
 	}
 
 	@Override()
+	public int describeContents() {
+
+		return (0);
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.getContext());
+		dest.writeString(this.getIp());
+		dest.writeString(this.getPort());
+		dest.writeString(this.getProtocol());
+		dest.writeString(this.getWebService());
+	}
+
+	@Override()
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 
@@ -74,4 +100,19 @@ public class WebServiceServer {
 
 		return (s.toString());
 	}
+
+	public static final Parcelable.Creator<WebServiceServer> CREATOR = new Parcelable.Creator<WebServiceServer>() {
+
+		@Override()
+		public WebServiceServer createFromParcel(Parcel source) {
+
+			return (new WebServiceServer(source));
+		}
+
+		@Override()
+		public WebServiceServer[] newArray(int size) {
+
+			return (new WebServiceServer[size]);
+		}
+	};
 }

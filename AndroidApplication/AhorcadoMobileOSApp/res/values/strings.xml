@@ -3,15 +3,27 @@
 
     <!-- Application Name -->
     <string name="app_name">Ahorcado OS</string>
-    
+
     <!-- Category List Activity -->
     <string name="action_settings">Settings</string>
+
+    <!-- Error -->
+    <string name="server_error_text">El servidor no está accesible.\nLa aplicación se cerrará.</string>
+    <string name="server_error_title">Error En Servidor</string>
     
     <!-- Login Activity -->
-    <string name="user_name_text_view">Nombre Usuario</string>
-    <string name="password_text_view">Contraseña</string>
-    <string name="user_name_hint_text_view">Usuario</string>
-    <string name="login_button">Iniciar Sesión</string>
     <string name="create_account_button">Crear Cuenta</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="password_text_view">Contraseña</string>
+    <string name="login_text_progress_dialog">Conectando al Servidor&#8230;</string>
+    <string name="login_title_progress_dialog">Iniciando Sesión</string>
+    <string name="user_error_text_alert_dialog">El "Nombre De Usuario" o "Contraseña" son incorrectos.</string>
+    <string name="user_error_title_alert_dialog">Jugador No Encontrado</string>
+    <string name="user_name_hint_text_view">Usuario</string>
+    <string name="user_name_text_view">Nombre Usuario</string>
 
+    <!-- Util Strings -->
+    <string name="no">No</string>
+    <string name="okay">Okay</string>
+    <string name="yes">Si</string>
 </resources>

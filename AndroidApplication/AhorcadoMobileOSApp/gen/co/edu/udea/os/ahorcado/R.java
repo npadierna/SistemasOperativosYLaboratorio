@@ -49,13 +49,26 @@ public final class R {
         /**  Application Name 
          */
         public static final int app_name=0x7f060000;
-        public static final int create_account_button=0x7f060006;
-        public static final int login_button=0x7f060005;
-        public static final int password_text_view=0x7f060003;
-        public static final int user_name_hint_text_view=0x7f060004;
         /**  Login Activity 
          */
-        public static final int user_name_text_view=0x7f060002;
+        public static final int create_account_button=0x7f060004;
+        public static final int login_button=0x7f060005;
+        public static final int login_text_progress_dialog=0x7f060007;
+        public static final int login_title_progress_dialog=0x7f060008;
+        /**  Util Strings 
+         */
+        public static final int no=0x7f06000d;
+        public static final int okay=0x7f06000e;
+        public static final int password_text_view=0x7f060006;
+        /**  Error 
+         */
+        public static final int server_error_text=0x7f060002;
+        public static final int server_error_title=0x7f060003;
+        public static final int user_error_text_alert_dialog=0x7f060009;
+        public static final int user_error_title_alert_dialog=0x7f06000a;
+        public static final int user_name_hint_text_view=0x7f06000b;
+        public static final int user_name_text_view=0x7f06000c;
+        public static final int yes=0x7f06000f;
     }
     public static final class style {
         /** 

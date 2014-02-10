@@ -6,12 +6,16 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class Player implements IEntityContext, IJSONContext, Serializable {
+public class Player implements IEntityContext, IJSONContext, Parcelable,
+		Serializable {
 
 	private static final long serialVersionUID = 7756565228171404288L;
 
@@ -40,6 +44,12 @@ public class Player implements IEntityContext, IJSONContext, Serializable {
 
 	public Player(JSONObject jsonObject) throws JSONException {
 		this.unpackJsonOjectToEntity(jsonObject);
+	}
+
+	public Player(Parcel parcel) {
+		this.setEmail(parcel.readString());
+		this.setPassword(parcel.readString());
+		this.setUserName(parcel.readString());
 	}
 
 	public String getUserName() {
@@ -113,6 +123,19 @@ public class Player implements IEntityContext, IJSONContext, Serializable {
 	}
 
 	@Override()
+	public int describeContents() {
+
+		return (0);
+	}
+
+	@Override()
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.getEmail());
+		dest.writeString(this.getPassword());
+		dest.writeString(this.getUserName());
+	}
+
+	@Override()
 	public int hashCode() {
 		int hash = 0;
 		hash += (userName != null ? userName.hashCode() : 0);
@@ -144,4 +167,19 @@ public class Player implements IEntityContext, IJSONContext, Serializable {
 		return ("co.edu.udea.os.ahorcado.persistence.entity.Player[ userName="
 				+ this.userName + " ]");
 	}
+
+	public static final Parcelable.Creator<Player> CREATOR = new Parcelable.Creator<Player>() {
+
+		@Override()
+		public Player createFromParcel(Parcel source) {
+
+			return (new Player(source));
+		}
+
+		@Override()
+		public Player[] newArray(int size) {
+
+			return (new Player[size]);
+		}
+	};
 }

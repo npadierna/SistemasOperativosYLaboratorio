@@ -148,6 +148,18 @@ public class Record implements IEntityContext, IJSONContext, Serializable {
 		return (this);
 	}
 
+	// @Override()
+	// public int describeContents() {
+	//
+	// return (0);
+	// }
+	//
+	// @Override()
+	// public void writeToParcel(Parcel dest, int flags) {
+	// dest.writeInt(this.getPoints());
+	// dest.writeValue(this.getDate());
+	// }
+
 	@Override()
 	public int hashCode() {
 		int hash = 0;
