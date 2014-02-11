@@ -19,57 +19,67 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f050000;
         public static final int activity_vertical_margin=0x7f050001;
+        public static final int button_section_table_row=0x7f050005;
+        /**  Dashboard Activity 
+         */
+        public static final int categories_grid_view_margin_top=0x7f050002;
         /**  Login Activity 
          */
-        public static final int text_edit_login=0x7f050002;
+        public static final int password_edit_text_margin_top=0x7f050003;
+        public static final int password_text_view_margin_top=0x7f050004;
+        public static final int user_name_edit_text_margin_top=0x7f050006;
+        public static final int user_name_text_view_margin_top=0x7f050007;
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
         public static final int action_settings=0x7f090007;
+        public static final int categories_grid_view=0x7f090001;
         public static final int create_account_button=0x7f090006;
-        public static final int gridView1=0x7f090000;
         public static final int login_button=0x7f090005;
         public static final int password_edit_text=0x7f090004;
         public static final int password_text_view=0x7f090003;
         public static final int user_name_edit_text=0x7f090002;
-        public static final int user_name_text_view=0x7f090001;
+        public static final int user_name_text_view=0x7f090000;
     }
     public static final class layout {
         public static final int activity_dashboard=0x7f030000;
         public static final int activity_login=0x7f030001;
+        public static final int tester=0x7f030002;
     }
     public static final class menu {
         public static final int game_main=0x7f080000;
     }
     public static final class string {
-        /**  Category List Activity 
-         */
-        public static final int action_settings=0x7f060001;
+        public static final int action_settings=0x7f060002;
         /**  Application Name 
          */
         public static final int app_name=0x7f060000;
         /**  Login Activity 
          */
-        public static final int create_account_button=0x7f060004;
-        public static final int login_button=0x7f060005;
-        public static final int login_text_progress_dialog=0x7f060007;
-        public static final int login_title_progress_dialog=0x7f060008;
+        public static final int create_account_button=0x7f060005;
+        public static final int login_button=0x7f060006;
+        public static final int login_text_progress_dialog=0x7f060009;
+        public static final int login_title_progress_dialog=0x7f06000a;
         /**  Util Strings 
          */
-        public static final int no=0x7f06000d;
-        public static final int okay=0x7f06000e;
-        public static final int password_text_view=0x7f060006;
+        public static final int no=0x7f06000f;
+        public static final int okay=0x7f060010;
+        public static final int password_hint_edit_text=0x7f060007;
+        public static final int password_text_view=0x7f060008;
+        /**  Dashboard List Activity 
+         */
+        public static final int player_title_text_view=0x7f060001;
         /**  Error 
          */
-        public static final int server_error_text=0x7f060002;
-        public static final int server_error_title=0x7f060003;
-        public static final int user_error_text_alert_dialog=0x7f060009;
-        public static final int user_error_title_alert_dialog=0x7f06000a;
-        public static final int user_name_hint_text_view=0x7f06000b;
-        public static final int user_name_text_view=0x7f06000c;
-        public static final int yes=0x7f06000f;
+        public static final int server_error_text=0x7f060003;
+        public static final int server_error_title=0x7f060004;
+        public static final int user_error_text_alert_dialog=0x7f06000b;
+        public static final int user_error_title_alert_dialog=0x7f06000c;
+        public static final int user_name_hint_edit_text=0x7f06000d;
+        public static final int user_name_text_view=0x7f06000e;
+        public static final int yes=0x7f060011;
     }
     public static final class style {
         /** 
@@ -81,6 +91,21 @@ public final class R {
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+ API 11 theme customizations can go here. 
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+
+
+
+
+    
+ API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
