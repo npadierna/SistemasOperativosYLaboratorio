@@ -7,6 +7,7 @@ import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 
 public class DashboardActivity extends Activity {
 
@@ -27,5 +28,12 @@ public class DashboardActivity extends Activity {
 		this.player = bundle.getParcelable(LoginActivity.PLAYER);
 		this.webServiceServer = bundle
 				.getParcelable(LoginActivity.WEB_SERVER_CONFIG);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		super.getMenuInflater().inflate(R.menu.game_main, menu);
+		
+		return true;
 	}
 }
