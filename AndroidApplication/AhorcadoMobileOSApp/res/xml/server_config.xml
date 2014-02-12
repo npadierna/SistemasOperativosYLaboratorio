@@ -3,7 +3,7 @@
 
     <config>
         <context value="AhorcadoWebOSApp" ></context>
-        <ip value="192.168.1.1" ></ip>
+        <ip value="192.168.0.194" ></ip>
         <port value="8080" ></port>
         <protocol value="http" ></protocol>
         <webservice value="rest" ></webservice>

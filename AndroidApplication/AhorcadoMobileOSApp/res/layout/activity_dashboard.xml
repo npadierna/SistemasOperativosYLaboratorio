@@ -18,8 +18,7 @@
         android:layout_marginTop="@dimen/user_name_text_view_margin_top"
         android:gravity="right"
         android:text="@string/player_title_text_view"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" >
+        android:textAppearance="?android:attr/textAppearanceLarge" >
     </TextView>
 
     <GridView

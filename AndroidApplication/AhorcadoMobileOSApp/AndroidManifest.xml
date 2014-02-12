@@ -32,7 +32,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="co.edu.udea.os.ahorcado.activities.dashboard.BestRecordsActivity"
+            android:label="@string/best_records_activity_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="co.edu.udea.os.ahorcado.activities.dashboard.DashboardActivity"
+            android:label="@string/dashboard_activity_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="co.edu.udea.os.ahorcado.activities.game.GameBoardActitivy"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
         </activity>

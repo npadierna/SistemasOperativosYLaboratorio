@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,8 @@ public class LoginActivity extends Activity {
 	public static final String PLAYER = "Logged Player";
 	public static final String WEB_SERVER_CONFIG = "Web Server Configuration";
 
+	private EditText passwordEditText;
+	private EditText userNameEditText;
 	private Player player = null;
 	private WebServiceServer webServiceServer;
 
@@ -56,21 +59,28 @@ public class LoginActivity extends Activity {
 					});
 			(alertDialogBuilder.create()).show();
 		}
+
+		this.createViewComponents();
 	}
 
 	public void onCreateAccount(View view) {
 	}
 
 	public void onLogin(View view) {
-		String userName = ((EditText) super
-				.findViewById(R.id.user_name_edit_text)).getText().toString();
-		String password = ((EditText) super
-				.findViewById(R.id.password_edit_text)).getText().toString();
+		String password = this.passwordEditText.getText().toString();
+		String userName = this.userNameEditText.getText().toString();
 
 		Log.d(TAG, "User Name: " + userName);
 		Log.d(TAG, "Password: " + password);
 
 		this.executeLogin(userName, password);
+	}
+
+	private void createViewComponents() {
+		this.passwordEditText = (EditText) super
+				.findViewById(R.id.password_edit_text);
+		this.userNameEditText = (EditText) super
+				.findViewById(R.id.user_name_edit_text);
 	}
 
 	private void executeLogin(String userName, String password) {
@@ -97,6 +107,8 @@ public class LoginActivity extends Activity {
 
 					Intent intent = new Intent(this, DashboardActivity.class);
 					intent.putExtras(bundle);
+
+					super.finish();
 					super.startActivity(intent);
 				} else {
 					AlertDialog.Builder alertDialogBuilder = (new AlertDialogCustomized(
@@ -107,12 +119,15 @@ public class LoginActivity extends Activity {
 									R.string.user_error_text_alert_dialog),
 							false);
 					alertDialogBuilder.setPositiveButton(super.getResources()
-							.getString(R.string.okay),
-							new DialogInterface.OnClickListener() {
-								public void onClick(DialogInterface dialog,
-										int id) {
-								}
-							});
+							.getString(R.string.okay), new OnClickListener() {
+
+						@Override()
+						public void onClick(DialogInterface dialog, int which) {
+							passwordEditText.setText("");
+							userNameEditText.requestFocus();
+							userNameEditText.setText("");
+						}
+					});
 					(alertDialogBuilder.create()).show();
 				}
 			} catch (InterruptedException e) {

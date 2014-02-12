@@ -4,15 +4,24 @@
     <!-- Application Name -->
     <string name="app_name">Ahorcado OS</string>
 
-    <!-- Dashboard List Activity -->
-    <string name="player_title_text_view">Jugador: </string>
-    <string name="action_settings">Settings</string>
+    <!-- Best Records Activity -->
+    <string name="best_records_activity_name">Mejores Records</string>
+
+    <!-- Dashboard Grid List Activity -->
+    <string name="dashboard_activity_name">Categorías</string>
+    <string name="leave_dashboard_text_alert_dialog">Esta acción cerrará la aplicación.\n¿Está seguro de continuar?</string>
+    <string name="leave_dashboard_title_alert_dialog">¿Cerrar Aplicación?</string>
+    <string name="player_title_text_view">Jugador:</string>
+    <string name="show_all_records">Ver mejores Records</string>
 
     <!-- Error -->
     <string name="server_error_text">El servidor no está accesible.\nLa aplicación se cerrará.</string>
     <string name="server_error_title">Error En Servidor</string>
 
-    <!-- Login Activity -->
+    <!-- Game Activity -->
+    <string name="leave_game_text_alert_dialog">Esta acción cerrará el juego actual.\n¿Está seguro de continuar?</string>
+    <string name="leave_game_title_alert_dialog">¿Finalizar Juego?</string>
+    <!-- Login Activity -->
     <string name="create_account_button">Crear Cuenta</string>
     <string name="login_button">Iniciar Sesión</string>
     <string name="password_hint_edit_text">******</string>
