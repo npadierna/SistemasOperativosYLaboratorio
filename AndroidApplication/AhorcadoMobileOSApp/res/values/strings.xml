@@ -6,6 +6,9 @@
 
     <!-- Best Records Activity -->
     <string name="best_records_activity_name">Mejores Records</string>
+    <string name="category_image_view_description">Imagen de Categoría</string>
+    <string name="record_text">Record:</string>
+    <string name="user_name_text">Usuario:</string>
 
     <!-- Dashboard Grid List Activity -->
     <string name="dashboard_activity_name">Categorías</string>

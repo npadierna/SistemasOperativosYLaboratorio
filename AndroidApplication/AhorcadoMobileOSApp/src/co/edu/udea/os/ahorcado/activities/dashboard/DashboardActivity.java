@@ -1,6 +1,7 @@
 package co.edu.udea.os.ahorcado.activities.dashboard;
 
 import co.edu.udea.os.ahorcado.R;
+import co.edu.udea.os.ahorcado.activities.bestrecords.BestRecordsActivity;
 import co.edu.udea.os.ahorcado.activities.login.LoginActivity;
 import co.edu.udea.os.ahorcado.activities.util.AlertDialogCustomized;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
@@ -66,8 +67,14 @@ public class DashboardActivity extends Activity {
 		switch (item.getItemId()) {
 		case (R.id.show_all_records):
 			Log.d(TAG, "Best Records Item Option selected.");
-			super.startActivity(new Intent(this, BestRecordsActivity.class));
+			Bundle bundle = new Bundle();
+			bundle.putParcelable(LoginActivity.WEB_SERVER_CONFIG,
+					this.webServiceServer);
 
+			Intent intent = new Intent(this, BestRecordsActivity.class);
+			intent.putExtras(bundle);
+
+			super.startActivity(intent);
 			break;
 
 		default:
