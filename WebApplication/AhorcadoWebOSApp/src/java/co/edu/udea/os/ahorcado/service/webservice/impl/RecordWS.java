@@ -145,7 +145,10 @@ public class RecordWS implements IRecordWS {
                 }
             }
 
-            return (records);
+            if (!records.isEmpty()) {
+
+                return (records);
+            }
         }
 
         return (null);
