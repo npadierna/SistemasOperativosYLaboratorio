@@ -1,5 +1,6 @@
 package co.edu.udea.os.ahorcado.activities.bestrecords;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -13,8 +14,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class BestRecordsActivity extends Activity {
 
@@ -32,11 +35,21 @@ public class BestRecordsActivity extends Activity {
 	}
 
 	private void createViewComponents() {
-		ArrayAdapter<Record> arrayAdapter = new RecordsArrayAdapter(this,
-				R.layout.adapter_best_records, this.records);
+		ListView listView = (ListView) super
+				.findViewById(R.id.best_records_list_view);
 
-		((ListView) super.findViewById(R.id.best_records_list_view))
-				.setAdapter(arrayAdapter);
+		if (!this.records.isEmpty()) {
+			ArrayAdapter<Record> arrayAdapter = new RecordsArrayAdapter(this,
+					R.layout.adapter_best_records, this.records);
+
+			listView.setAdapter(arrayAdapter);
+		} else {
+			listView.setVisibility(View.GONE);
+
+			((TextView) super
+					.findViewById(R.id.no_best_records_found_text_view))
+					.setVisibility(View.VISIBLE);
+		}
 	}
 
 	private void extractBundleExtra(Intent intent) {
@@ -48,9 +61,10 @@ public class BestRecordsActivity extends Activity {
 		ProgressDialog progressDialog = (new ProgressBarCustomized(this))
 				.createProgressDialog(
 						super.getResources().getString(
-								R.string.login_title_progress_dialog),
+								R.string.best_records_title_progress_dialog),
 						super.getResources().getString(
-								R.string.login_text_progress_dialog), false);
+								R.string.best_records_text_progress_dialog),
+						false);
 		RecordAsyncTask recordAsyncTask = new RecordAsyncTask(
 				this.webServiceServer, progressDialog,
 				RecordAsyncTask.BEST_RECORDS_FOR_ALL_CATEGORIES);
@@ -58,13 +72,14 @@ public class BestRecordsActivity extends Activity {
 		recordAsyncTask.execute();
 		try {
 			this.records = recordAsyncTask.get();
-
-			if (records == null) {
-			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
 			e.printStackTrace();
+		}
+
+		if (this.records == null) {
+			this.records = new ArrayList<Record>();
 		}
 	}
 }

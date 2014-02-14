@@ -26,7 +26,9 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/categories_grid_view_margin_top"
-        android:numColumns="3" >
+        android:horizontalSpacing="@dimen/horizontal_spacing_grid_view"
+        android:numColumns="3"
+        android:verticalSpacing="@dimen/vertical_spacing_grid_view" >
     </GridView>
 
 </LinearLayout>

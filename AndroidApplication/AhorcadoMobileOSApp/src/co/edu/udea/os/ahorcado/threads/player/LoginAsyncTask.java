@@ -1,4 +1,4 @@
-package co.edu.udea.os.ahorcado.threads.login;
+package co.edu.udea.os.ahorcado.threads.player;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

@@ -5,17 +5,30 @@
     <string name="app_name">Ahorcado OS</string>
 
     <!-- Best Records Activity -->
+    <string name="best_records_text_progress_dialog">Espere mientras los Mejores Records\nse descargan desde el Servidor&#8230;</string>
+    <string name="best_records_title_progress_dialog">Consultado Records</string>
     <string name="best_records_activity_name">Mejores Records</string>
     <string name="category_image_view_description">Imagen de Categoría</string>
+    <string name="no_best_records_found_text_view">No \"Mejores Records\" Encontrados.</string>
     <string name="record_text">Record:</string>
     <string name="user_name_text">Usuario:</string>
 
-    <!-- Dashboard Grid List Activity -->
+    <!-- Dashboard Activity -->
+    <string-array name="last_record_wont_text_alert_dialog">
+        <item>Categoría:</item>
+        <item>Fecha:</item>
+        <item>Puntos:</item>
+        <item>Palabra:</item>
+    </string-array>
+
     <string name="dashboard_activity_name">Categorías</string>
+    <string name="no_last_record_wont_found_text_alert_dialog">No se ha encontrado ningún\nÚltimo Record.</string>
+    <string name="last_record_wont_title_alert_dialog">Último Record</string>
     <string name="leave_dashboard_text_alert_dialog">Esta acción cerrará la aplicación.\n¿Está seguro de continuar?</string>
     <string name="leave_dashboard_title_alert_dialog">¿Cerrar Aplicación?</string>
     <string name="player_title_text_view">Jugador:</string>
     <string name="show_all_records">Ver mejores Records</string>
+    <string name="show_last_record">Ver mi último Record</string>
 
     <!-- Error -->
     <string name="server_error_text">El servidor no está accesible.\nLa aplicación se cerrará.</string>
@@ -24,7 +37,8 @@
     <!-- Game Activity -->
     <string name="leave_game_text_alert_dialog">Esta acción cerrará el juego actual.\n¿Está seguro de continuar?</string>
     <string name="leave_game_title_alert_dialog">¿Finalizar Juego?</string>
-    <!-- Login Activity -->
+
+    <!-- Login Activity -->
     <string name="create_account_button">Crear Cuenta</string>
     <string name="login_button">Iniciar Sesión</string>
     <string name="password_hint_edit_text">******</string>
@@ -37,8 +51,7 @@
     <string name="user_name_text_view">Nombre De Usuario:</string>
 
     <!-- Util Strings -->
-    <string name="no">No</string>
-    <string name="okay">Okay</string>
-    <string name="yes">Si</string>
+    <string name="cancel">Cancelar</string>
+    <string name="accept">Aceptar</string>
 
 </resources>

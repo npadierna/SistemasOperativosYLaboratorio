@@ -24,14 +24,14 @@ public class GameBoardActitivy extends Activity {
 				super.getResources().getString(
 						R.string.leave_game_text_alert_dialog), false);
 		alertDialogBuilder.setPositiveButton(
-				super.getResources().getString(R.string.okay),
+				super.getResources().getString(R.string.accept),
 				new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						GameBoardActitivy.this.finish();
 					}
 				});
 		alertDialogBuilder.setNegativeButton(
-				super.getResources().getString(R.string.no), null);
+				super.getResources().getString(R.string.cancel), null);
 		(alertDialogBuilder.create()).show();
 	}
 }

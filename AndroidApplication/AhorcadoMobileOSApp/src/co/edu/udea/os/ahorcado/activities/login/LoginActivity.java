@@ -23,7 +23,7 @@ import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.service.config.IServerConfiguration;
 import co.edu.udea.os.ahorcado.service.config.impl.ServerConfiguration;
 import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
-import co.edu.udea.os.ahorcado.threads.login.LoginAsyncTask;
+import co.edu.udea.os.ahorcado.threads.player.LoginAsyncTask;
 
 public class LoginActivity extends Activity {
 
@@ -51,7 +51,7 @@ public class LoginActivity extends Activity {
 							super.getResources().getString(
 									R.string.server_error_text), false);
 			alertDialogBuilder.setPositiveButton(super.getResources()
-					.getString(R.string.okay),
+					.getString(R.string.accept),
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int id) {
 							LoginActivity.this.finish();
@@ -117,9 +117,9 @@ public class LoginActivity extends Activity {
 									R.string.user_error_title_alert_dialog),
 							super.getResources().getString(
 									R.string.user_error_text_alert_dialog),
-							false);
+							true);
 					alertDialogBuilder.setPositiveButton(super.getResources()
-							.getString(R.string.okay), new OnClickListener() {
+							.getString(R.string.accept), new OnClickListener() {
 
 						@Override()
 						public void onClick(DialogInterface dialog, int which) {
