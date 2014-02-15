@@ -4,6 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
             http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" >
+
     <display-name>Ahorcado OS WebApp</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -54,7 +55,7 @@
         <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/redirect.jsp</welcome-file>
+        <welcome-file>faces/co/edu/udea/os/ahorcado/web/index.xhtml</welcome-file>
     </welcome-file-list>
     <persistence-unit-ref>
         <description>Persistence Unit for Ahorcado</description>

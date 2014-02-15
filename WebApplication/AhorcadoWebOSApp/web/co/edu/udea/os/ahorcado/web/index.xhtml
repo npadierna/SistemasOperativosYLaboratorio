@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core" >
+
+    <h:head>
+        <title>Ahorcado OS</title>
+    </h:head>
+
+    <h:body>
+        <center>
+
+            <!--Agregar nombre del proyecto, descripción e integrantes-->
+
+            <p:accordionPanel id="mainAccordionPanel" >
+                <p:tab title="Crear Jugador" >
+                    <h:form id="createPlayerForm" >
+                        <h:panelGrid cellpadding="5" columns="4" >
+                            <h:outputLabel for="email" style="font-weight:bold"
+                                           value="Correo Electrónico:" >
+                            </h:outputLabel>
+                            <p:inputText id="email" label="Correo Electrónico"
+                                         maxlength="45" required="true" size="25"
+                                         validatorMessage="Correo electrónico inválido."
+                                         value="#{playerWorkFlowBean.player.email}" >
+                                <f:validateRegex
+                                    pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" >
+                                </f:validateRegex>
+                            </p:inputText>
+
+                            <h:outputLabel for="userName"
+                                           style="font-weight:bold"
+                                           value="Nombre de Usuario:" >
+                            </h:outputLabel>
+                            <p:inputText id="userName" label="Nombre de Usuario"
+                                         maxlength="35" required="true"
+                                         size="25"
+                                         value="#{playerWorkFlowBean.player.userName}" >
+                            </p:inputText>
+
+                            <h:outputLabel for="password"
+                                           style="font-weight:bold"
+                                           value="Contraseña:" >
+                            </h:outputLabel>
+                            <p:password feedback="true" id="password"
+                                        label="Contraseña"
+                                        match="confirmPassword" maxlength="35"
+                                        required="true" size="25"
+                                        value="#{playerWorkFlowBean.player.password}" >
+                            </p:password>
+
+                            <h:outputLabel for="confirmPassword"
+                                           style="font-weight:bold"
+                                           value="Confirmar Contraseña:" >
+                            </h:outputLabel>
+                            <p:password feedback="true" id="confirmPassword"
+                                        label="Confirmar Contraseña"
+                                        maxlength="35" required="true" size="25"
+                                        value="#{playerWorkFlowBean.player.password}" >
+                            </p:password>
+                        </h:panelGrid>
+
+                        <br/>
+                        <p:commandButton actionListener="#{playerWorkFlowBean.savePlayer}"
+                                         id="createPlayerButton" value="Crear" >
+                        </p:commandButton>
+                    </h:form>
+                </p:tab>
+
+                <p:tab title="Crear Categoría" >
+                    <h:form id="createCategoryForm" >
+                        <h:panelGrid cellpadding="5" columns="2" >
+                            <h:outputLabel for="categoryName" 
+                                           style="font-weight:bold"
+                                           value="Nombre de la Categoría:" >
+                            </h:outputLabel>
+                            <p:inputText id="categoryName"
+                                         label="Nombre de la Categoría"
+                                         maxlength="25" required="true"
+                                         size="25"
+                                         value="#{categoryWorkFlowBean.category.name}" >
+                            </p:inputText>
+                        </h:panelGrid>
+
+                        <br/>
+                        <p:commandButton actionListener="#{categoryWorkFlowBean.saveCategory}"
+                                         id="createCategoryButton"
+                                         value="Crear" >
+                        </p:commandButton>
+                    </h:form>
+                </p:tab>
+
+                <p:tab title="Crear Palabra" >
+                    <h:form id="createCategoryWordsForm" >
+                        <h:panelGrid cellpadding="5" columns="4" >
+                            <h:outputLabel for="categoryNameList" 
+                                           style="font-weight:bold"
+                                           value="Categoría:" >
+                            </h:outputLabel>
+                            <p:selectOneMenu id="categoryNameList"
+                                             label="Lista de Categorías"
+                                             maxlength="25" required="true"
+                                             value="#{categoryWordsWorkFlowBean.category.name}" >
+                                <f:selectItems
+                                    value="#{categoryWorkFlowBean.categoriesNames}" >
+                                </f:selectItems>
+                            </p:selectOneMenu>
+
+                            <h:outputLabel for="wordName"
+                                           style="font-weight:bold"
+                                           value="Palabra:" >
+                            </h:outputLabel>
+                            <p:inputText id="wordName" label="Palabra"
+                                         maxlength="15" required="true"
+                                         size="25"
+                                         value="#{categoryWordsWorkFlowBean.word.name}" >
+                            </p:inputText>
+                        </h:panelGrid>
+
+                        <br/>
+                        <p:commandButton actionListener="#{categoryWordsWorkFlowBean.saveCategoryWords}"
+                                         id="createCategoryWordsButton"
+                                         value="Crear" >
+                        </p:commandButton>
+                    </h:form>
+                </p:tab>
+            </p:accordionPanel>
+        </center>
+    </h:body>
+</html>

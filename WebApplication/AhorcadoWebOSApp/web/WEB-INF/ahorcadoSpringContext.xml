@@ -23,6 +23,7 @@
     <context:component-scan base-package="co.edu.udea.os.ahorcado.persistence.entity" />
     <context:component-scan base-package="co.edu.udea.os.ahorcado.persistence.dbservice" />
     <context:component-scan base-package="co.edu.udea.os.ahorcado.service.webservice" />
+    <context:component-scan base-package="co.edu.udea.os.ahorcado.web.bean" />
 
     <tx:annotation-driven />
 

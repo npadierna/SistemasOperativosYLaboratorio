@@ -53,9 +53,13 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         System.out.println(" * Creating the default \"CATEGORY\" data.");
 
         if (this.categoryDAO.countCategories() == 0) {
-            Category category = new Category("COMIDA");
+            Category category = new Category("COMIDAS");
             this.categoryDAO.saveCategory(category);
-            category = new Category("DEPORTE");
+            category = new Category("DEPORTES");
+            this.categoryDAO.saveCategory(category);
+            category = new Category("EDUCACION");
+            this.categoryDAO.saveCategory(category);
+            category = new Category("GEOGRAFIA");
             this.categoryDAO.saveCategory(category);
             category = new Category("HOGAR");
             this.categoryDAO.saveCategory(category);
@@ -65,7 +69,7 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
             this.categoryDAO.saveCategory(category);
             category = new Category("OCIO");
             this.categoryDAO.saveCategory(category);
-            category = new Category("RELIGION");
+            category = new Category("RELIGIONES");
             this.categoryDAO.saveCategory(category);
             category = new Category("ROPA");
             this.categoryDAO.saveCategory(category);
@@ -157,6 +161,40 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
             word = new Word("AUTOMOVILISMO");
             this.wordDAO.saveWord(word);
             this.words.add(word);
+
+            /* Category: Educación */
+            word = new Word("PROFESOR");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("CONOCIMIENTO");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("HORARIO");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("MATERIA");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("LAPIZ");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+
+            /* Category: Geografía */
+            word = new Word("OCEANO");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("CONTINENTE");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("AMERICA");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("EUROPA");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
+            word = new Word("AFRICA");
+            this.words.add(word);
+            this.wordDAO.saveWord(word);
 
             /* Category: Hogar */
             word = new Word("MODERNO");
