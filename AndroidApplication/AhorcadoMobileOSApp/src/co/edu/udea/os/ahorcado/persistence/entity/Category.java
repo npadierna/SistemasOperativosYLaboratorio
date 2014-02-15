@@ -6,12 +6,16 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class Category implements IEntityContext, IJSONContext, Serializable {
+public class Category implements IEntityContext, IJSONContext, Parcelable,
+		Serializable {
 
 	private static final long serialVersionUID = 3484225594024590336L;
 
@@ -30,6 +34,10 @@ public class Category implements IEntityContext, IJSONContext, Serializable {
 
 	public Category(JSONObject jsonObject) throws JSONException {
 		this.unpackJsonOjectToEntity(jsonObject);
+	}
+
+	public Category(Parcel parcel) {
+		this.setName(parcel.readString());
 	}
 
 	public String getName() {
@@ -81,6 +89,17 @@ public class Category implements IEntityContext, IJSONContext, Serializable {
 	}
 
 	@Override()
+	public int describeContents() {
+
+		return (0);
+	}
+
+	@Override()
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.getName());
+	}
+
+	@Override()
 	public int hashCode() {
 		int hash = 0;
 		hash += (name != null ? name.hashCode() : 0);
@@ -111,4 +130,19 @@ public class Category implements IEntityContext, IJSONContext, Serializable {
 		return ("co.edu.udea.os.ahorcado.persistence.entity.Category[ name="
 				+ this.name + " ]");
 	}
+
+	public static final Parcelable.Creator<Category> CREATOR = new Parcelable.Creator<Category>() {
+
+		@Override()
+		public Category createFromParcel(Parcel source) {
+
+			return (new Category(source));
+		}
+
+		@Override()
+		public Category[] newArray(int size) {
+
+			return (new Category[size]);
+		}
+	};
 }

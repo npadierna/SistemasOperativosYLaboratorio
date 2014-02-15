@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="A"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="B"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="C"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="D"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="E"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="F"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="G"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="H"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="I"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="J"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="K"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="L"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="M"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="N"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="Ñ"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="O"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="P"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="Q"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="R"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="S"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="T"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="U"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="V"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="W"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="X"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="Y"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:focusable="false"
+            android:maxHeight="@dimen/key_button_heigth"
+            android:maxWidth="@dimen/key_button_width"
+            android:minHeight="@dimen/key_button_heigth"
+            android:minWidth="@dimen/key_button_width"
+            android:onClick="onGuessLetter"
+            android:text="Z"
+            android:textSize="@dimen/key_button_text_size"
+            android:textStyle="bold" >
+        </Button>
+    </TableRow>
+
+</TableLayout>

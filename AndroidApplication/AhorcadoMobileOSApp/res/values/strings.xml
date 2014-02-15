@@ -5,7 +5,7 @@
     <string name="app_name">Ahorcado OS</string>
 
     <!-- Best Records Activity -->
-    <string name="best_records_text_progress_dialog">Espere mientras los Mejores Records\nse descargan desde el Servidor&#8230;</string>
+    <string name="best_records_text_progress_dialog">Espere mientras los Mejores Records se descargan desde el Servidor&#8230;</string>
     <string name="best_records_title_progress_dialog">Consultado Records</string>
     <string name="best_records_activity_name">Mejores Records</string>
     <string name="category_image_view_description">Imagen de Categoría</string>
@@ -13,7 +13,7 @@
     <string name="record_text">Record:</string>
     <string name="user_name_text">Usuario:</string>
 
-    <!-- Dashboard Activity -->
+    <!-- Categories Dashboard Activity -->
     <string-array name="last_record_wont_text_alert_dialog">
         <item>Categoría:</item>
         <item>Fecha:</item>
@@ -22,7 +22,9 @@
     </string-array>
 
     <string name="dashboard_activity_name">Categorías</string>
-    <string name="no_last_record_wont_found_text_alert_dialog">No se ha encontrado ningún\nÚltimo Record.</string>
+    <string name="no_categories_found_text_alert_dialog">No se pudieron obtener o no hay Categorías disponibles.\nLa aplicación se cerrará.</string>
+    <string name="no_categories_found_title_alert_dialog">Sin Categorías</string>
+    <string name="no_last_record_wont_found_text_alert_dialog">No se ha encontrado ningún Último Record.</string>
     <string name="last_record_wont_title_alert_dialog">Último Record</string>
     <string name="leave_dashboard_text_alert_dialog">Esta acción cerrará la aplicación.\n¿Está seguro de continuar?</string>
     <string name="leave_dashboard_title_alert_dialog">¿Cerrar Aplicación?</string>
@@ -34,9 +36,16 @@
     <string name="server_error_text">El servidor no está accesible.\nLa aplicación se cerrará.</string>
     <string name="server_error_title">Error En Servidor</string>
 
-    <!-- Game Activity -->
+    <!-- Game Board Activity -->
+    <string name="category_words_error_text_alert_dialog">Palabra No Encontrada</string>
+    <string name="category_words_error_title_alert_dialog">No se ha podido encontrar una Palabra para esta Categoría.\nPor favor, intente de nuevo.</string>
+    <string name="find_category_words_text_progress_dialog">Espere mientras se busca y se carga una Palabra.</string>
+    <string name="find_category_words_title_progress_dialog">Buscando Palabra&#8230;</string>
     <string name="leave_game_text_alert_dialog">Esta acción cerrará el juego actual.\n¿Está seguro de continuar?</string>
     <string name="leave_game_title_alert_dialog">¿Finalizar Juego?</string>
+    <string name="hanging_image_view_description">Progreso del Ahorcamiento</string>
+    <string name="score_title_text">Record:</string>
+    <string name="timer_title_text">Tiempo:</string>
 
     <!-- Login Activity -->
     <string name="create_account_button">Crear Cuenta</string>
@@ -50,7 +59,7 @@
     <string name="user_name_hint_edit_text">Usuario</string>
     <string name="user_name_text_view">Nombre De Usuario:</string>
 
-    <!-- Util Strings -->
+    <!-- Utilies -->
     <string name="cancel">Cancelar</string>
     <string name="accept">Aceptar</string>
 

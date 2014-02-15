@@ -15,6 +15,8 @@ public class CategoryWords implements IEntityContext, IJSONContext,
 
 	private static final long serialVersionUID = 3074146297965430784L;
 
+	private static final String CATEGORY_WORDS_PK = "categoryWordsPK";
+
 	protected CategoryWordsPK categoryWordsPK;
 	private Record record;
 	private Word word1;
@@ -84,15 +86,28 @@ public class CategoryWords implements IEntityContext, IJSONContext,
 	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
+			throws JSONException {
+		JSONObject jsonObject = new JSONObject();
 
-		return (null);
+		jsonObject.put(CATEGORY_WORDS_PK, this.getCategoryWordsPK()
+				.packEntityToJsonObject(this.getCategoryWordsPK()));
+
+		return (jsonObject);
 	}
 
 	@Override()
-	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject) {
+	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
+			throws JSONException {
+		CategoryWordsPK categoryWordsPK = new CategoryWordsPK(
+				jsonObject.getJSONObject(CategoryWords.CATEGORY_WORDS_PK));
 
-		return (null);
+		this.setCategory1(new Category(categoryWordsPK.getCategory()));
+		this.setCategoryWordsPK(categoryWordsPK);
+		this.setRecord(null);
+		this.setWord1(new Word(categoryWordsPK.getWord()));
+
+		return (this);
 	}
 
 	@Override()
