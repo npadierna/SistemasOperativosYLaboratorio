@@ -14,6 +14,9 @@ public class CategoryWordsPK implements IJSONContext, Serializable {
 
 	private static final long serialVersionUID = 8693019297638724608L;
 
+	private static final String CATEGORY = "category";
+	private static final String WORD = "word";
+
 	private String category;
 	private String word;
 
@@ -49,14 +52,21 @@ public class CategoryWordsPK implements IJSONContext, Serializable {
 	}
 
 	@Override()
-	public JSONObject packEntityToJsonObject(IJSONContext entityContext) {
+	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
+			throws JSONException {
+		JSONObject jsonObject = new JSONObject();
 
-		return (null);
+		jsonObject.put(CategoryWordsPK.CATEGORY, this.getCategory());
+		jsonObject.put(CategoryWordsPK.WORD, this.getWord());
+
+		return (jsonObject);
 	}
 
 	@Override()
 	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
 			throws JSONException {
+		this.setCategory(jsonObject.getString(CategoryWordsPK.CATEGORY));
+		this.setWord(jsonObject.getString(CategoryWordsPK.WORD));
 
 		return (this);
 	}

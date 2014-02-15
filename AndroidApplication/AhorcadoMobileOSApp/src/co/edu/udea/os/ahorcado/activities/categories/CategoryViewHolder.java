@@ -1,11 +1,11 @@
-package co.edu.udea.os.ahorcado.activities.dashboard;
+package co.edu.udea.os.ahorcado.activities.categories;
 
 import android.widget.TextView;
 
 final class CategoryViewHolder {
 
 	private TextView categoryTextView;
-	
+
 	public CategoryViewHolder() {
 		super();
 	}

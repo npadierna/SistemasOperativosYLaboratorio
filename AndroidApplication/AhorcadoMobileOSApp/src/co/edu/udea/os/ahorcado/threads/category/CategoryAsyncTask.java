@@ -25,7 +25,9 @@ public class CategoryAsyncTask extends AsyncTask<Object, Void, List<Category>> {
 	public CategoryAsyncTask(WebServiceServer webServiceServer,
 			ProgressDialog progressDialog, int type) {
 		super();
-		this.type = type;
+
+		this.setType(type);
+
 		this.progressDialog = progressDialog;
 		this.webServiceServer = webServiceServer;
 	}
@@ -33,6 +35,10 @@ public class CategoryAsyncTask extends AsyncTask<Object, Void, List<Category>> {
 	public int getType() {
 
 		return (this.type);
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	@Override()
@@ -62,18 +68,21 @@ public class CategoryAsyncTask extends AsyncTask<Object, Void, List<Category>> {
 	@Override()
 	protected void onCancelled() {
 		super.onCancelled();
+
 		this.progressDialog.dismiss();
 	}
 
 	@Override()
 	protected void onPostExecute(List<Category> result) {
 		super.onPostExecute(result);
+
 		this.progressDialog.dismiss();
 	}
 
 	@Override()
 	protected void onPreExecute() {
 		super.onPreExecute();
+
 		this.progressDialog.show();
 	}
 }

@@ -1,4 +1,4 @@
-package co.edu.udea.os.ahorcado.activities.dashboard;
+package co.edu.udea.os.ahorcado.activities.categories;
 
 import java.util.List;
 

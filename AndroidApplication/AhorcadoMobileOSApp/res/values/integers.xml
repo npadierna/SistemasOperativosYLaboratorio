@@ -5,4 +5,7 @@
     <integer name="password_edit_text_ems">10</integer>
     <integer name="user_name_edit_text_ems">10</integer>
 
-</resources>
+    <!-- Game Board Activity -->
+    <integer name="initial_record_points">1000</integer>
+    <integer name="punishment_points">100</integer>
+</resources>

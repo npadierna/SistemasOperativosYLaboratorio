@@ -32,7 +32,9 @@ public class RecordAsyncTask extends AsyncTask<Object, Void, List<Record>> {
 	public RecordAsyncTask(WebServiceServer webServiceServer,
 			ProgressDialog progressDialog, int type) {
 		super();
-		this.type = type;
+
+		this.setType(type);
+
 		this.progressDialog = progressDialog;
 		this.webServiceServer = webServiceServer;
 	}
@@ -40,6 +42,10 @@ public class RecordAsyncTask extends AsyncTask<Object, Void, List<Record>> {
 	public int getType() {
 
 		return (this.type);
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	@Override()
@@ -116,18 +122,21 @@ public class RecordAsyncTask extends AsyncTask<Object, Void, List<Record>> {
 	@Override()
 	protected void onCancelled() {
 		super.onCancelled();
+
 		this.progressDialog.dismiss();
 	}
 
 	@Override()
 	protected void onPostExecute(List<Record> result) {
 		super.onPostExecute(result);
+
 		this.progressDialog.dismiss();
 	}
 
 	@Override()
 	protected void onPreExecute() {
 		super.onPreExecute();
+
 		this.progressDialog.show();
 	}
 }

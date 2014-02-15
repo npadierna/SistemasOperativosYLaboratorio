@@ -14,12 +14,15 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class BestRecordsActivity extends Activity {
+
+	private static final String TAG = BestRecordsActivity.class.getSimpleName();
 
 	private List<Record> records = null;
 	private WebServiceServer webServiceServer;
@@ -39,11 +42,15 @@ public class BestRecordsActivity extends Activity {
 				.findViewById(R.id.best_records_list_view);
 
 		if (!this.records.isEmpty()) {
+			Log.i(BestRecordsActivity.TAG, "Inflating List View");
+
 			ArrayAdapter<Record> arrayAdapter = new RecordsArrayAdapter(this,
 					R.layout.adapter_best_records, this.records);
 
 			listView.setAdapter(arrayAdapter);
 		} else {
+			Log.d(BestRecordsActivity.TAG, "No Best Records Found.");
+
 			listView.setVisibility(View.GONE);
 
 			((TextView) super
@@ -53,6 +60,8 @@ public class BestRecordsActivity extends Activity {
 	}
 
 	private void extractBundleExtra(Intent intent) {
+		Log.d(BestRecordsActivity.TAG, "Extracting Intent's Data.");
+
 		this.webServiceServer = intent.getExtras().getParcelable(
 				LoginActivity.WEB_SERVER_CONFIG);
 	}
@@ -65,6 +74,7 @@ public class BestRecordsActivity extends Activity {
 						super.getResources().getString(
 								R.string.best_records_text_progress_dialog),
 						false);
+
 		RecordAsyncTask recordAsyncTask = new RecordAsyncTask(
 				this.webServiceServer, progressDialog,
 				RecordAsyncTask.BEST_RECORDS_FOR_ALL_CATEGORIES);
@@ -79,6 +89,8 @@ public class BestRecordsActivity extends Activity {
 		}
 
 		if (this.records == null) {
+			Log.d(BestRecordsActivity.TAG, "The Best Records' Array Is Empty.");
+
 			this.records = new ArrayList<Record>();
 		}
 	}
