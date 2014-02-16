@@ -56,10 +56,10 @@ public final class CategoryWorkFlowBean implements Serializable {
 
     @PostConstruct()
     private void findCategoriesNames() {
-        List<Category> categories = this.categoryDAO.findAllCategories();
+       List<Category> categories = this.categoryDAO.findAllCategories();
 
-        for (Category category : categories) {
-            this.getCategoriesNames().add(category.getName());
+        for (Category c : categories) {
+            this.getCategoriesNames().add(c.getName());
         }
     }
 }

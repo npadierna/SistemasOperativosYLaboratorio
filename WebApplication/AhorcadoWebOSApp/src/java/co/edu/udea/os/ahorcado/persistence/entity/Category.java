@@ -39,6 +39,11 @@ public class Category implements IEntityContext, Serializable {
     @Size(min = 1, max = 25)
     @Column(name = "name")
     private String name;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 35)
+    @Column(name = "image_name")
+    private String imageName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category1")
     private List<CategoryWords> categoryWordsList;
 
@@ -50,6 +55,11 @@ public class Category implements IEntityContext, Serializable {
         this.name = name;
     }
 
+    public Category(String name, String imageName) {
+        this.name = name;
+        this.imageName = imageName;
+    }
+
     public String getName() {
 
         return (this.name);
@@ -57,6 +67,15 @@ public class Category implements IEntityContext, Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImageName() {
+
+        return (this.imageName);
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
     @XmlTransient()

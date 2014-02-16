@@ -51,31 +51,31 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
     @Override()
     public void createDefaultCategories() {
         System.out.println(" * Creating the default \"CATEGORY\" data.");
-
+       
         if (this.categoryDAO.countCategories() == 0) {
-            Category category = new Category("COMIDAS");
+            Category category = new Category("COMIDAS", "ic_foods_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("DEPORTES");
+            category = new Category("DEPORTES", "ic_sports_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("EDUCACION");
+            category = new Category("EDUCACION", "ic_education_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("GEOGRAFIA");
+            category = new Category("GEOGRAFIA", "ic_geography_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("HOGAR");
+            category = new Category("HOGAR", "ic_home_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("MUSICA");
+            category = new Category("MUSICA", "ic_music_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("NATURALEZA");
+            category = new Category("NATURALEZA", "ic_nature_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("OCIO");
+            category = new Category("OCIO", "ic_leisure_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("RELIGIONES");
+            category = new Category("RELIGIONES", "ic_religions_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("ROPA");
+            category = new Category("ROPA", "ic_clothes_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("TECNOLOGIA");
+            category = new Category("TECNOLOGIA", "ic_technology_category.png");
             this.categoryDAO.saveCategory(category);
-            category = new Category("VERBOS");
+            category = new Category("VERBOS", "ic_verbs_category.png");
             this.categoryDAO.saveCategory(category);
         }
 
