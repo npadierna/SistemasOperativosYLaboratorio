@@ -1,8 +1,8 @@
 -- -----------------------------------------------------
 -- Table `AhorcadoOSApp`.`CATEGORY`
 -- -----------------------------------------------------
-INSERT INTO `AhorcadoOSApp`.`CATEGORY` (`name`)
-	VALUES (NULL);
+INSERT INTO `AhorcadoOSApp`.`CATEGORY` (`name`, `image_name`)
+	VALUES (NULL, NULL);
 
 
 -- -----------------------------------------------------

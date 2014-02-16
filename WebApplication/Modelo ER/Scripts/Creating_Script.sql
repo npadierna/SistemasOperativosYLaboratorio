@@ -10,6 +10,7 @@ USE `AhorcadoOSApp` ;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `AhorcadoOSApp`.`CATEGORY` (
   `name` VARCHAR(25) NOT NULL ,
+  `image_name` VARCHAR(35) NOT NULL ,
   PRIMARY KEY (`name`) ,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) )
 ENGINE = InnoDB;

@@ -56,7 +56,19 @@ public final class R {
         public static final int vertical_spacing_grid_view=0x7f050006;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int ic_clothes_category=0x7f020000;
+        public static final int ic_education_category=0x7f020001;
+        public static final int ic_foods_category=0x7f020002;
+        public static final int ic_geography_category=0x7f020003;
+        public static final int ic_home_category=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int ic_leisure_category=0x7f020006;
+        public static final int ic_music_category=0x7f020007;
+        public static final int ic_nature_category=0x7f020008;
+        public static final int ic_religions_category=0x7f020009;
+        public static final int ic_sports_category=0x7f02000a;
+        public static final int ic_technology_category=0x7f02000b;
+        public static final int ic_verbs_category=0x7f02000c;
     }
     public static final class id {
         public static final int best_records_list_view=0x7f0b0000;
