@@ -19,9 +19,11 @@ public class Category implements IEntityContext, IJSONContext, Parcelable,
 
 	private static final long serialVersionUID = 3484225594024590336L;
 
+	private static final String IMAGE_NAME = "imageName";
 	private static final String NAME = "name";
 
 	private String name;
+	private String imageName;
 	private List<CategoryWords> categoryWordsList;
 
 	public Category() {
@@ -32,11 +34,17 @@ public class Category implements IEntityContext, IJSONContext, Parcelable,
 		this.name = name;
 	}
 
+	public Category(String name, String imageName) {
+		this.name = name;
+		this.imageName = imageName;
+	}
+
 	public Category(JSONObject jsonObject) throws JSONException {
 		this.unpackJsonOjectToEntity(jsonObject);
 	}
 
 	public Category(Parcel parcel) {
+		this.setImageName(parcel.readString());
 		this.setName(parcel.readString());
 	}
 
@@ -47,6 +55,15 @@ public class Category implements IEntityContext, IJSONContext, Parcelable,
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getImageName() {
+
+		return (this.imageName);
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 	public List<CategoryWords> getCategoryWordsList() {
@@ -74,6 +91,7 @@ public class Category implements IEntityContext, IJSONContext, Parcelable,
 			throws JSONException {
 		JSONObject jsonObject = new JSONObject();
 
+		jsonObject.put(Category.IMAGE_NAME, this.getImageName());
 		jsonObject.put(Category.NAME, this.getName());
 
 		return (jsonObject);
@@ -83,6 +101,7 @@ public class Category implements IEntityContext, IJSONContext, Parcelable,
 	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
 			throws JSONException {
 		this.setCategoryWordsList(null);
+		this.setImageName(jsonObject.getString(Category.IMAGE_NAME));
 		this.setName(jsonObject.getString(Category.NAME));
 
 		return (this);
@@ -96,6 +115,7 @@ public class Category implements IEntityContext, IJSONContext, Parcelable,
 
 	@Override()
 	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.getImageName());
 		dest.writeString(this.getName());
 	}
 

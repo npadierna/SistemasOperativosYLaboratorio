@@ -73,9 +73,8 @@ public final class R {
     public static final class id {
         public static final int best_records_list_view=0x7f0b0000;
         public static final int categories_grid_view=0x7f0b0003;
-        public static final int category_image_view=0x7f0b000f;
-        public static final int category_name_text_view=0x7f0b0010;
-        public static final int category_text_view=0x7f0b0013;
+        public static final int category_name_text_view=0x7f0b000f;
+        public static final int category_text_view=0x7f0b0014;
         public static final int chronometer=0x7f0b0005;
         public static final int chronometer_title_text_view=0x7f0b0004;
         public static final int create_account_button=0x7f0b000e;
@@ -85,11 +84,13 @@ public final class R {
         public static final int no_best_records_found_text_view=0x7f0b0001;
         public static final int password_edit_text=0x7f0b000c;
         public static final int password_text_view=0x7f0b000b;
-        public static final int player_user_name_text_view=0x7f0b0011;
-        public static final int record_text_view=0x7f0b0012;
+        public static final int player_user_name_text_view=0x7f0b0010;
+        public static final int record_date_text_view=0x7f0b0013;
+        public static final int record_text_view=0x7f0b0011;
+        public static final int record_word_text_view=0x7f0b0012;
         public static final int score_text_view=0x7f0b0007;
-        public static final int show_all_records=0x7f0b0014;
-        public static final int show_last_record=0x7f0b0015;
+        public static final int show_all_records=0x7f0b0015;
+        public static final int show_last_record=0x7f0b0016;
         public static final int title_score_text_view=0x7f0b0006;
         public static final int user_name_edit_text=0x7f0b000a;
         public static final int user_name_text_view=0x7f0b0002;
@@ -119,7 +120,7 @@ public final class R {
         public static final int dashboard=0x7f0a0000;
     }
     public static final class string {
-        public static final int accept=0x7f070028;
+        public static final int accept=0x7f070029;
         /**  Application Name 
          */
         public static final int app_name=0x7f070000;
@@ -130,48 +131,49 @@ public final class R {
         public static final int best_records_title_progress_dialog=0x7f070002;
         /**  Utilies 
          */
-        public static final int cancel=0x7f070027;
-        public static final int category_image_view_description=0x7f070004;
+        public static final int cancel=0x7f070028;
         /**  Game Board Activity 
          */
-        public static final int category_words_error_text_alert_dialog=0x7f070014;
-        public static final int category_words_error_title_alert_dialog=0x7f070015;
+        public static final int category_words_error_text_alert_dialog=0x7f070015;
+        public static final int category_words_error_title_alert_dialog=0x7f070016;
         /**  Login Activity 
          */
-        public static final int create_account_button=0x7f07001d;
-        public static final int dashboard_activity_name=0x7f070008;
-        public static final int find_category_words_text_progress_dialog=0x7f070016;
-        public static final int find_category_words_title_progress_dialog=0x7f070017;
-        public static final int hanging_image_view_description=0x7f07001a;
-        public static final int last_record_wont_title_alert_dialog=0x7f07000c;
-        public static final int leave_dashboard_text_alert_dialog=0x7f07000d;
-        public static final int leave_dashboard_title_alert_dialog=0x7f07000e;
-        public static final int leave_game_text_alert_dialog=0x7f070018;
-        public static final int leave_game_title_alert_dialog=0x7f070019;
-        public static final int login_button=0x7f07001e;
-        public static final int login_text_progress_dialog=0x7f070021;
-        public static final int login_title_progress_dialog=0x7f070022;
+        public static final int create_account_button=0x7f07001e;
+        public static final int dashboard_activity_name=0x7f070009;
+        public static final int date_text=0x7f070004;
+        public static final int find_category_words_text_progress_dialog=0x7f070017;
+        public static final int find_category_words_title_progress_dialog=0x7f070018;
+        public static final int hanging_image_view_description=0x7f07001b;
+        public static final int last_record_wont_title_alert_dialog=0x7f07000d;
+        public static final int leave_dashboard_text_alert_dialog=0x7f07000e;
+        public static final int leave_dashboard_title_alert_dialog=0x7f07000f;
+        public static final int leave_game_text_alert_dialog=0x7f070019;
+        public static final int leave_game_title_alert_dialog=0x7f07001a;
+        public static final int login_button=0x7f07001f;
+        public static final int login_text_progress_dialog=0x7f070022;
+        public static final int login_title_progress_dialog=0x7f070023;
         public static final int no_best_records_found_text_view=0x7f070005;
-        public static final int no_categories_found_text_alert_dialog=0x7f070009;
-        public static final int no_categories_found_title_alert_dialog=0x7f07000a;
-        public static final int no_last_record_wont_found_text_alert_dialog=0x7f07000b;
-        public static final int password_hint_edit_text=0x7f07001f;
-        public static final int password_text_view=0x7f070020;
-        public static final int player_title_text_view=0x7f07000f;
+        public static final int no_categories_found_text_alert_dialog=0x7f07000a;
+        public static final int no_categories_found_title_alert_dialog=0x7f07000b;
+        public static final int no_last_record_wont_found_text_alert_dialog=0x7f07000c;
+        public static final int password_hint_edit_text=0x7f070020;
+        public static final int password_text_view=0x7f070021;
+        public static final int player_title_text_view=0x7f070010;
         public static final int record_text=0x7f070006;
-        public static final int score_title_text=0x7f07001b;
+        public static final int score_title_text=0x7f07001c;
         /**  Error 
          */
-        public static final int server_error_text=0x7f070012;
-        public static final int server_error_title=0x7f070013;
-        public static final int show_all_records=0x7f070010;
-        public static final int show_last_record=0x7f070011;
-        public static final int timer_title_text=0x7f07001c;
-        public static final int user_error_text_alert_dialog=0x7f070023;
-        public static final int user_error_title_alert_dialog=0x7f070024;
-        public static final int user_name_hint_edit_text=0x7f070025;
+        public static final int server_error_text=0x7f070013;
+        public static final int server_error_title=0x7f070014;
+        public static final int show_all_records=0x7f070011;
+        public static final int show_last_record=0x7f070012;
+        public static final int timer_title_text=0x7f07001d;
+        public static final int user_error_text_alert_dialog=0x7f070024;
+        public static final int user_error_title_alert_dialog=0x7f070025;
+        public static final int user_name_hint_edit_text=0x7f070026;
         public static final int user_name_text=0x7f070007;
-        public static final int user_name_text_view=0x7f070026;
+        public static final int user_name_text_view=0x7f070027;
+        public static final int word_text=0x7f070008;
     }
     public static final class style {
         /** 

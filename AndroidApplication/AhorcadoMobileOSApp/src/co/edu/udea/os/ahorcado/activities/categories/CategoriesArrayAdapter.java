@@ -81,10 +81,11 @@ final class CategoriesArrayAdapter extends ArrayAdapter<Category> {
 	private void fillCategoryDetails(int position,
 			CategoryViewHolder categoryViewHolder) {
 		Category category = this.getCategories().get(position);
+		CategoryImage categoryImage = CategoryImage.getInstance();
 		TextView textView = categoryViewHolder.getCategoryTextView();
 
-		textView.setCompoundDrawablesWithIntrinsicBounds(0,
-				R.drawable.ic_launcher, 0, 0);
+		textView.setCompoundDrawablesWithIntrinsicBounds(0, categoryImage
+				.getDrawableByCategoryImageName(category.getImageName()), 0, 0);
 		textView.setText(category.getName());
 	}
 }

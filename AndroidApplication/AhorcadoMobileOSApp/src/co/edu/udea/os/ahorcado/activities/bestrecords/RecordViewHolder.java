@@ -1,26 +1,17 @@
 package co.edu.udea.os.ahorcado.activities.bestrecords;
 
-import android.widget.ImageView;
 import android.widget.TextView;
 
 final class RecordViewHolder {
 
-	private ImageView categoryImageView;
 	private TextView categoryNameTextView;
+	private TextView dateTextView;
 	private TextView playerUserNameTextView;
 	private TextView recordTextView;
+	private TextView wordTextView;
 
 	public RecordViewHolder() {
 		super();
-	}
-
-	public ImageView getCategoryImageView() {
-
-		return (this.categoryImageView);
-	}
-
-	public void setCategoryImageView(ImageView categoryImageView) {
-		this.categoryImageView = categoryImageView;
 	}
 
 	public TextView getCategoryNameTextView() {
@@ -30,6 +21,15 @@ final class RecordViewHolder {
 
 	public void setCategoryNameTextView(TextView categoryNameTextView) {
 		this.categoryNameTextView = categoryNameTextView;
+	}
+
+	public TextView getDateTextView() {
+
+		return (this.dateTextView);
+	}
+
+	public void setDateTextView(TextView dateTextView) {
+		this.dateTextView = dateTextView;
 	}
 
 	public TextView getPlayerUserNameTextView() {
@@ -48,5 +48,14 @@ final class RecordViewHolder {
 
 	public void setRecordTextView(TextView recordTextView) {
 		this.recordTextView = recordTextView;
+	}
+
+	public TextView getWordTextView() {
+
+		return (this.wordTextView);
+	}
+
+	public void setWordTextView(TextView wordTextView) {
+		this.wordTextView = wordTextView;
 	}
 }

@@ -8,10 +8,11 @@
     <string name="best_records_text_progress_dialog">Espere mientras los Mejores Records se descargan desde el Servidor&#8230;</string>
     <string name="best_records_title_progress_dialog">Consultado Records</string>
     <string name="best_records_activity_name">Mejores Records</string>
-    <string name="category_image_view_description">Imagen de Categoría</string>
+    <string name="date_text">Fecha:</string>
     <string name="no_best_records_found_text_view">No \"Mejores Records\" Encontrados.</string>
     <string name="record_text">Record:</string>
     <string name="user_name_text">Usuario:</string>
+    <string name="word_text">Palabra:</string>
 
     <!-- Categories Dashboard Activity -->
     <string-array name="last_record_wont_text_alert_dialog">

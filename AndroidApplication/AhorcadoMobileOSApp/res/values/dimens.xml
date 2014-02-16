@@ -4,7 +4,7 @@
     <!-- Best Records Activity -->
     <dimen name="category_name_text_view_margin_left">25dp</dimen>
     <dimen name="record_details_table_row_maring_top">2dp</dimen>
-    <dimen name="record_details_table_row_maring_left">6dp</dimen>
+    <dimen name="record_details_table_row_maring_left">5dp</dimen>
     <dimen name="user_name_table_row_margin_top">3dp</dimen>
 
     <!-- Categories Dashboard Activity -->
