@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core" >
+
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+            <title>Ahorcado OS</title>
+            <script type="text/javascript" src="util/javascript/js.js" /> 
+        </f:facet>
+    </h:head>
+
+    <h:body>
+        <center>
+            <table width="1000px">
+                <tr>
+                    <td>
+                        <center>
+                            <p:accordionPanel id="mainAccordionPanel" multiple="true" 
+                                              activeIndex="0,1">
+                                <p:tab title="Crear Jugador" id="createPlayerTab" rendered="true">
+                                    <h:form id="createPlayerForm" >
+                                        
+                                        <p:growl id="growlCreatePlayer" showDetail="true" life="3000" />
+                                        <h:panelGrid cellpadding="5" columns="4" >
+                                            <h:outputLabel for="email" style="font-weight:bold"
+                                                           value="Correo Electrónico:" >
+                                            </h:outputLabel>
+                                            <p:inputText id="email" label="Correo Electrónico"
+                                                         maxlength="45" required="true" size="25"
+                                                         validatorMessage="Correo electrónico inválido."
+                                                         value="#{playerWorkFlowBean.player.email}" >
+                                                <f:validateRegex
+                                                    pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" >
+                                                </f:validateRegex>
+                                                <f:validateLength minimum="10"/>
+                                            </p:inputText>
+
+                                            <h:outputLabel for="userName"
+                                                           style="font-weight:bold"
+                                                           value="Nombre de Usuario:" >
+                                            </h:outputLabel>
+                                            <p:inputText id="userName" label="Nombre de Usuario"
+                                                         maxlength="35" required="true"
+                                                         size="25"
+                                                         value="#{playerWorkFlowBean.player.userName}" >
+                                                <f:validateLength minimum="5"/>
+                                            </p:inputText>
+
+                                            <h:outputLabel for="password"
+                                                           style="font-weight:bold"
+                                                           value="Contraseña:" >
+                                            </h:outputLabel>
+                                            <p:password feedback="true" id="password"
+                                                        label="Contraseña"
+                                                        match="confirmPassword" maxlength="35"
+                                                        required="true" size="25"
+                                                        value="#{playerWorkFlowBean.player.password}" >
+                                                <f:validateLength minimum="5"/>
+                                            </p:password>
+
+                                            <h:outputLabel for="confirmPassword"
+                                                           style="font-weight:bold"
+                                                           value="Confirmar Contraseña:" >
+                                            </h:outputLabel>
+                                            <p:password feedback="true" id="confirmPassword"
+                                                        label="Confirmar Contraseña"
+                                                        maxlength="35" required="true" size="25"
+                                                        value="#{playerWorkFlowBean.player.password}" >
+                                                <f:validateLength minimum="5"/>
+                                            </p:password>
+                                        </h:panelGrid>
+                                        <p:watermark for="email" value="Obligatorio" />
+                                        <p:watermark for="userName" value="Obligatorio" />
+                                        <p:watermark for="password" value="Obligatorio" />
+                                        <p:watermark for="confirmPassword" value="Obligatorio" />
+                                        <br/>
+                                        <p:commandButton id="createPlayerButton" value="Crear" 
+                                                         update="growlCreatePlayer" 
+                                                         actionListener="#{playerWorkFlowBean.savePlayer}"
+                                                         oncomplete="handleNewOperationRequest(xhr, status, args)">
+                                        </p:commandButton>
+                                    </h:form>
+                                </p:tab>
+
+                                <p:tab title="Crear Palabra" id="createWordTab">
+                                    <h:form id="createCategoryWordsForm" >
+                                        
+                                        <p:growl id="growlSaveCategoryWords" showDetail="true" life="3000" />
+                                        <h:panelGrid cellpadding="5" columns="5" >
+                                            <h:outputLabel for="categoryNameList" 
+                                                           style="font-weight:bold"
+                                                           value="Categoría:" >
+                                            </h:outputLabel>
+                                            <p:selectOneMenu id="categoryNameList"
+                                                             label="Lista de Categorías" required="true"
+                                                             value="#{categoryWordsWorkFlowBean.category.name}" >
+                                                <f:selectItems
+                                                    value="#{categoryWordsWorkFlowBean.categoriesNames}" />
+                                            </p:selectOneMenu>
+                                            <p:spacer width="50px"/>
+                                            <h:outputLabel for="wordName"
+                                                           style="font-weight:bold"
+                                                           value="Palabra:" >
+                                            </h:outputLabel>
+                                            <p:inputText id="wordName" label="Palabra"
+                                                         maxlength="15" required="true"
+                                                         size="25"
+                                                         value="#{categoryWordsWorkFlowBean.word.name}" >
+                                                <f:validateLength minimum="2"/>
+                                            </p:inputText>
+                                        </h:panelGrid>
+                                        <p:watermark for="wordName" value="Obligatorio" />
+                                        <br/>
+                                        <p:commandButton id="createCategoryWordsButton"
+                                                         value="Crear" update="growlSaveCategoryWords"
+                                                         actionListener="#{categoryWordsWorkFlowBean.saveCategoryWords}"
+                                                         oncomplete="handleNewOperationRequest(xhr, status, args)">
+                                        </p:commandButton>
+                                    </h:form>
+                                </p:tab>
+                            </p:accordionPanel>
+                            <br/><br/>
+                            <h:form id="returnToIndex">
+                                <p:commandLink onclick="location.href = '/AhorcadoWebOSApp/faces/co/edu/udea/os/ahorcado/web/index.xhtml';" >
+                                    <h:graphicImage url="/faces/co/edu/udea/os/ahorcado/web/util/images/applogo.png" />
+                                </p:commandLink>
+                            </h:form>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </h:body>
+</html>

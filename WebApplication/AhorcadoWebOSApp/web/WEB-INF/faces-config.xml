@@ -10,14 +10,7 @@
             org.springframework.web.jsf.el.SpringBeanFacesELResolver
         </el-resolver>
     </application>
-
-    <managed-bean>
-        <managed-bean-name>categoryWorkFlowBean</managed-bean-name>
-        <managed-bean-class>
-            co.edu.udea.os.ahorcado.web.bean.category.CategoryWorkFlowBean
-        </managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
+    
     <managed-bean>
         <managed-bean-name>playerWorkFlowBean</managed-bean-name>
         <managed-bean-class>
@@ -25,10 +18,17 @@
         </managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    
     <managed-bean>
         <managed-bean-name>categoryWordsWorkFlowBean</managed-bean-name>
         <managed-bean-class>
             co.edu.udea.os.ahorcado.web.bean.word.CategoryWordsWorkFlowBean
         </managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope></managed-bean>
+        
+    <managed-bean>
+        <managed-bean-name>authorsBean</managed-bean-name>
+        <managed-bean-class>co.edu.udea.os.ahorcado.web.bean.authors.AuthorsBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>

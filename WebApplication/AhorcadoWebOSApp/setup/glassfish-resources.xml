@@ -41,7 +41,7 @@
                   value="root" >
         </property>
         <property name="Password" 
-                  value="230491" >
+                  value="2695341123" >
         </property>
         <property name="URL"
                   value="jdbc:mysql://localhost:3306/AhorcadoOSApp?zeroDateTimeBehavior=convertToNull" >

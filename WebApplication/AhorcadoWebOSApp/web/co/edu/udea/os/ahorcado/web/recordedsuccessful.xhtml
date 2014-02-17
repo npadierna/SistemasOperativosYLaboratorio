@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core" >
+
+    <h:head>
+        <f:facet name="ahorcadoos">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+            <title>Ahorcado OS</title>
+        </f:facet>
+    </h:head>
+
+    <h:body>
+        <center>
+            <table width="600px">
+                <tr>
+                    <td>
+                        <center>
+                            <h:form id="deletedMemberForm" >
+                                    <p:spacer height="30px" />
+                                    <h:panelGrid columns="1" >
+                                        <p:panel id="deletedMemberPanel" style="width: 800px;" >
+                                            <center> 
+                                                <h1>OPERACIÓN REALIZADA SATISFACTORIAMENTE</h1>
+                                                <br/><br/>
+                                                <h:graphicImage url="/faces/co/edu/udea/os/ahorcado/web/util/images/applogo400.png" />
+                                                <br/><br/>
+                                                <h:outputLabel value="Su operación se ha 
+                                                               realizado correctamente."
+                                                               style="width: 500px" />
+                                            </center>
+                                        </p:panel>
+                                    </h:panelGrid>
+                                    <br/><br/><br/>
+                                    <p:commandLink onclick="location.href = '/AhorcadoWebOSApp/faces/co/edu/udea/os/ahorcado/web/index.xhtml';" >
+                                        <h:graphicImage url="/faces/co/edu/udea/os/ahorcado/web/util/images/homepage.png" 
+                                                        style="height: 50px; width: 50px" />
+                                    </p:commandLink>
+                            </h:form> 
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </h:body>
+</html>
