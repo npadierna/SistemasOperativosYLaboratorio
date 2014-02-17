@@ -25,7 +25,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import co.edu.udea.os.ahorcado.R;
 import co.edu.udea.os.ahorcado.activities.bestrecords.BestRecordsActivity;
-import co.edu.udea.os.ahorcado.activities.game.GameBoardActitivy;
+import co.edu.udea.os.ahorcado.activities.game.GameBoardActivity;
 import co.edu.udea.os.ahorcado.activities.login.LoginActivity;
 import co.edu.udea.os.ahorcado.activities.util.AlertDialogCustomized;
 import co.edu.udea.os.ahorcado.activities.util.ProgressBarCustomized;
@@ -40,6 +40,7 @@ public class CategoriesDashboardActivity extends Activity {
 			.getSimpleName();
 
 	public static final String CATEGORY_SELECTED = "Category Selected";
+	public static final String PLAYER = "Current Player";
 	public static final String WEB_SERVER_CONFIG = "Web Server Configuration";
 
 	public static final String CATEGORY_NAME = "Category Name";
@@ -287,14 +288,15 @@ public class CategoriesDashboardActivity extends Activity {
 		Bundle bundle = new Bundle();
 		bundle.putParcelable(CategoriesDashboardActivity.CATEGORY_SELECTED,
 				category);
+		bundle.putParcelable(CategoriesDashboardActivity.PLAYER, this.player);
 		bundle.putParcelable(CategoriesDashboardActivity.WEB_SERVER_CONFIG,
 				this.webServiceServer);
 
-		Intent intent = new Intent(this, GameBoardActitivy.class);
+		Intent intent = new Intent(this, GameBoardActivity.class);
 		intent.putExtras(bundle);
 
 		Log.d(CategoriesDashboardActivity.TAG, "Stating Activity: "
-				+ GameBoardActitivy.class.getSimpleName());
+				+ GameBoardActivity.class.getSimpleName());
 
 		super.startActivity(intent);
 	}

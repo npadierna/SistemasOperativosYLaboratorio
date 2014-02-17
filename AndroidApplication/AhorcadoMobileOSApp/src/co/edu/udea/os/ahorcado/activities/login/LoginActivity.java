@@ -41,7 +41,7 @@ public class LoginActivity extends Activity {
 	@Override()
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(R.layout.activity_login);
+		super.setContentView(R.layout.tester);
 
 		if (!this.setServerConfig()) {
 			Log.e(LoginActivity.TAG, "WebServiceServer Not Configured.");

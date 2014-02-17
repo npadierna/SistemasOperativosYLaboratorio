@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Best Records Activity -->
+    <color name="category_name_text_color">#FFFFFF</color>
+    <color name="player_user_name_text_color">#FFFFFF</color>
+    <color name="record_date_text_color">#FFFFFF</color>
+    <color name="record_text_color">#FFFFFF</color>
+    <color name="record_word_text_color">#FFFFFF</color>
+
+    <!-- Categories Dashboard Activity -->
+    <color name="plater_title_text_color">#FFFFFF</color>
+    <color name="category_text_color">#FFFFFF</color>
+
+    <!-- Game Board Activity -->
+    <color name="chronometer_text_color">#FFFFFF</color>
+    <color name="chronometer_title_text_color">#FFFFFF</color>
+    <color name="hidden_word_text_color">#FFFFFF</color>
+    <color name="score_text_color">#FFFFFF</color>
+    <color name="score_title_text_color">#FFFFFF</color>
+    
+    <!-- Keyboard Game -->
+    <color name="key_button_text_color">#FFFFFF</color>
+    <color name="key_button_wrong_text_color">#000000</color>
+    
+    <!-- Login Activity -->
+    <color name="password_text_color">#FFFFFF</color>
+    <color name="user_name_text_color">#FFFFFF</color>
+
+</resources>

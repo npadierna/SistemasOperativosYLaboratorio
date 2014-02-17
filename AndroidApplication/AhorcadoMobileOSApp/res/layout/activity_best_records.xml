@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_app"
     android:baselineAligned="false"
     android:gravity="top"
     android:orientation="vertical"
@@ -19,11 +20,11 @@
     </ListView>
 
     <TextView
-        android:gravity="center"
-        android:layout_gravity="center_vertical"
         android:id="@+id/no_best_records_found_text_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
         android:text="@string/no_best_records_found_text_view"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:visibility="gone" >

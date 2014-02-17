@@ -19,6 +19,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="A"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -34,6 +35,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="B"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -49,6 +51,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="C"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -64,6 +67,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="D"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -79,6 +83,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="E"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -94,6 +99,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="F"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -109,6 +115,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="G"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -124,6 +131,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="H"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -139,6 +147,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="I"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -160,6 +169,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="J"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -175,6 +185,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="K"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -190,6 +201,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="L"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -205,6 +217,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="M"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -220,6 +233,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="N"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -235,6 +249,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="Ñ"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -250,6 +265,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="O"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -265,6 +281,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="P"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -280,6 +297,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="Q"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -301,6 +319,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="R"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -316,6 +335,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="S"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -331,6 +351,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="T"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -346,6 +367,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="U"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -361,6 +383,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="V"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -376,6 +399,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="W"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -391,6 +415,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="X"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -406,6 +431,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="Y"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>
@@ -421,6 +447,7 @@
             android:minWidth="@dimen/key_button_width"
             android:onClick="onGuessLetter"
             android:text="Z"
+            android:textColor="@color/key_button_text_color"
             android:textSize="@dimen/key_button_text_size"
             android:textStyle="bold" >
         </Button>

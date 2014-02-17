@@ -20,6 +20,7 @@
             android:layout_weight="1"
             android:text="@string/best_records_activity_name"
             android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/category_name_text_color"
             android:textStyle="bold" >
         </TextView>
     </TableRow>
@@ -40,7 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="@string/user_name_text"
-            android:textAppearance="?android:attr/textAppearanceSmall" >
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/player_user_name_text_color" >
         </TextView>
 
         <TextView
@@ -49,7 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/record_text"
-            android:textAppearance="?android:attr/textAppearanceSmall" >
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/record_text_color" >
         </TextView>
     </TableRow>
 
@@ -69,7 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="@string/word_text"
-            android:textAppearance="?android:attr/textAppearanceSmall" >
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/record_word_text_color" >
         </TextView>
 
         <TextView
@@ -78,7 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/date_text"
-            android:textAppearance="?android:attr/textAppearanceSmall" >
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/record_date_text_color" >
         </TextView>
     </TableRow>
 
