@@ -4,8 +4,14 @@ import co.edu.udea.os.ahorcado.domain.util.Author;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class AuthorsBean implements Serializable {
 
+    private static final long serialVersionUID = 1252002994169145344L;
     private final static String[] authors;
     private ArrayList<Author> authorList;
 
@@ -17,16 +23,18 @@ public class AuthorsBean implements Serializable {
     }
 
     public AuthorsBean() {
-        this.authorList = new ArrayList<Author>();
-        this.obtainAuthorList();
+        this.authorList = new ArrayList<>();
+
+        this.obtainAuthorsList();
     }
 
     public ArrayList<Author> getAuthorList() {
-        return authorList;
+
+        return (this.authorList);
     }
 
-    private void obtainAuthorList() {
-        for(int i = 0; i < AuthorsBean.authors.length; i++){
+    private void obtainAuthorsList() {
+        for (int i = 0; i < AuthorsBean.authors.length; i++) {
             this.authorList.add(new Author(AuthorsBean.authors[i]));
         }
     }

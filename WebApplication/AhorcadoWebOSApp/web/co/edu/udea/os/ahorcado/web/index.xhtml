@@ -10,8 +10,10 @@
 
     <h:head>
         <f:facet name="ahorcadoos">
-            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
-            <title>Ahorcado OS</title>
+            <meta content='text/html; charset=UTF-8'
+                  http-equiv="Content-Type" >
+            </meta>
+            <title>AhorcadOS</title>
         </f:facet>
     </h:head>
 
@@ -22,21 +24,40 @@
                     <td>
                         <center>
                             <p:outputPanel >  
-                                <font color="gray" size="16"><b>Ahorcado App OS</b></font>
+                                <font color="gray" size="16" >
+                                    <b>Ahorcado App OS</b>
+                                </font>
+
                                 <p>Desde este sitio web se podrá realizar la creación 
                                     de jugadores y palabras para 
-                                    las categorías existentes.</p>
+                                    las categorías existentes.
+                                </p>
                             </p:outputPanel>
-                            <h:graphicImage url="/faces/co/edu/udea/os/ahorcado/web/util/images/ahorcado.png" />
+                            
+                            <h:graphicImage
+                                url="/faces/co/edu/udea/os/ahorcado/web/util/images/ahorcado.png" >
+                            </h:graphicImage>
+                            
                             <br/><br/>
                             <p:outputPanel>
-                                <b><h:outputText style="font-size: 25px; color: gray" value="Autores"/></b>
+                                <b>
+                                    <h:outputText
+                                        style="font-size: 25px; color: gray"
+                                        value="Autores" >
+                                    </h:outputText>
+                                </b>
+
                                 <table width="350px">
                                     <tr>
                                         <td>
                                             <p>
-                                                <center>Los autores de este sitio son las siguientes personas:</center>
-                                                <p:dataList value="#{authorsBean.authorList}" var="author" itemType="square">
+                                                <center>
+                                                    Los autores de este sitio son las siguientes personas:
+                                                </center>
+
+                                                <p:dataList
+                                                    value="#{authorsBean.authorList}"
+                                                    var="author" itemType="square" >
                                                     #{author.name}
                                                 </p:dataList>
                                             </p>
@@ -44,9 +65,12 @@
                                     </tr>
                                 </table>
                             </p:outputPanel>
+
                             <p:commandLink 
-                                onclick="location.href = '/AhorcadoWebOSApp/faces/co/edu/udea/os/ahorcado/web/operations.xhtml';">
-                                <h:outputText style="font-size: 16p" value="Ir a Operaciones"/>
+                                onclick="location.href = '/AhorcadoWebOSApp/faces/co/edu/udea/os/ahorcado/web/operations.xhtml';" >
+                                <h:outputText style="font-size: 16p;"
+                                              value="Ir a Operaciones" >
+                                </h:outputText>
                             </p:commandLink>
                         </center>
                     </td>

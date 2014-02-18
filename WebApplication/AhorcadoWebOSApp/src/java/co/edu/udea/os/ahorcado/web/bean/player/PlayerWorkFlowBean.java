@@ -1,9 +1,7 @@
 package co.edu.udea.os.ahorcado.web.bean.player;
 
-import co.edu.udea.os.ahorcado.domain.util.Util;
+import co.edu.udea.os.ahorcado.domain.util.ConvertUtillity;
 import co.edu.udea.os.ahorcado.persistence.dbservice.IPlayerDAO;
-import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
-import co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import java.io.Serializable;
 import java.util.List;
@@ -51,11 +49,11 @@ public final class PlayerWorkFlowBean implements Serializable {
                 "Datos Inválidos",
                 "Por favor verifique sus datos para registrarse.");
 
-        if (this.player.getEmail() == null
-                || this.player.getEmail().trim().equals("")
-                || this.player.getUserName() == null
-                || this.player.getUserName().trim().equals("")
-                || this.player.getPassword() == null) {
+        if ((this.player.getEmail() == null)
+                || (this.player.getEmail().trim().equals(""))
+                || (this.player.getUserName() == null)
+                || (this.player.getUserName().trim().equals(""))
+                || (this.player.getPassword() == null)) {
             message = new FacesMessage(FacesMessage.SEVERITY_INFO,
                     "Error: Datos Inválidos",
                     "Por favor ingrese los datos correctamente.");
@@ -66,7 +64,8 @@ public final class PlayerWorkFlowBean implements Serializable {
         if (correct) {
             this.player.setEmail(this.player.getEmail().trim());
             this.player.setUserName(this.player.getUserName().trim());
-            List<Player> players = this.playerDAO.findPlayersByAttributes("userName", this.player.getUserName());
+            List<Player> players = this.playerDAO.findPlayersByAttributes(
+                    "userName", this.player.getUserName());
 
             if (players.isEmpty()) {
                 String response = this.playerDAO.savePlayer(this.player);
@@ -81,20 +80,20 @@ public final class PlayerWorkFlowBean implements Serializable {
                     message = new FacesMessage(FacesMessage.SEVERITY_INFO,
                             "Guardado",
                             "La operación se ha realizado exitosamente.");
-                    
+
                     this.setPlayer(new Player());
                 }
             } else {
                 message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-                            "Jugador existente",
-                            "Ya existe un jugador con el mismo nombre de usuario."
-                                    + " Por favor verifique sus datos.");
-                
+                        "Jugador existente",
+                        "Ya existe un jugador con el mismo nombre de usuario."
+                        + " Por favor verifique sus datos.");
+
                 correct = false;
             }
         }
 
         FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam(Util.CORRECT_OPERATION, correct);
+        context.addCallbackParam(ConvertUtillity.CORRECT_OPERATION, correct);
     }
 }

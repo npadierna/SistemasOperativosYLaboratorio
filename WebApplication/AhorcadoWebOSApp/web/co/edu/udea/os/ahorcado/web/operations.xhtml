@@ -9,24 +9,30 @@
       xmlns:f="http://java.sun.com/jsf/core" >
 
     <h:head>
-        <f:facet name="first">
-            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
-            <title>Ahorcado OS</title>
-            <script type="text/javascript" src="util/javascript/js.js" /> 
+        <f:facet name="first" >
+            <meta content='text/html; charset=UTF-8'
+                  http-equiv="Content-Type" >
+            </meta>
+
+            <title>AhorcadOS</title>
+            <script type="text/javascript" src="util/javascript/js.js" >
+            </script> 
         </f:facet>
     </h:head>
 
     <h:body>
         <center>
-            <table width="1000px">
+            <table width="1000px" >
                 <tr>
                     <td>
                         <center>
-                            <p:accordionPanel id="mainAccordionPanel" multiple="true" 
-                                              activeIndex="0,1">
-                                <p:tab title="Crear Jugador" id="createPlayerTab" rendered="true">
+                            <p:accordionPanel id="mainAccordionPanel"
+                                              multiple="true" activeIndex="0,1" >
+
+                                <p:tab title="Crear Jugador"
+                                       id="createPlayerTab" rendered="true" >
                                     <h:form id="createPlayerForm" >
-                                        
+
                                         <p:growl id="growlCreatePlayer" showDetail="true" life="3000" />
                                         <h:panelGrid cellpadding="5" columns="4" >
                                             <h:outputLabel for="email" style="font-weight:bold"
@@ -91,7 +97,7 @@
 
                                 <p:tab title="Crear Palabra" id="createWordTab">
                                     <h:form id="createCategoryWordsForm" >
-                                        
+
                                         <p:growl id="growlSaveCategoryWords" showDetail="true" life="3000" />
                                         <h:panelGrid cellpadding="5" columns="5" >
                                             <h:outputLabel for="categoryNameList" 

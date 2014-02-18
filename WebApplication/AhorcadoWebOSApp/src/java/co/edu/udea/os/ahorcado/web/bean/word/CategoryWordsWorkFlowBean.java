@@ -1,14 +1,12 @@
 package co.edu.udea.os.ahorcado.web.bean.word;
 
-import co.edu.udea.os.ahorcado.domain.util.Util;
+import co.edu.udea.os.ahorcado.domain.util.ConvertUtillity;
 import co.edu.udea.os.ahorcado.persistence.dbservice.ICategoryDAO;
 import co.edu.udea.os.ahorcado.persistence.dbservice.ICategoryWordsDAO;
-import co.edu.udea.os.ahorcado.persistence.dbservice.IPlayerDAO;
 import co.edu.udea.os.ahorcado.persistence.dbservice.IWordDAO;
 import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK;
-import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -83,15 +81,15 @@ public final class CategoryWordsWorkFlowBean implements Serializable {
                 "Datos Inválidos",
                 "Por favor verifique sus datos para registrarse.");
 
-        if (this.word.getName() == null
-                || this.word.getName().trim().equals("")
-                || this.word.getName().contains(" ")
-                || this.word.getName().contains(";")
-                || this.word.getName().contains(".")
-                || this.word.getName().contains(",")
-                || this.word.getName().contains("-")
-                || this.word.getName().contains("_")
-                || this.word.getName().contains("´")) {
+        if ((this.word.getName() == null)
+                || (this.word.getName().trim().equals(""))
+                || (this.word.getName().contains(" "))
+                || (this.word.getName().contains(";"))
+                || (this.word.getName().contains("."))
+                || (this.word.getName().contains(","))
+                || (this.word.getName().contains("-"))
+                || (this.word.getName().contains("_"))
+                || (this.word.getName().contains("´"))) {
             message = new FacesMessage(FacesMessage.SEVERITY_INFO,
                     "Error: Datos Inválidos",
                     "Por favor ingrese una palabra correcta.");
@@ -100,7 +98,7 @@ public final class CategoryWordsWorkFlowBean implements Serializable {
         }
 
         if (correct) {
-            this.word.setName(Util.convertName(this.word.getName()));
+            this.word.setName(ConvertUtillity.convertName(this.word.getName()));
             if (wordDAO.findWord(this.word.getName()) == null) {
                 if (this.wordDAO.saveWord(this.word) == null) {
                     message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -112,9 +110,11 @@ public final class CategoryWordsWorkFlowBean implements Serializable {
             }
 
             if (correct) {
-                CategoryWordsPK categoryWordsPK = new CategoryWordsPK(this.category.getName(),
+                CategoryWordsPK categoryWordsPK = new CategoryWordsPK(
+                        this.category.getName(),
                         this.word.getName());
-                CategoryWords categoryWords = this.categoryWordsDAO.findCategoryWords(categoryWordsPK);
+                CategoryWords categoryWords = this.categoryWordsDAO.findCategoryWords(
+                        categoryWordsPK);
                 if (categoryWords != null) {
                     message = new FacesMessage(FacesMessage.SEVERITY_WARN,
                             "Error: Palabra Existente",
@@ -141,7 +141,7 @@ public final class CategoryWordsWorkFlowBean implements Serializable {
         }
 
         FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam(Util.CORRECT_OPERATION, correct);
+        context.addCallbackParam(ConvertUtillity.CORRECT_OPERATION, correct);
     }
 
     @PostConstruct()

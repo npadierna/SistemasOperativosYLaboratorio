@@ -51,7 +51,7 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
     @Override()
     public void createDefaultCategories() {
         System.out.println(" * Creating the default \"CATEGORY\" data.");
-       
+
         if (this.categoryDAO.countCategories() == 0) {
             Category category = new Category("COMIDAS", "ic_foods_category.png");
             this.categoryDAO.saveCategory(category);
