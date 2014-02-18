@@ -34,6 +34,11 @@ import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.threads.category.CategoryAsyncTask;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class CategoriesDashboardActivity extends Activity {
 
 	private static final String TAG = CategoriesDashboardActivity.class
@@ -42,12 +47,6 @@ public class CategoriesDashboardActivity extends Activity {
 	public static final String CATEGORY_SELECTED = "Category Selected";
 	public static final String PLAYER = "Current Player";
 	public static final String WEB_SERVER_CONFIG = "Web Server Configuration";
-
-	public static final String CATEGORY_NAME = "Category Name";
-	public static final String DATE = "Date";
-	public static final String POINTS = "Records Points";
-	public static final String SHARED_PREFERENCES_NAME = "last_record_won";
-	public static final String WORD = "Word";
 
 	private List<Category> categories = null;
 	private Player player;
@@ -119,7 +118,7 @@ public class CategoriesDashboardActivity extends Activity {
 			Log.d(CategoriesDashboardActivity.TAG,
 					"Show Last Record Won Item Option selected.");
 
-			this.readSharedPreferences();
+			this.readLastRecordFromSharedPreferences();
 			break;
 
 		default:
@@ -227,25 +226,24 @@ public class CategoriesDashboardActivity extends Activity {
 				.getParcelable(LoginActivity.WEB_SERVER_CONFIG);
 	}
 
-	private void readSharedPreferences() {
+	private void readLastRecordFromSharedPreferences() {
 		Log.d(CategoriesDashboardActivity.TAG, "Reading Shared Preferences: "
-				+ CategoriesDashboardActivity.SHARED_PREFERENCES_NAME);
+				+ GameBoardActivity.SHARED_PREFERENCES_NAME);
 
-		SharedPreferences sharedPreferences = super.getSharedPreferences(
-				CategoriesDashboardActivity.SHARED_PREFERENCES_NAME,
-				Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = super
+				.getSharedPreferences(
+						GameBoardActivity.SHARED_PREFERENCES_NAME,
+						Context.MODE_PRIVATE);
 
-		int record = sharedPreferences.getInt(
-				CategoriesDashboardActivity.POINTS, -1);
+		int record = sharedPreferences.getInt(GameBoardActivity.POINTS, -1);
 		String categoryName = sharedPreferences.getString(
-				CategoriesDashboardActivity.CATEGORY_NAME, null);
-		String date = sharedPreferences.getString(
-				CategoriesDashboardActivity.DATE, null);
-		String word = sharedPreferences.getString(
-				CategoriesDashboardActivity.WORD, null);
+				GameBoardActivity.CATEGORY, null);
+		String date = sharedPreferences.getString(GameBoardActivity.DATE, null);
+		String categoryWords = sharedPreferences.getString(
+				GameBoardActivity.CATEGORY_WORDS, null);
 
 		if ((record != -1) && (categoryName != null) && (date != null)
-				&& (word != null)) {
+				&& (categoryWords != null)) {
 			StringBuilder string = new StringBuilder();
 			String[] data = super.getResources().getStringArray(
 					R.array.last_record_wont_text_alert_dialog);
@@ -255,7 +253,8 @@ public class CategoriesDashboardActivity extends Activity {
 			string.append(data[1]).append(" ").append(date).append("\n");
 			string.append(data[2]).append(" ").append(Integer.toString(record))
 					.append("\n");
-			string.append(data[3]).append(" ").append(word).append("\n");
+			string.append(data[3]).append(" ").append(categoryWords)
+					.append("\n");
 
 			AlertDialog.Builder alertDialogBuilder = (new AlertDialogCustomized(
 					this)).createAlertDialog(

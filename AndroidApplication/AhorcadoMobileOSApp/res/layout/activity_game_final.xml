@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_app"
-    android:gravity="center_vertical"
+    android:gravity="center"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activities.game.GameFinalActivity" >
 
-</TableLayout>
+    <TextView
+        android:id="@+id/categoy_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/category_name_margin_bottom"
+        android:drawableBottom="@drawable/ic_launcher"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/category_name_title_text_color"
+        android:textSize="@dimen/category_name_text_size"
+        android:textStyle="bold" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/final_result_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/final_result_won"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/final_result_text_color"
+        android:textSize="@dimen/final_result_text_size"
+        android:textStyle="bold" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/word_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/final_result_margin_botton"
+        android:layout_marginTop="@dimen/final_result_margin_top"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/word_name_title_text_color"
+        android:textSize="@dimen/word_name_text_size"
+        android:textStyle="bold" >
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timer_title_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/chronometer_title_text_color" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/time_consumed_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/chronometer_text_color"
+        android:textStyle="bold" >
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/score_title_text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/score_title_text_color" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/final_record_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/score_text_color"
+        android:textStyle="bold" >
+    </TextView>
+
+    <Button
+        android:id="@+id/play_again_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/play_again_button_margin_top"
+        android:onClick="onPlayAgain"
+        android:text="@string/play_again_button_text" >
+    </Button>
+
+</LinearLayout>

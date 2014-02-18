@@ -5,12 +5,15 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class RecordPK implements IJSONContext, Serializable {
+public class RecordPK implements IJSONContext, Parcelable, Serializable {
 
 	private static final long serialVersionUID = 1975712992744627200L;
 
@@ -34,6 +37,12 @@ public class RecordPK implements IJSONContext, Serializable {
 
 	public RecordPK(JSONObject jsonObject) throws JSONException {
 		this.unpackJsonOjectToEntity(jsonObject);
+	}
+
+	public RecordPK(Parcel parcel) {
+		this.setCategory(parcel.readString());
+		this.setUserName(parcel.readString());
+		this.setWord(parcel.readString());
 	}
 
 	public String getUserName() {
@@ -86,6 +95,19 @@ public class RecordPK implements IJSONContext, Serializable {
 	}
 
 	@Override()
+	public int describeContents() {
+
+		return (0);
+	}
+
+	@Override()
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.getCategory());
+		dest.writeString(this.getUserName());
+		dest.writeString(this.getWord());
+	}
+
+	@Override()
 	public int hashCode() {
 		int hash = 0;
 		hash += (userName != null ? userName.hashCode() : 0);
@@ -132,4 +154,19 @@ public class RecordPK implements IJSONContext, Serializable {
 		return ("co.edu.udea.os.ahorcado.persistence.entity.RecordPK[ userName="
 				+ userName + ", category=" + category + ", word=" + word + " ]");
 	}
+
+	public static final Parcelable.Creator<RecordPK> CREATOR = new Parcelable.Creator<RecordPK>() {
+
+		@Override()
+		public RecordPK createFromParcel(Parcel source) {
+
+			return (new RecordPK(source));
+		}
+
+		@Override()
+		public RecordPK[] newArray(int size) {
+
+			return (new RecordPK[size]);
+		}
+	};
 }

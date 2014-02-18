@@ -23,6 +23,14 @@
     <dimen name="table_row_image_view_margin_bottom">25dp</dimen>
     <dimen name="table_row_image_view_margin_top">25dp</dimen>
 
+    <!-- Game Final Activity -->
+    <dimen name="category_name_margin_bottom">20dp</dimen>
+    <dimen name="category_name_text_size">35dp</dimen>
+    <dimen name="final_result_margin_botton">10dp</dimen>
+    <dimen name="final_result_margin_top">10dp</dimen>
+    <dimen name="final_result_text_size">35dp</dimen>
+    <dimen name="play_again_button_margin_top">25dp</dimen>
+    <dimen name="word_name_text_size">30dp</dimen>
     <!-- Keyboard Game -->
     <dimen name="key_button_heigth">34dp</dimen>
     <dimen name="key_button_text_size">17dp</dimen>

@@ -3,6 +3,11 @@ package co.edu.udea.os.ahorcado.activities.util;
 import android.app.Activity;
 import android.app.ProgressDialog;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class ProgressBarCustomized {
 
 	private Activity activity;

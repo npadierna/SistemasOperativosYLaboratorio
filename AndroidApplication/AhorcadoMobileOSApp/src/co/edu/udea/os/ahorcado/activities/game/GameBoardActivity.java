@@ -1,14 +1,19 @@
 package co.edu.udea.os.ahorcado.activities.game;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -27,6 +32,11 @@ import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.threads.categorywords.CategoryWordsAsyncTask;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class GameBoardActivity extends Activity {
 
 	private static final String TAG = GameBoardActivity.class.getSimpleName();
@@ -34,7 +44,14 @@ public class GameBoardActivity extends Activity {
 	public static final String CURRENT_HANG_GAME = "Current Hang Game";
 	public static final String WEB_SERVER_CONFIG = "Web Server Configuration";
 
+	public static final String DATE_FORMAT_PATTERN = "dd/mm/yyyy hh:mm:ss a";
 	private static final String MASK = "-";
+
+	public static final String CATEGORY = "Category Name";
+	public static final String CATEGORY_WORDS = "Word Name";
+	public static final String DATE = "Date";
+	public static final String POINTS = "Records Points";
+	public static final String SHARED_PREFERENCES_NAME = "last_record_won";
 
 	private Chronometer chronometer;
 	private ImageView hangingImageView;
@@ -249,6 +266,28 @@ public class GameBoardActivity extends Activity {
 		}
 	}
 
+	@SuppressLint("SimpleDateFormat")
+	private void saveLastRecordIntoSharedPreferences() {
+		Log.d(GameBoardActivity.TAG, "Saving Shared Preferences: "
+				+ GameBoardActivity.SHARED_PREFERENCES_NAME);
+
+		SharedPreferences sharedPreferences = super
+				.getSharedPreferences(
+						GameBoardActivity.SHARED_PREFERENCES_NAME,
+						Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPreferences.edit();
+
+		editor.putString(GameBoardActivity.CATEGORY, this.hangGame
+				.getCategory().getName());
+		editor.putString(GameBoardActivity.CATEGORY_WORDS, this.hangGame
+				.getCategoryWords().getWord1().getName());
+		editor.putString(GameBoardActivity.DATE, (new SimpleDateFormat(
+				DATE_FORMAT_PATTERN).format(new Date())));
+		editor.putInt(GameBoardActivity.POINTS, this.hangGame.getScore());
+
+		editor.commit();
+	}
+
 	private void startFinalGameActivity() {
 		Bundle bundle = new Bundle();
 		bundle.putParcelable(GameBoardActivity.CURRENT_HANG_GAME, this.hangGame);
@@ -258,6 +297,14 @@ public class GameBoardActivity extends Activity {
 		Intent intent = new Intent(this, GameFinalActivity.class);
 		intent.putExtras(bundle);
 
+		if (this.hangGame.isLost() == false) {
+			this.saveLastRecordIntoSharedPreferences();
+		}
+
+		Log.d(GameBoardActivity.TAG, "Starting Activity: "
+				+ GameFinalActivity.class.getSimpleName());
+
+		super.finish();
 		super.startActivity(intent);
 	}
 }

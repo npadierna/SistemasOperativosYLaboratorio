@@ -3,6 +3,11 @@ package co.edu.udea.os.ahorcado.service.config.impl;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class WebServiceServer implements Parcelable {
 
 	private String context;

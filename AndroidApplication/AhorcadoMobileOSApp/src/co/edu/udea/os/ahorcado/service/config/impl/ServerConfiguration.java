@@ -11,6 +11,11 @@ import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.util.Log;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class ServerConfiguration implements IServerConfiguration {
 
 	private static final String TAG = ServerConfiguration.class.getSimpleName();

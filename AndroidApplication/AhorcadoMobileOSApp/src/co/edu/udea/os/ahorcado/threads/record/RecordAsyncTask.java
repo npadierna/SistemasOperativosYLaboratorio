@@ -17,6 +17,11 @@ import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.service.webservice.IRecordWS;
 import co.edu.udea.os.ahorcado.service.webservice.impl.RecordWS;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class RecordAsyncTask extends AsyncTask<Object, Void, List<Record>> {
 
 	public static final int ALL_RECORDS_FOR_PLAYER = 0;

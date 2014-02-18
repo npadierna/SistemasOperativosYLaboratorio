@@ -11,6 +11,11 @@ import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 final class HangGame implements Parcelable {
 
 	public static final int STARTING = 0;
@@ -64,9 +69,12 @@ final class HangGame implements Parcelable {
 	public HangGame(Parcel parcel) {
 		this.setScore(parcel.readInt());
 		this.setState(parcel.readInt());
-		this.setCategory((Category) parcel.readParcelable(Category.class.getClassLoader()));
-		// dest.writeParcelable(this.getCategoryWords(), 0);
-		this.setPlayer((Player) parcel.readParcelable(Category.class.getClassLoader()));
+		this.setCategory((Category) parcel.readParcelable(Category.class
+				.getClassLoader()));
+		this.setCategoryWords((CategoryWords) parcel
+				.readParcelable(CategoryWords.class.getClassLoader()));
+		this.setPlayer((Player) parcel.readParcelable(Category.class
+				.getClassLoader()));
 	}
 
 	public int getPunishment() {
@@ -134,7 +142,7 @@ final class HangGame implements Parcelable {
 		dest.writeInt(this.getScore());
 		dest.writeInt(this.getState());
 		dest.writeParcelable(this.getCategory(), 0);
-		// dest.writeParcelable(this.getCategoryWords(), 0);
+		dest.writeParcelable(this.getCategoryWords(), 0);
 		dest.writeParcelable(this.getPlayer(), 0);
 	}
 

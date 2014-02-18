@@ -14,6 +14,11 @@ import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.service.webservice.ICategoryWS;
 import co.edu.udea.os.ahorcado.service.webservice.impl.CategoryWS;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class CategoryAsyncTask extends AsyncTask<Object, Void, List<Category>> {
 
 	public static final int ALL_CATEGORIES = 0;

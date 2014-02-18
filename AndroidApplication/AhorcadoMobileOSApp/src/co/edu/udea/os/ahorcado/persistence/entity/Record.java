@@ -10,13 +10,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class Record implements IEntityContext, IJSONContext, Serializable {
+public class Record implements IEntityContext, IJSONContext, Parcelable,
+		Serializable {
 
 	private static final long serialVersionUID = 9084931501438312448L;
 
@@ -50,6 +53,13 @@ public class Record implements IEntityContext, IJSONContext, Serializable {
 
 	public Record(JSONObject jsonObject) throws JSONException {
 		this.unpackJsonOjectToEntity(jsonObject);
+	}
+
+	public Record(Parcel parcel) {
+		this.setDate((Date) parcel.readSerializable());
+		this.setPoints(parcel.readInt());
+		this.setRecordPK((RecordPK) parcel.readParcelable(RecordPK.class
+				.getClassLoader()));
 	}
 
 	public RecordPK getRecordPK() {
@@ -148,17 +158,18 @@ public class Record implements IEntityContext, IJSONContext, Serializable {
 		return (this);
 	}
 
-	// @Override()
-	// public int describeContents() {
-	//
-	// return (0);
-	// }
-	//
-	// @Override()
-	// public void writeToParcel(Parcel dest, int flags) {
-	// dest.writeInt(this.getPoints());
-	// dest.writeValue(this.getDate());
-	// }
+	@Override()
+	public int describeContents() {
+
+		return (0);
+	}
+
+	@Override()
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeSerializable(this.getDate());
+		dest.writeInt(this.getPoints());
+		dest.writeParcelable(this.getRecordPK(), 0);
+	}
 
 	@Override()
 	public int hashCode() {
@@ -192,4 +203,19 @@ public class Record implements IEntityContext, IJSONContext, Serializable {
 		return ("co.edu.udea.os.ahorcado.persistence.entity.Record[ recordPK="
 				+ this.recordPK + " ]");
 	}
+
+	public static final Parcelable.Creator<Record> CREATOR = new Parcelable.Creator<Record>() {
+
+		@Override()
+		public Record createFromParcel(Parcel source) {
+
+			return (new Record(source));
+		}
+
+		@Override()
+		public Record[] newArray(int size) {
+
+			return (new Record[size]);
+		}
+	};
 }

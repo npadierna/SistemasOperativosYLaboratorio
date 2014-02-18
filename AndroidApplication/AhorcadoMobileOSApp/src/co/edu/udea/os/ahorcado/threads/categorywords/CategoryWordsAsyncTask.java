@@ -15,6 +15,11 @@ import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.service.webservice.ICategoryWordsWS;
 import co.edu.udea.os.ahorcado.service.webservice.impl.CategoryWordsWS;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class CategoryWordsAsyncTask extends
 		AsyncTask<Object, Void, List<CategoryWords>> {
 

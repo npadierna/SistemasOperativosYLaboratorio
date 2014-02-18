@@ -20,6 +20,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class BestRecordsActivity extends Activity {
 
 	private static final String TAG = BestRecordsActivity.class.getSimpleName();

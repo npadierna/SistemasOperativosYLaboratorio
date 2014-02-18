@@ -5,12 +5,15 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
  */
-public class CategoryWordsPK implements IJSONContext, Serializable {
+public class CategoryWordsPK implements IJSONContext, Parcelable, Serializable {
 
 	private static final long serialVersionUID = 8693019297638724608L;
 
@@ -31,6 +34,11 @@ public class CategoryWordsPK implements IJSONContext, Serializable {
 
 	public CategoryWordsPK(JSONObject jsonObject) throws JSONException {
 		this.unpackJsonOjectToEntity(jsonObject);
+	}
+
+	public CategoryWordsPK(Parcel parcel) {
+		this.setCategory(parcel.readString());
+		this.setWord(parcel.readString());
 	}
 
 	public String getCategory() {
@@ -72,6 +80,18 @@ public class CategoryWordsPK implements IJSONContext, Serializable {
 	}
 
 	@Override()
+	public int describeContents() {
+
+		return (0);
+	}
+
+	@Override()
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.getCategory());
+		dest.writeString(this.getWord());
+	}
+
+	@Override()
 	public int hashCode() {
 		int hash = 0;
 		hash += (category != null ? category.hashCode() : 0);
@@ -110,4 +130,19 @@ public class CategoryWordsPK implements IJSONContext, Serializable {
 		return ("co.edu.udea.os.ahorcado.persistence.entity.CategoryWordsPK[ category="
 				+ this.category + ", word=" + this.word + " ]");
 	}
+
+	public static final Parcelable.Creator<CategoryWordsPK> CREATOR = new Parcelable.Creator<CategoryWordsPK>() {
+
+		@Override()
+		public CategoryWordsPK createFromParcel(Parcel source) {
+
+			return (new CategoryWordsPK(source));
+		}
+
+		@Override()
+		public CategoryWordsPK[] newArray(int size) {
+
+			return (new CategoryWordsPK[size]);
+		}
+	};
 }

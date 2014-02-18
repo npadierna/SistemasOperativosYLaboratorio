@@ -15,6 +15,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.util.Log;
 import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public abstract class WebServiceContext {
 
 	private static final String TAG = WebServiceContext.class.getSimpleName();

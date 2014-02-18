@@ -26,6 +26,11 @@ import co.edu.udea.os.ahorcado.service.config.impl.ServerConfiguration;
 import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import co.edu.udea.os.ahorcado.threads.player.PlayerAsyncTask;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class LoginActivity extends Activity {
 
 	private static final String TAG = LoginActivity.class.getSimpleName();
@@ -41,7 +46,7 @@ public class LoginActivity extends Activity {
 	@Override()
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		super.setContentView(R.layout.tester);
+		super.setContentView(R.layout.activity_login);
 
 		if (!this.setServerConfig()) {
 			Log.e(LoginActivity.TAG, "WebServiceServer Not Configured.");

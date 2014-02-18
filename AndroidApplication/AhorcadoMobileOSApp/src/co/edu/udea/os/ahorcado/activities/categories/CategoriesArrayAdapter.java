@@ -11,6 +11,11 @@ import android.widget.TextView;
 import co.edu.udea.os.ahorcado.R;
 import co.edu.udea.os.ahorcado.persistence.entity.Category;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 final class CategoriesArrayAdapter extends ArrayAdapter<Category> {
 
 	private int resource;

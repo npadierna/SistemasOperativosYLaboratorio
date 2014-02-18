@@ -1,12 +1,21 @@
 package co.edu.udea.os.ahorcado.activities.game;
 
-import co.edu.udea.os.ahorcado.R;
-import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import co.edu.udea.os.ahorcado.R;
+import co.edu.udea.os.ahorcado.activities.categories.CategoriesDashboardActivity;
+import co.edu.udea.os.ahorcado.activities.categories.CategoryImage;
+import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
 
+/**
+ * 
+ * @author Andersson Garc&iacute;a Sotelo
+ * @author Neiber Padierna P&eacute;rez
+ */
 public class GameFinalActivity extends Activity {
 
 	private static final String TAG = GameFinalActivity.class.getSimpleName();
@@ -20,11 +29,10 @@ public class GameFinalActivity extends Activity {
 		super.setContentView(R.layout.activity_game_final);
 
 		this.extractBundleExtra(super.getIntent());
-		this.findWordForCategory();
 		this.createViewComponents();
 	}
 
-	@Override
+	@Override()
 	public void onBackPressed() {
 		Log.d(GameFinalActivity.TAG, "Back Button Pressed. Do Nothing.");
 	}
@@ -40,11 +48,39 @@ public class GameFinalActivity extends Activity {
 				.getParcelable(GameBoardActivity.WEB_SERVER_CONFIG);
 	}
 
-	private void findWordForCategory() {
+	private void createViewComponents() {
+		if (this.hangGame.isLost()) {
+			((TextView) super.findViewById(R.id.final_result_text_view))
+					.setText(R.string.final_result_lost);
+		}
 
+		TextView categoryNameTextView = (TextView) super
+				.findViewById(R.id.categoy_name_text_view);
+
+		categoryNameTextView.setText(this.hangGame.getCategory().getName());
+		categoryNameTextView.setCompoundDrawablesWithIntrinsicBounds(
+				0,
+				0,
+				0,
+				CategoryImage.getInstance().getDrawableByCategoryImageName(
+						this.hangGame.getCategory().getImageName()));
+
+		((TextView) super.findViewById(R.id.word_text_view))
+				.setText(this.hangGame.getCategoryWords().getCategoryWordsPK()
+						.getWord());
+
+		((TextView) super.findViewById(R.id.final_record_text_view))
+				.setText(Integer.toString(this.hangGame.getScore()));
+
+		// ((TextView) super.findViewById(R.id.time_consumed_text_view))
+		// .setText(this.hangGame.getCategoryWords().getCategoryWordsPK()
+		// .getWord());
 	}
 
-	private void createViewComponents() {
+	public void onPlayAgain(View view) {
+		Log.d(GameFinalActivity.TAG, "Starting Activity: "
+				+ CategoriesDashboardActivity.class.getSimpleName());
 
+		super.finish();
 	}
 }

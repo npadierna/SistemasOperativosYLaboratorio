@@ -18,11 +18,16 @@
     <color name="hidden_word_text_color">#FFFFFF</color>
     <color name="score_text_color">#FFFFFF</color>
     <color name="score_title_text_color">#FFFFFF</color>
-    
+
+    <!-- Game Final Activity -->
+    <color name="category_name_title_text_color">#FFFFFF</color>
+    <color name="final_result_text_color">#FFFFFF</color>
+    <color name="word_name_title_text_color">#FFFFFF</color>
+
     <!-- Keyboard Game -->
     <color name="key_button_text_color">#FFFFFF</color>
     <color name="key_button_wrong_text_color">#000000</color>
-    
+
     <!-- Login Activity -->
     <color name="password_text_color">#FFFFFF</color>
     <color name="user_name_text_color">#FFFFFF</color>

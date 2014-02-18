@@ -48,6 +48,11 @@
     <string name="score_title_text">Record:</string>
     <string name="timer_title_text">Tiempo:</string>
 
+    <!-- Game Final Activity -->
+    <string name="final_result_lost">HAS PERDIDO&#8230;!!</string>
+    <string name="final_result_won">¡¡ HAS GANADO !!</string>
+    <string name="play_again_button_text">Jugar De Nuevo</string>
+
     <!-- Glogal Utilies -->
     <string name="cancel">Cancelar</string>
     <string name="accept">Aceptar</string>

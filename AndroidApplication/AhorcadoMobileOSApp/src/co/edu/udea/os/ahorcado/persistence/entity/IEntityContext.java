@@ -1,6 +1,5 @@
 package co.edu.udea.os.ahorcado.persistence.entity;
 
-
 /**
  * 
  * @author Andersson Garc&iacute;a Sotelo
