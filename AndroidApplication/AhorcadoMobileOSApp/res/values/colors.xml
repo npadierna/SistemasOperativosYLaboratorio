@@ -3,6 +3,7 @@
 
     <!-- Best Records Activity -->
     <color name="category_name_text_color">#FFFFFF</color>
+    <color name="no_categories_found_text_color">#FFFFFF</color>
     <color name="player_user_name_text_color">#FFFFFF</color>
     <color name="record_date_text_color">#FFFFFF</color>
     <color name="record_text_color">#FFFFFF</color>

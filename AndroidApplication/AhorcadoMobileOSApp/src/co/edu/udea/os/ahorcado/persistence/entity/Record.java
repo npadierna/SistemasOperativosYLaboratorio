@@ -142,7 +142,11 @@ public class Record implements IEntityContext, IJSONContext, Parcelable,
 
 		StringBuilder date = new StringBuilder(
 				jsonObject.getString(Record.DATE));
-		date.delete(date.indexOf("T"), date.length());
+
+		int index = date.indexOf("T");
+		if (index != -1) {
+			date.delete(index, date.length());
+		}
 
 		try {
 			this.setDate(dateFormat.parse(date.toString()));

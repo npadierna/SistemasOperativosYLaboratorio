@@ -5,7 +5,6 @@ import java.util.List;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import co.edu.udea.os.ahorcado.R;
 import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
@@ -48,27 +47,30 @@ final class HangGame implements Parcelable {
 	private int punishment;
 	private int score;
 	private int state;
+	private String time;
 
 	private Category category;
 	private CategoryWords categoryWords;
 	private Player player;
 
-	public HangGame(Category category, Player player,
-			CategoryWords categoryWords, int initalScore, int punishment) {
+	public HangGame(Category category, CategoryWords categoryWords,
+			Player player, int initalScore, int punishment, String time) {
 		super();
 
 		this.setPunishment(punishment);
 		this.setScore(initalScore);
 		this.setState(HangGame.STARTING);
+		this.setTime(time);
 
 		this.setCategory(category);
-		this.setPlayer(player);
 		this.setCategoryWords(categoryWords);
+		this.setPlayer(player);
 	}
 
 	public HangGame(Parcel parcel) {
 		this.setScore(parcel.readInt());
 		this.setState(parcel.readInt());
+		this.setTime(parcel.readString());
 		this.setCategory((Category) parcel.readParcelable(Category.class
 				.getClassLoader()));
 		this.setCategoryWords((CategoryWords) parcel
@@ -109,6 +111,15 @@ final class HangGame implements Parcelable {
 		return (this.category);
 	}
 
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getTime() {
+
+		return (this.time);
+	}
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
@@ -141,6 +152,7 @@ final class HangGame implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeInt(this.getScore());
 		dest.writeInt(this.getState());
+		dest.writeString(this.getTime());
 		dest.writeParcelable(this.getCategory(), 0);
 		dest.writeParcelable(this.getCategoryWords(), 0);
 		dest.writeParcelable(this.getPlayer(), 0);

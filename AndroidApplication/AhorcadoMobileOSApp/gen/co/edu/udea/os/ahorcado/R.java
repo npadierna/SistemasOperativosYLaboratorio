@@ -21,32 +21,33 @@ public final class R {
         public static final int category_name_text_color=0x7f050000;
         /**  Game Final Activity 
          */
-        public static final int category_name_title_text_color=0x7f05000c;
-        public static final int category_text_color=0x7f050006;
+        public static final int category_name_title_text_color=0x7f05000d;
+        public static final int category_text_color=0x7f050007;
         /**  Game Board Activity 
          */
-        public static final int chronometer_text_color=0x7f050007;
-        public static final int chronometer_title_text_color=0x7f050008;
-        public static final int final_result_text_color=0x7f05000d;
-        public static final int hidden_word_text_color=0x7f050009;
+        public static final int chronometer_text_color=0x7f050008;
+        public static final int chronometer_title_text_color=0x7f050009;
+        public static final int final_result_text_color=0x7f05000e;
+        public static final int hidden_word_text_color=0x7f05000a;
         /**  Keyboard Game 
          */
-        public static final int key_button_text_color=0x7f05000f;
-        public static final int key_button_wrong_text_color=0x7f050010;
+        public static final int key_button_text_color=0x7f050010;
+        public static final int key_button_wrong_text_color=0x7f050011;
+        public static final int no_categories_found_text_color=0x7f050001;
         /**  Login Activity 
          */
-        public static final int password_text_color=0x7f050011;
+        public static final int password_text_color=0x7f050012;
         /**  Categories Dashboard Activity 
          */
-        public static final int plater_title_text_color=0x7f050005;
-        public static final int player_user_name_text_color=0x7f050001;
-        public static final int record_date_text_color=0x7f050002;
-        public static final int record_text_color=0x7f050003;
-        public static final int record_word_text_color=0x7f050004;
-        public static final int score_text_color=0x7f05000a;
-        public static final int score_title_text_color=0x7f05000b;
-        public static final int user_name_text_color=0x7f050012;
-        public static final int word_name_title_text_color=0x7f05000e;
+        public static final int plater_title_text_color=0x7f050006;
+        public static final int player_user_name_text_color=0x7f050002;
+        public static final int record_date_text_color=0x7f050003;
+        public static final int record_text_color=0x7f050004;
+        public static final int record_word_text_color=0x7f050005;
+        public static final int score_text_color=0x7f05000b;
+        public static final int score_title_text_color=0x7f05000c;
+        public static final int user_name_text_color=0x7f050013;
+        public static final int word_name_title_text_color=0x7f05000f;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -176,7 +177,7 @@ public final class R {
         public static final int dashboard=0x7f0b0000;
     }
     public static final class string {
-        public static final int accept=0x7f080022;
+        public static final int accept=0x7f080026;
         /**  Application Name 
          */
         public static final int app_name=0x7f080000;
@@ -187,16 +188,18 @@ public final class R {
         public static final int best_records_title_progress_dialog=0x7f080002;
         /**  Glogal Utilies 
          */
-        public static final int cancel=0x7f080021;
+        public static final int cancel=0x7f080025;
         /**  Game Board Activity 
          */
         public static final int category_words_error_text_alert_dialog=0x7f080015;
         public static final int category_words_error_title_alert_dialog=0x7f080016;
         /**  Login Activity 
          */
-        public static final int create_account_button=0x7f080023;
+        public static final int create_account_button=0x7f080027;
         public static final int dashboard_activity_name=0x7f080009;
         public static final int date_text=0x7f080004;
+        public static final int error_saving_record_text_alert_dialog=0x7f080021;
+        public static final int error_saving_record_title_alert_dialog=0x7f080022;
         /**  Game Final Activity 
          */
         public static final int final_result_lost=0x7f08001e;
@@ -209,19 +212,21 @@ public final class R {
         public static final int leave_dashboard_title_alert_dialog=0x7f08000f;
         public static final int leave_game_text_alert_dialog=0x7f080019;
         public static final int leave_game_title_alert_dialog=0x7f08001a;
-        public static final int login_button=0x7f080024;
-        public static final int login_text_progress_dialog=0x7f080028;
-        public static final int login_title_progress_dialog=0x7f080029;
-        public static final int logo_text_view_description=0x7f080025;
+        public static final int login_button=0x7f080028;
+        public static final int login_text_progress_dialog=0x7f08002c;
+        public static final int login_title_progress_dialog=0x7f08002d;
+        public static final int logo_text_view_description=0x7f080029;
         public static final int no_best_records_found_text_view=0x7f080005;
         public static final int no_categories_found_text_alert_dialog=0x7f08000a;
         public static final int no_categories_found_title_alert_dialog=0x7f08000b;
         public static final int no_last_record_wont_found_text_alert_dialog=0x7f08000c;
-        public static final int password_hint_edit_text=0x7f080026;
-        public static final int password_text_view=0x7f080027;
+        public static final int password_hint_edit_text=0x7f08002a;
+        public static final int password_text_view=0x7f08002b;
         public static final int play_again_button_text=0x7f080020;
         public static final int player_title_text_view=0x7f080010;
         public static final int record_text=0x7f080006;
+        public static final int saving_record_text_progress_dialog=0x7f080023;
+        public static final int saving_record_title_progress_dialog=0x7f080024;
         public static final int score_title_text=0x7f08001c;
         /**  Error Utilities 
          */
@@ -230,11 +235,11 @@ public final class R {
         public static final int show_all_records=0x7f080011;
         public static final int show_last_record=0x7f080012;
         public static final int timer_title_text=0x7f08001d;
-        public static final int user_error_text_alert_dialog=0x7f08002a;
-        public static final int user_error_title_alert_dialog=0x7f08002b;
-        public static final int user_name_hint_edit_text=0x7f08002c;
+        public static final int user_error_text_alert_dialog=0x7f08002e;
+        public static final int user_error_title_alert_dialog=0x7f08002f;
+        public static final int user_name_hint_edit_text=0x7f080030;
         public static final int user_name_text=0x7f080007;
-        public static final int user_name_text_view=0x7f08002d;
+        public static final int user_name_text_view=0x7f080031;
         public static final int word_text=0x7f080008;
     }
     public static final class style {

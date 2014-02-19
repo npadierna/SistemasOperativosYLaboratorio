@@ -27,6 +27,7 @@
         android:gravity="center"
         android:text="@string/no_best_records_found_text_view"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/no_categories_found_text_color"
         android:visibility="gone" >
     </TextView>
 

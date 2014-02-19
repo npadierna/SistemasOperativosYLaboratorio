@@ -74,10 +74,10 @@ public class GameBoardActivity extends Activity {
 		this.findWordForCategory();
 		this.createViewComponents();
 
-		this.hangGame = new HangGame(this.category, this.player,
-				this.categoryWords, super.getResources().getInteger(
+		this.hangGame = new HangGame(this.category, this.categoryWords,
+				this.player, super.getResources().getInteger(
 						R.integer.initial_record_points), super.getResources()
-						.getInteger(R.integer.punishment_points));
+						.getInteger(R.integer.punishment_points), null);
 	}
 
 	@Override()
@@ -262,6 +262,9 @@ public class GameBoardActivity extends Activity {
 
 		if ((this.hangGame.isLost())
 				|| (string.indexOf(GameBoardActivity.MASK) == -1)) {
+			this.chronometer.stop();
+			this.hangGame.setTime(this.chronometer.getText().toString());
+
 			this.startFinalGameActivity();
 		}
 	}
@@ -289,6 +292,7 @@ public class GameBoardActivity extends Activity {
 	}
 
 	private void startFinalGameActivity() {
+
 		Bundle bundle = new Bundle();
 		bundle.putParcelable(GameBoardActivity.CURRENT_HANG_GAME, this.hangGame);
 		bundle.putParcelable(GameBoardActivity.WEB_SERVER_CONFIG,

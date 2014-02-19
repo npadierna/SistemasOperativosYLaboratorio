@@ -35,7 +35,7 @@
 
     <!-- Error Utilities -->
     <string name="server_error_text">El servidor no está accesible.\nLa aplicación se cerrará.</string>
-    <string name="server_error_title">Error En Servidor</string>
+    <string name="server_error_title">Error En El Servidor</string>
 
     <!-- Game Board Activity -->
     <string name="category_words_error_text_alert_dialog">Palabra No Encontrada</string>
@@ -52,6 +52,10 @@
     <string name="final_result_lost">HAS PERDIDO&#8230;!!</string>
     <string name="final_result_won">¡¡ HAS GANADO !!</string>
     <string name="play_again_button_text">Jugar De Nuevo</string>
+    <string name="error_saving_record_text_alert_dialog">No se ha podido guardar su nuevo Record exitosamente.</string>
+    <string name="error_saving_record_title_alert_dialog">Error Al Guardar</string>
+    <string name="saving_record_text_progress_dialog">Espere mientras se guarda el nuevo Record&#8230;</string>
+    <string name="saving_record_title_progress_dialog">Guardando Record</string>
 
     <!-- Glogal Utilies -->
     <string name="cancel">Cancelar</string>

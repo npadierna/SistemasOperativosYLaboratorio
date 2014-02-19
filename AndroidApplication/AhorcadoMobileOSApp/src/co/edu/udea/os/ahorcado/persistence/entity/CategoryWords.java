@@ -19,6 +19,7 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 	private static final long serialVersionUID = 3074146297965430784L;
 
 	private static final String CATEGORY_WORDS_PK = "categoryWordsPK";
+	private static final String RECORD = "record";
 
 	protected CategoryWordsPK categoryWordsPK;
 	private Record record;
@@ -44,6 +45,8 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 	public CategoryWords(Parcel parcel) {
 		this.setCategoryWordsPK((CategoryWordsPK) parcel
 				.readParcelable(CategoryWordsPK.class.getClassLoader()));
+		this.setRecord((Record) parcel.readParcelable(Record.class
+				.getClassLoader()));
 	}
 
 	public CategoryWordsPK getCategoryWordsPK() {
@@ -112,7 +115,12 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 
 		this.setCategory1(new Category(categoryWordsPK.getCategory()));
 		this.setCategoryWordsPK(categoryWordsPK);
-		this.setRecord(null);
+
+		if (jsonObject.has(CategoryWords.RECORD)) {
+			this.setRecord(new Record(jsonObject
+					.getJSONObject(CategoryWords.RECORD)));
+		}
+
 		this.setWord1(new Word(categoryWordsPK.getWord()));
 
 		return (this);
@@ -127,6 +135,7 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 	@Override()
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeParcelable(this.getCategoryWordsPK(), 0);
+		dest.writeParcelable(this.getRecord(), 0);
 	}
 
 	@Override()
