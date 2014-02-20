@@ -29,5 +29,5 @@ INSERT INTO `AhorcadoOSApp`.`CATEGORY_WORDS` (`category`, `word`)
 -- -----------------------------------------------------
 -- Table `AhorcadoOSApp`.`RECORD`
 -- -----------------------------------------------------
-INSERT INTO `AhorcadoOSApp`.`RECORD` (`category`, `word`, `points`, `date`, `player_user_name`)
+INSERT INTO `AhorcadoOSApp`.`RECORD` (`user_name`, `category`, `word`, `points`, `date`)
 	VALUES (NULL, NULL, NULL, NULL, NULL);

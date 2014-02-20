@@ -68,7 +68,7 @@ CREATE  TABLE IF NOT EXISTS `AhorcadoOSApp`.`RECORD` (
   `category` VARCHAR(25) NOT NULL ,
   `word` VARCHAR(15) NOT NULL ,
   `points` INT UNSIGNED NOT NULL ,
-  `date` DATE NOT NULL ,
+  `date` DATETIME NOT NULL ,
   PRIMARY KEY (`user_name`, `category`, `word`) ,
   INDEX `fk_RECORD_CATEGORY_WORDS1_idx` (`category` ASC, `word` ASC) ,
   CONSTRAINT `fk_RECORD_PLAYER1`
