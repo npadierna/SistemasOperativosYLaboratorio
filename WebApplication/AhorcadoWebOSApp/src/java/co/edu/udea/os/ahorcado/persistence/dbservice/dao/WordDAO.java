@@ -23,9 +23,9 @@ public class WordDAO extends AbstractEntityDAO implements IWordDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Word deleteWord(Word billboard) {
+    public Word deleteWord(Word word) {
 
-        return ((Word) super.delete(billboard));
+        return ((Word) super.delete(word));
     }
 
     @Override()
@@ -51,16 +51,16 @@ public class WordDAO extends AbstractEntityDAO implements IWordDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public String saveWord(Word billboard) {
+    public String saveWord(Word word) {
 
-        return ((String) super.save(billboard));
+        return ((String) super.save(word));
     }
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Word updateWord(Word billboard) {
+    public Word updateWord(Word word) {
 
-        return ((Word) super.update(billboard));
+        return ((Word) super.update(word));
     }
 
     @Override()

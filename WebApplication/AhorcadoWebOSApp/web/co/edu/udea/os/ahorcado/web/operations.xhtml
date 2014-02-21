@@ -33,7 +33,9 @@
                                        id="createPlayerTab" rendered="true" >
                                     <h:form id="createPlayerForm" >
 
-                                        <p:growl id="growlCreatePlayer" showDetail="true" life="3000" />
+                                        <p:growl id="growlCreatePlayer"
+                                                 showDetail="true" life="3000" >
+                                        </p:growl>
                                         <h:panelGrid cellpadding="5" columns="4" >
                                             <h:outputLabel for="email" style="font-weight:bold"
                                                            value="Correo Electrónico:" >
@@ -45,7 +47,8 @@
                                                 <f:validateRegex
                                                     pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" >
                                                 </f:validateRegex>
-                                                <f:validateLength minimum="10"/>
+                                                <f:validateLength minimum="10" >
+                                                </f:validateLength>
                                             </p:inputText>
 
                                             <h:outputLabel for="userName"
@@ -56,7 +59,8 @@
                                                          maxlength="35" required="true"
                                                          size="25"
                                                          value="#{playerWorkFlowBean.player.userName}" >
-                                                <f:validateLength minimum="5"/>
+                                                <f:validateLength minimum="5" >
+                                                </f:validateLength>
                                             </p:inputText>
 
                                             <h:outputLabel for="password"
@@ -68,7 +72,8 @@
                                                         match="confirmPassword" maxlength="35"
                                                         required="true" size="25"
                                                         value="#{playerWorkFlowBean.player.password}" >
-                                                <f:validateLength minimum="5"/>
+                                                <f:validateLength minimum="5" >
+                                                </f:validateLength>
                                             </p:password>
 
                                             <h:outputLabel for="confirmPassword"
@@ -79,26 +84,38 @@
                                                         label="Confirmar Contraseña"
                                                         maxlength="35" required="true" size="25"
                                                         value="#{playerWorkFlowBean.player.password}" >
-                                                <f:validateLength minimum="5"/>
+                                                <f:validateLength minimum="5" >
+                                                </f:validateLength>
                                             </p:password>
                                         </h:panelGrid>
-                                        <p:watermark for="email" value="Obligatorio" />
-                                        <p:watermark for="userName" value="Obligatorio" />
-                                        <p:watermark for="password" value="Obligatorio" />
-                                        <p:watermark for="confirmPassword" value="Obligatorio" />
+
+                                        <p:watermark for="email"
+                                                     value="Obligatorio" >
+                                        </p:watermark>
+                                        <p:watermark for="userName" 
+                                                     value="Obligatorio" >
+                                        </p:watermark>
+                                        <p:watermark for="password"
+                                                     value="Obligatorio" >
+                                        </p:watermark>
+                                        <p:watermark for="confirmPassword" 
+                                                     value="Obligatorio" >
+                                        </p:watermark>
                                         <br/>
                                         <p:commandButton id="createPlayerButton" value="Crear" 
                                                          update="growlCreatePlayer" 
                                                          actionListener="#{playerWorkFlowBean.savePlayer}"
-                                                         oncomplete="handleNewOperationRequest(xhr, status, args)">
+                                                         oncomplete="handleNewOperationRequest(xhr, status, args)" >
                                         </p:commandButton>
                                     </h:form>
                                 </p:tab>
 
-                                <p:tab title="Crear Palabra" id="createWordTab">
+                                <p:tab title="Crear Palabra" id="createWordTab" >
                                     <h:form id="createCategoryWordsForm" >
 
-                                        <p:growl id="growlSaveCategoryWords" showDetail="true" life="3000" />
+                                        <p:growl id="growlSaveCategoryWords"
+                                                 showDetail="true" life="3000" >
+                                        </p:growl>
                                         <h:panelGrid cellpadding="5" columns="5" >
                                             <h:outputLabel for="categoryNameList" 
                                                            style="font-weight:bold"
@@ -108,9 +125,10 @@
                                                              label="Lista de Categorías" required="true"
                                                              value="#{categoryWordsWorkFlowBean.category.name}" >
                                                 <f:selectItems
-                                                    value="#{categoryWordsWorkFlowBean.categoriesNames}" />
+                                                    value="#{categoryWordsWorkFlowBean.categoriesNames}" >
+                                                </f:selectItems>
                                             </p:selectOneMenu>
-                                            <p:spacer width="50px"/>
+                                            <p:spacer width="50px" ></p:spacer>
                                             <h:outputLabel for="wordName"
                                                            style="font-weight:bold"
                                                            value="Palabra:" >
@@ -119,10 +137,13 @@
                                                          maxlength="15" required="true"
                                                          size="25"
                                                          value="#{categoryWordsWorkFlowBean.word.name}" >
-                                                <f:validateLength minimum="2"/>
+                                                <f:validateLength minimum="2" >
+                                                </f:validateLength>
                                             </p:inputText>
                                         </h:panelGrid>
-                                        <p:watermark for="wordName" value="Obligatorio" />
+                                        <p:watermark for="wordName" value="Obligatorio" >
+                                        </p:watermark>
+
                                         <br/>
                                         <p:commandButton id="createCategoryWordsButton"
                                                          value="Crear" update="growlSaveCategoryWords"
@@ -134,8 +155,11 @@
                             </p:accordionPanel>
                             <br/><br/>
                             <h:form id="returnToIndex">
-                                <p:commandLink onclick="location.href = '/AhorcadoWebOSApp/faces/co/edu/udea/os/ahorcado/web/index.xhtml';" >
-                                    <h:graphicImage url="/faces/co/edu/udea/os/ahorcado/web/util/images/applogo.png" />
+                                <p:commandLink
+                                    onclick="location.href = '/AhorcadoWebOSApp/faces/co/edu/udea/os/ahorcado/web/index.xhtml';" >
+                                    <h:graphicImage
+                                        url="/faces/co/edu/udea/os/ahorcado/web/util/images/applogo.png" >
+                                    </h:graphicImage>
                                 </p:commandLink>
                             </h:form>
                         </center>

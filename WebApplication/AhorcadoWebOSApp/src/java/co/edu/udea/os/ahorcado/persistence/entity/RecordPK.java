@@ -17,17 +17,17 @@ public class RecordPK implements Serializable {
 
     private static final long serialVersionUID = 1975712992744627200L;
     @Basic(optional = false)
-    @NotNull
+    @NotNull()
     @Size(min = 1, max = 35)
     @Column(name = "user_name")
     private String userName;
     @Basic(optional = false)
-    @NotNull
+    @NotNull()
     @Size(min = 1, max = 25)
     @Column(name = "category")
     private String category;
     @Basic(optional = false)
-    @NotNull
+    @NotNull()
     @Size(min = 1, max = 15)
     @Column(name = "word")
     private String word;

@@ -1,6 +1,7 @@
 package co.edu.udea.os.ahorcado.persistence.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,8 +34,8 @@ public class CategoryWords implements IEntityContext, Serializable {
     private static final long serialVersionUID = 3074146297965430784L;
     @EmbeddedId()
     protected CategoryWordsPK categoryWordsPK;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "categoryWords")
-    private Record record;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryWords")
+    private List<Record> recordList;
     @JoinColumn(name = "word", referencedColumnName = "name",
             insertable = false, updatable = false)
     @ManyToOne(optional = false)
@@ -65,13 +66,14 @@ public class CategoryWords implements IEntityContext, Serializable {
         this.categoryWordsPK = categoryWordsPK;
     }
 
-    public Record getRecord() {
+    @XmlTransient()
+    public List<Record> getRecordList() {
 
-        return (this.record);
+        return (this.recordList);
     }
 
-    public void setRecord(Record record) {
-        this.record = record;
+    public void setRecordList(List<Record> recordList) {
+        this.recordList = recordList;
     }
 
     @XmlTransient()

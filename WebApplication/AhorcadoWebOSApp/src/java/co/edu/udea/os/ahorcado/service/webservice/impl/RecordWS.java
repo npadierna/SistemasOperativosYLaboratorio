@@ -9,6 +9,7 @@ import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import co.edu.udea.os.ahorcado.service.webservice.IRecordWS;
 import co.edu.udea.os.ahorcado.service.webservice.WebServicePath;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.jws.WebService;
 import javax.ws.rs.Consumes;
@@ -87,7 +88,7 @@ public class RecordWS implements IRecordWS {
     @Produces(value = {MediaType.APPLICATION_JSON})
     @PUT()
     @Override()
-    public Response saveBestRecordForPlayer(Record record) {
+    public Response saveRecord(Record record) {
         if ((record == null) || (record.getRecordPK().getUserName() == null)) {
 
             return (Response.status(Response.Status.BAD_REQUEST).build());
@@ -100,14 +101,21 @@ public class RecordWS implements IRecordWS {
             return (Response.status(Response.Status.NOT_ACCEPTABLE).build());
         }
 
-        Record r = this.recordDAO.updateRecord(record);
-        if (r == null) {
+        Record r = this.findBestRecordForPlayerInCategory(player.getUserName(),
+                record.getRecordPK().getCategory());
+        record.setDate(new Date());
+        if (r != null) {
+            if (r.getPoints() < record.getPoints()) {
+                this.recordDAO.updateRecord(record);
+            } else {
 
-            return (Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .build());
+                return (Response.ok(r).build());
+            }
+        } else {
+            this.recordDAO.saveRecord(record);
         }
 
-        return (Response.ok(r).build());
+        return (Response.ok(record).build());
     }
 
     @GET()

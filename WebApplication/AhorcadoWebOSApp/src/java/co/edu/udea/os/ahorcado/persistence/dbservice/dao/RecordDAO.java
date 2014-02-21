@@ -2,6 +2,7 @@ package co.edu.udea.os.ahorcado.persistence.dbservice.dao;
 
 import co.edu.udea.os.ahorcado.persistence.dbservice.IRecordDAO;
 import co.edu.udea.os.ahorcado.persistence.entity.Category;
+import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
 import co.edu.udea.os.ahorcado.persistence.entity.RecordPK;
@@ -26,9 +27,9 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Record deleteRecord(Record billboard) {
+    public Record deleteRecord(Record record) {
 
-        return ((Record) super.delete(billboard));
+        return ((Record) super.delete(record));
     }
 
     @Override()
@@ -92,6 +93,23 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
     }
 
     @Override()
+    public Record findRecordForCategoryWords(CategoryWords categoryWords) {
+        if ((categoryWords != null) && (categoryWords.getKey() != null)) {
+            List<Record> records = this.findRecordsByAttributes("recordPK.category",
+                    categoryWords.getCategoryWordsPK().getCategory(),
+                    "recordPK.word",
+                    categoryWords.getCategoryWordsPK().getWord());
+
+            if ((records != null) && (!records.isEmpty())) {
+
+                return (records.get(0));
+            }
+        }
+
+        return (null);
+    }
+
+    @Override()
     public Record findRecord(RecordPK key) {
 
         return ((Record) super.find(Record.class, key));
@@ -99,16 +117,16 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public RecordPK saveRecord(Record billboard) {
+    public RecordPK saveRecord(Record record) {
 
-        return ((RecordPK) super.save(billboard));
+        return ((RecordPK) super.save(record));
     }
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Record updateRecord(Record billboard) {
+    public Record updateRecord(Record record) {
 
-        return ((Record) super.update(billboard));
+        return ((Record) super.update(record));
     }
 
     @Override()
@@ -136,12 +154,9 @@ public class RecordDAO extends AbstractEntityDAO implements IRecordDAO {
         for (int index = 1; index < records.size(); index++) {
             Record r = records.get(index);
 
-            if (record.getPoints() <= r.getPoints()) {
-                if ((record.getPoints() == r.getPoints())
-                        && (record.getDate().before(r.getDate()))) {
-                    record = r;
-                    continue;
-                }
+            if ((record.getPoints() < r.getPoints())
+                    || ((record.getPoints() == r.getPoints())
+                    && (record.getDate().before(r.getDate())))) {
                 record = r;
             }
         }

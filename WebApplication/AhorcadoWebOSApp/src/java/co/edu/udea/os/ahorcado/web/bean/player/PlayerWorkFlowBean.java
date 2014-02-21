@@ -1,6 +1,6 @@
 package co.edu.udea.os.ahorcado.web.bean.player;
 
-import co.edu.udea.os.ahorcado.domain.util.ConvertUtillity;
+import co.edu.udea.os.ahorcado.domain.util.ConverterUtillity;
 import co.edu.udea.os.ahorcado.persistence.dbservice.IPlayerDAO;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import java.io.Serializable;
@@ -94,6 +94,6 @@ public final class PlayerWorkFlowBean implements Serializable {
         }
 
         FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam(ConvertUtillity.CORRECT_OPERATION, correct);
+        context.addCallbackParam(ConverterUtillity.CORRECT_OPERATION, correct);
     }
 }

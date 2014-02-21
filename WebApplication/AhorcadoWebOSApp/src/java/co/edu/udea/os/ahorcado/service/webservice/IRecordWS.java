@@ -18,7 +18,7 @@ public interface IRecordWS {
     public Record findBestRecordForPlayerInCategory(String playerUserName,
             String categoryName);
 
-    public Response saveBestRecordForPlayer(Record record);
+    public Response saveRecord(Record record);
 
     public Record findBestRecordForCategory(String categoryName);
 

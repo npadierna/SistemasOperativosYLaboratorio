@@ -9,9 +9,11 @@ import co.edu.udea.os.ahorcado.persistence.entity.Category;
 import co.edu.udea.os.ahorcado.persistence.entity.CategoryWords;
 import co.edu.udea.os.ahorcado.persistence.entity.Player;
 import co.edu.udea.os.ahorcado.persistence.entity.Record;
+import co.edu.udea.os.ahorcado.persistence.entity.RecordPK;
 import co.edu.udea.os.ahorcado.persistence.entity.Word;
 import co.edu.udea.os.ahorcado.service.config.IFirstRunAppConfiguration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -335,6 +337,18 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
     }
 
     private void test() {
+        Record r = this.recordDAO.findRecordForCategoryWords(
+                new CategoryWords("RELIGIONES", "EVANGELISMO"));
+        r = this.recordDAO.deleteRecord(r);
+
+        r.setPoints(1000);
+        r.setDate(new Date());
+        r.setPlayer(this.playerDAO.findPlayer("anderssongs5"));
+        RecordPK rpk = r.getRecordPK();
+        rpk.setUserName("anderssongs5");
+        r.setRecordPK(rpk);
+        this.recordDAO.updateRecord(r);
+        
         Player p = new Player("test_user", "test_user", "test_user@test.com");
         this.playerDAO.savePlayer(p);
 
@@ -349,7 +363,11 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
                 this.categoryWordsDAO.findAllCategoriesWords();
 
         p = this.playerDAO.findPlayer("npadierna");
-        Category c = this.categoryDAO.findCategory("Deportes");
+        Category c = this.categoryDAO.findCategory("RELIGIONES");
         Record record = this.recordDAO.findBestRecordForPlayerInCategory(p, c);
+
+        record = this.recordDAO.findBestRecordForCategory(c);
+        record = this.recordDAO.findRecordForCategoryWords(new CategoryWords(
+                "RELIGIONES", "EVANGELISMO"));
     }
 }

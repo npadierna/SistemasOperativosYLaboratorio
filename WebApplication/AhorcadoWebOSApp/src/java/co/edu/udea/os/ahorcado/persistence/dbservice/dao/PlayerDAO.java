@@ -23,9 +23,9 @@ public class PlayerDAO extends AbstractEntityDAO implements IPlayerDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Player deletePlayer(Player billboard) {
+    public Player deletePlayer(Player player) {
 
-        return ((Player) super.delete(billboard));
+        return ((Player) super.delete(player));
     }
 
     @Override()
@@ -65,16 +65,16 @@ public class PlayerDAO extends AbstractEntityDAO implements IPlayerDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public String savePlayer(Player billboard) {
+    public String savePlayer(Player player) {
 
-        return ((String) super.save(billboard));
+        return ((String) super.save(player));
     }
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Player updatePlayer(Player billboard) {
+    public Player updatePlayer(Player player) {
 
-        return ((Player) super.update(billboard));
+        return ((Player) super.update(player));
     }
 
     @Override()

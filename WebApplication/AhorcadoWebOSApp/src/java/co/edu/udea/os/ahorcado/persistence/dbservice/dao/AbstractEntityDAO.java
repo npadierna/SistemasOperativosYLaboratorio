@@ -48,6 +48,7 @@ public abstract class AbstractEntityDAO implements IEntityDAO {
             System.out.println(" - Fatal error while the DAO was trying delete a entity.");
             e.printStackTrace();
         }
+        this.getEntityManager().flush();
 
         return (found);
     }
@@ -129,6 +130,7 @@ public abstract class AbstractEntityDAO implements IEntityDAO {
             System.out.println(" - Fatal error while the DAO was trying to persist or save a entity.");
             e.printStackTrace();
         }
+        this.getEntityManager().flush();
 
         return (entity.getKey());
     }
@@ -141,6 +143,7 @@ public abstract class AbstractEntityDAO implements IEntityDAO {
             System.out.println(" - Fatal error while the DAO was trying to update or refresh a entity.");
             e.printStackTrace();
         }
+        this.getEntityManager().flush();
 
         return (entity);
     }

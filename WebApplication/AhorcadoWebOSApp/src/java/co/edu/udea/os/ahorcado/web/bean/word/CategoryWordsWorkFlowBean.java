@@ -1,6 +1,6 @@
 package co.edu.udea.os.ahorcado.web.bean.word;
 
-import co.edu.udea.os.ahorcado.domain.util.ConvertUtillity;
+import co.edu.udea.os.ahorcado.domain.util.ConverterUtillity;
 import co.edu.udea.os.ahorcado.persistence.dbservice.ICategoryDAO;
 import co.edu.udea.os.ahorcado.persistence.dbservice.ICategoryWordsDAO;
 import co.edu.udea.os.ahorcado.persistence.dbservice.IWordDAO;
@@ -98,7 +98,7 @@ public final class CategoryWordsWorkFlowBean implements Serializable {
         }
 
         if (correct) {
-            this.word.setName(ConvertUtillity.convertName(this.word.getName()));
+            this.word.setName(ConverterUtillity.convertName(this.word.getName()));
             if (wordDAO.findWord(this.word.getName()) == null) {
                 if (this.wordDAO.saveWord(this.word) == null) {
                     message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -141,7 +141,7 @@ public final class CategoryWordsWorkFlowBean implements Serializable {
         }
 
         FacesContext.getCurrentInstance().addMessage(null, message);
-        context.addCallbackParam(ConvertUtillity.CORRECT_OPERATION, correct);
+        context.addCallbackParam(ConverterUtillity.CORRECT_OPERATION, correct);
     }
 
     @PostConstruct()

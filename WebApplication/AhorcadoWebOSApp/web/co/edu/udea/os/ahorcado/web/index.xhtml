@@ -9,7 +9,7 @@
       xmlns:f="http://java.sun.com/jsf/core" >
 
     <h:head>
-        <f:facet name="ahorcadoos">
+        <f:facet name="ahorcadoos" >
             <meta content='text/html; charset=UTF-8'
                   http-equiv="Content-Type" >
             </meta>
@@ -19,13 +19,13 @@
 
     <h:body>
         <center>
-            <table width="1000px">
+            <table width="1000px" >
                 <tr>
                     <td>
                         <center>
                             <p:outputPanel >  
                                 <font color="gray" size="16" >
-                                    <b>Ahorcado App OS</b>
+                                    <b>AhorcadOS Web Application</b>
                                 </font>
 
                                 <p>Desde este sitio web se podrá realizar la creación 
@@ -33,17 +33,17 @@
                                     las categorías existentes.
                                 </p>
                             </p:outputPanel>
-                            
+
                             <h:graphicImage
                                 url="/faces/co/edu/udea/os/ahorcado/web/util/images/ahorcado.png" >
                             </h:graphicImage>
-                            
+
                             <br/><br/>
                             <p:outputPanel>
                                 <b>
                                     <h:outputText
                                         style="font-size: 25px; color: gray"
-                                        value="Autores" >
+                                        value="Autores:" >
                                     </h:outputText>
                                 </b>
 
@@ -68,7 +68,7 @@
 
                             <p:commandLink 
                                 onclick="location.href = '/AhorcadoWebOSApp/faces/co/edu/udea/os/ahorcado/web/operations.xhtml';" >
-                                <h:outputText style="font-size: 16p;"
+                                <h:outputText style="font-size: 16px;"
                                               value="Ir a Operaciones" >
                                 </h:outputText>
                             </p:commandLink>

@@ -23,9 +23,9 @@ public class CategoryDAO extends AbstractEntityDAO implements ICategoryDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Category deleteCategory(Category billboard) {
+    public Category deleteCategory(Category category) {
 
-        return ((Category) super.delete(billboard));
+        return ((Category) super.delete(category));
     }
 
     @Override()
@@ -51,16 +51,16 @@ public class CategoryDAO extends AbstractEntityDAO implements ICategoryDAO {
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public String saveCategory(Category billboard) {
+    public String saveCategory(Category category) {
 
-        return ((String) super.save(billboard));
+        return ((String) super.save(category));
     }
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public Category updateCategory(Category billboard) {
+    public Category updateCategory(Category category) {
 
-        return ((Category) super.update(billboard));
+        return ((Category) super.update(category));
     }
 
     @Override()

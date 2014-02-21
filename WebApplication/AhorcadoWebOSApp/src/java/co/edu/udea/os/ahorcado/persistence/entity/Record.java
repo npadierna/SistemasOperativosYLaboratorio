@@ -48,7 +48,7 @@ public class Record implements IEntityContext, Serializable {
     @Basic(optional = false)
     @NotNull()
     @Column(name = "date")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @JoinColumns({
         @JoinColumn(name = "category", referencedColumnName = "category",

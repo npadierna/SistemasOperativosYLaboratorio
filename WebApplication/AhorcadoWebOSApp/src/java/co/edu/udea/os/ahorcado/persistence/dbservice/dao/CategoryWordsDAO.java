@@ -26,9 +26,9 @@ public class CategoryWordsDAO extends AbstractEntityDAO
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public CategoryWords deleteCategoryWords(CategoryWords billboard) {
+    public CategoryWords deleteCategoryWords(CategoryWords categoryWords) {
 
-        return ((CategoryWords) super.delete(billboard));
+        return ((CategoryWords) super.delete(categoryWords));
     }
 
     @Override()
@@ -63,16 +63,16 @@ public class CategoryWordsDAO extends AbstractEntityDAO
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public CategoryWordsPK saveCategoryWords(CategoryWords billboard) {
+    public CategoryWordsPK saveCategoryWords(CategoryWords categoryWords) {
 
-        return ((CategoryWordsPK) super.save(billboard));
+        return ((CategoryWordsPK) super.save(categoryWords));
     }
 
     @Override()
     @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = false)
-    public CategoryWords updateCategoryWords(CategoryWords billboard) {
+    public CategoryWords updateCategoryWords(CategoryWords categoryWords) {
 
-        return ((CategoryWords) super.update(billboard));
+        return ((CategoryWords) super.update(categoryWords));
     }
 
     @Override()
