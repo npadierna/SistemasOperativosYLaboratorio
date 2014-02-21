@@ -1,6 +1,7 @@
 package co.edu.udea.os.ahorcado.persistence.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,10 +20,9 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 	private static final long serialVersionUID = 3074146297965430784L;
 
 	private static final String CATEGORY_WORDS_PK = "categoryWordsPK";
-	private static final String RECORD = "record";
 
 	protected CategoryWordsPK categoryWordsPK;
-	private Record record;
+	private List<Record> recordList;
 	private Word word1;
 	private Category category1;
 
@@ -45,8 +45,6 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 	public CategoryWords(Parcel parcel) {
 		this.setCategoryWordsPK((CategoryWordsPK) parcel
 				.readParcelable(CategoryWordsPK.class.getClassLoader()));
-		this.setRecord((Record) parcel.readParcelable(Record.class
-				.getClassLoader()));
 	}
 
 	public CategoryWordsPK getCategoryWordsPK() {
@@ -58,13 +56,13 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 		this.categoryWordsPK = categoryWordsPK;
 	}
 
-	public Record getRecord() {
+	public List<Record> getRecordList() {
 
-		return (this.record);
+		return (this.recordList);
 	}
 
-	public void setRecord(Record record) {
-		this.record = record;
+	public void setRecordList(List<Record> recordList) {
+		this.recordList = recordList;
 	}
 
 	public Word getWord1() {
@@ -116,11 +114,6 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 		this.setCategory1(new Category(categoryWordsPK.getCategory()));
 		this.setCategoryWordsPK(categoryWordsPK);
 
-		if (jsonObject.has(CategoryWords.RECORD)) {
-			this.setRecord(new Record(jsonObject
-					.getJSONObject(CategoryWords.RECORD)));
-		}
-
 		this.setWord1(new Word(categoryWordsPK.getWord()));
 
 		return (this);
@@ -135,7 +128,6 @@ public class CategoryWords implements IEntityContext, IJSONContext, Parcelable,
 	@Override()
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeParcelable(this.getCategoryWordsPK(), 0);
-		dest.writeParcelable(this.getRecord(), 0);
 	}
 
 	@Override()

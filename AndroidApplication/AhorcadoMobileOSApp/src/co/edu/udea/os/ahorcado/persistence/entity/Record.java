@@ -122,6 +122,7 @@ public class Record implements IEntityContext, IJSONContext, Parcelable,
 	@SuppressLint("SimpleDateFormat")
 	public JSONObject packEntityToJsonObject(IJSONContext entityContext)
 			throws JSONException {
+		// yyyy-MM-dd'T'HH:mm:ssz
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		JSONObject jsonObject = new JSONObject();
 
@@ -137,16 +138,13 @@ public class Record implements IEntityContext, IJSONContext, Parcelable,
 	@SuppressLint("SimpleDateFormat")
 	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
 			throws JSONException {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		// yyyy-MM-dd'T'HH:mm:ssz
+		SimpleDateFormat dateFormat = new SimpleDateFormat(
+				"yyyy-MM-dd'T'HH:mm:ssz");
 		this.setCategoryWords(null);
 
 		StringBuilder date = new StringBuilder(
 				jsonObject.getString(Record.DATE));
-
-		int index = date.indexOf("T");
-		if (index != -1) {
-			date.delete(index, date.length());
-		}
 
 		try {
 			this.setDate(dateFormat.parse(date.toString()));
