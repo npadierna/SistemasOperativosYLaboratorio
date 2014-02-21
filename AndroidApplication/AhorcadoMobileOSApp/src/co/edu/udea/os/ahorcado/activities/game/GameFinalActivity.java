@@ -1,12 +1,9 @@
 package co.edu.udea.os.ahorcado.activities.game;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -53,30 +50,6 @@ public class GameFinalActivity extends Activity {
 	@Override()
 	public void onBackPressed() {
 		Log.d(GameFinalActivity.TAG, "Back Button Pressed. Do Nothing.");
-	}
-
-	@SuppressLint("SimpleDateFormat")
-	@SuppressWarnings("deprecation")
-	private int computeTotalScore() {
-		Log.i(GameFinalActivity.TAG, "Computing The Score Points.");
-
-		int minutes = 0;
-		try {
-			minutes = (new SimpleDateFormat("MM:SS")).parse(
-					this.hangGame.getTime()).getMinutes();
-
-			if (minutes == 0) {
-				minutes++;
-			}
-		} catch (ParseException e) {
-			minutes = 1;
-			e.printStackTrace();
-		}
-
-		return (this.hangGame.getScore()
-				* this.hangGame.getCategoryWords().getCategoryWordsPK()
-						.getWord().length()
-				* (HangGame.RIGHT_LEG - this.hangGame.getState()) / (minutes * 10));
 	}
 
 	private void createViewComponents() {
@@ -128,56 +101,50 @@ public class GameFinalActivity extends Activity {
 	private void saveRecordForPlayer() {
 		Log.d(GameFinalActivity.TAG, "Saving New Best Record...");
 
-		int score = this.computeTotalScore();
-		if ((this.hangGame.getCategoryWords().getRecord() == null)
-				|| (this.hangGame.getCategoryWords().getRecord().getPoints() < score)) {
+		Record record = new Record(
+				new RecordPK(this.hangGame.getPlayer().getUserName(),
+						this.hangGame.getCategory().getName(), this.hangGame
+								.getCategoryWords().getCategoryWordsPK()
+								.getWord()), this.hangGame.getScore(),
+				new Date());
 
-			Record record = new Record(new RecordPK(this.hangGame.getPlayer()
-					.getUserName(), this.hangGame.getCategory().getName(),
-					this.hangGame.getCategoryWords().getCategoryWordsPK()
-							.getWord()), score, new Date());
+		ProgressDialog progressDialog = (new ProgressBarCustomized(this))
+				.createProgressDialog(
+						super.getResources().getString(
+								R.string.saving_record_title_progress_dialog),
+						super.getResources().getString(
+								R.string.saving_record_text_progress_dialog),
+						false);
 
-			ProgressDialog progressDialog = (new ProgressBarCustomized(this))
-					.createProgressDialog(
-							super.getResources()
-									.getString(
-											R.string.saving_record_title_progress_dialog),
-							super.getResources()
-									.getString(
-											R.string.saving_record_text_progress_dialog),
-							false);
+		RecordAsyncTask recordAsyncTask = new RecordAsyncTask(
+				this.webServiceServer, progressDialog,
+				RecordAsyncTask.SAVE_RECORD);
 
-			RecordAsyncTask recordAsyncTask = new RecordAsyncTask(
-					this.webServiceServer, progressDialog,
-					RecordAsyncTask.SAVE_BEST_RECORD_FOR_PLAYER);
+		recordAsyncTask.execute(new Object[] { record });
+		try {
+			List<Record> records = recordAsyncTask.get();
 
-			recordAsyncTask.execute(new Object[] { record });
-			try {
-				List<Record> records = recordAsyncTask.get();
-
-				if ((records == null) || (records.isEmpty())) {
-					AlertDialog.Builder alertDialogBuilder = (new AlertDialogCustomized(
-							this))
-							.createAlertDialog(
-									super.getResources()
-											.getString(
-													R.string.error_saving_record_title_alert_dialog),
-									super.getResources()
-											.getString(
-													R.string.error_saving_record_text_alert_dialog),
-									true);
-					alertDialogBuilder.setPositiveButton(super.getResources()
-							.getString(R.string.accept), null);
-					(alertDialogBuilder.create()).show();
-				} else {
-					Log.d(GameFinalActivity.TAG,
-							"New Best Record Saved Successfully.");
-				}
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				e.printStackTrace();
+			if ((records == null) || (records.isEmpty())) {
+				AlertDialog.Builder alertDialogBuilder = (new AlertDialogCustomized(
+						this))
+						.createAlertDialog(
+								super.getResources()
+										.getString(
+												R.string.error_saving_record_title_alert_dialog),
+								super.getResources()
+										.getString(
+												R.string.error_saving_record_text_alert_dialog),
+								true);
+				alertDialogBuilder.setPositiveButton(super.getResources()
+						.getString(R.string.accept), null);
+				(alertDialogBuilder.create()).show();
+			} else {
+				Log.d(GameFinalActivity.TAG, "New Record Saved Successfully.");
 			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
 		}
 	}
 }

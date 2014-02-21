@@ -29,7 +29,7 @@ public class RecordAsyncTask extends AsyncTask<Object, Void, List<Record>> {
 	public static final int BEST_RECORD_FOR_CATEGORY = 2;
 	public static final int BEST_RECORD_FOR_PLAYER_IN_CATEGORY = 3;
 	public static final int BEST_RECORD_FOR_PLAYER = 4;
-	public static final int SAVE_BEST_RECORD_FOR_PLAYER = 5;
+	public static final int SAVE_RECORD = 5;
 
 	private int type;
 	private ProgressDialog progressDialog;
@@ -83,7 +83,7 @@ public class RecordAsyncTask extends AsyncTask<Object, Void, List<Record>> {
 
 			case (RecordAsyncTask.BEST_RECORD_FOR_PLAYER):
 				if ((args[0] != null) && (args[0] instanceof Record)) {
-					record = recordWS.saveBestRecordForPlayer((Record) args[0]);
+					record = recordWS.saveRecord((Record) args[0]);
 
 					gotIn = true;
 				}
@@ -107,9 +107,9 @@ public class RecordAsyncTask extends AsyncTask<Object, Void, List<Record>> {
 				records = recordWS.findBestRecordsForAllCategories();
 				break;
 
-			case (RecordAsyncTask.SAVE_BEST_RECORD_FOR_PLAYER):
+			case (RecordAsyncTask.SAVE_RECORD):
 				if ((args[0] != null) && (args[0] instanceof Record)) {
-					record = recordWS.saveBestRecordForPlayer((Record) args[0]);
+					record = recordWS.saveRecord((Record) args[0]);
 
 					gotIn = true;
 				}

@@ -141,9 +141,8 @@ public class RecordWS extends WebServiceContext implements IRecordWS {
 	}
 
 	@Override()
-	public Record saveBestRecordForPlayer(Record record)
-			throws ClientProtocolException, IOException, JSONException,
-			URISyntaxException {
+	public Record saveRecord(Record record) throws ClientProtocolException,
+			IOException, JSONException, URISyntaxException {
 		JSONObject jsonObject = record.packEntityToJsonObject(record);
 
 		HttpPut put = new HttpPut();

@@ -1,5 +1,6 @@
 package co.edu.udea.os.ahorcado.activities.game;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -264,6 +265,7 @@ public class GameBoardActivity extends Activity {
 				|| (string.indexOf(GameBoardActivity.MASK) == -1)) {
 			this.chronometer.stop();
 			this.hangGame.setTime(this.chronometer.getText().toString());
+			this.hangGame.setScore(this.computeTotalScore());
 
 			this.startFinalGameActivity();
 		}
@@ -292,7 +294,6 @@ public class GameBoardActivity extends Activity {
 	}
 
 	private void startFinalGameActivity() {
-
 		Bundle bundle = new Bundle();
 		bundle.putParcelable(GameBoardActivity.CURRENT_HANG_GAME, this.hangGame);
 		bundle.putParcelable(GameBoardActivity.WEB_SERVER_CONFIG,
@@ -310,5 +311,28 @@ public class GameBoardActivity extends Activity {
 
 		super.finish();
 		super.startActivity(intent);
+	}
+
+	@SuppressLint("SimpleDateFormat")
+	@SuppressWarnings("deprecation")
+	private int computeTotalScore() {
+		Log.i(GameBoardActivity.TAG, "Computing The Score Points.");
+
+		int seconds = 0;
+		try {
+			seconds = (new SimpleDateFormat("MM:SS")).parse(
+					this.hangGame.getTime()).getSeconds();
+
+			if (seconds == 0) {
+				seconds++;
+			}
+		} catch (ParseException e) {
+			seconds = 1;
+			e.printStackTrace();
+		}
+
+		return (this.hangGame.getCategoryWords().getCategoryWordsPK().getWord()
+				.length()
+				* this.hangGame.getScore() / seconds);
 	}
 }
