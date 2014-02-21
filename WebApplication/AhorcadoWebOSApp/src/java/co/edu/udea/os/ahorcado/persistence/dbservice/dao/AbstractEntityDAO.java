@@ -18,6 +18,7 @@ import javax.persistence.criteria.Root;
  *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public abstract class AbstractEntityDAO implements IEntityDAO {
 

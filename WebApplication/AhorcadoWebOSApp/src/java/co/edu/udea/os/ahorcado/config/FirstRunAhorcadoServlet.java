@@ -10,6 +10,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
  *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class FirstRunAhorcadoServlet implements ServletContextListener {
 

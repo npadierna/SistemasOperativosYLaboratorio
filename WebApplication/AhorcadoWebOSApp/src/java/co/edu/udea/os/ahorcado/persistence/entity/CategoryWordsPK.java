@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
  *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 @Embeddable()
 public class CategoryWordsPK implements Serializable {

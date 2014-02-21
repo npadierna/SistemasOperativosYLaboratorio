@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 @Repository()
 @Transactional(propagation = Propagation.REQUIRES_NEW, readOnly = true)

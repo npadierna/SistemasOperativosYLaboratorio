@@ -27,6 +27,7 @@ import org.springframework.stereotype.Component;
  *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 @Component()
 @Path(WebServicePath.RecordWSContext.ROOT_PATH)

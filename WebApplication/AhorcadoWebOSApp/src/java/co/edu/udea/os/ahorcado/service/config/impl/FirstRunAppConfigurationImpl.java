@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
 
@@ -348,7 +349,7 @@ public class FirstRunAppConfigurationImpl implements IFirstRunAppConfiguration {
         rpk.setUserName("anderssongs5");
         r.setRecordPK(rpk);
         this.recordDAO.updateRecord(r);
-        
+
         Player p = new Player("test_user", "test_user", "test_user@test.com");
         this.playerDAO.savePlayer(p);
 
