@@ -5,16 +5,16 @@ import java.io.IOException;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import co.edu.udea.os.ahorcado.service.config.IServerConfiguration;
-
 import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.util.Log;
+import co.edu.udea.os.ahorcado.service.config.IServerConfiguration;
 
 /**
- * 
+ *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class ServerConfiguration implements IServerConfiguration {
 

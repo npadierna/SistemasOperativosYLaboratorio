@@ -24,9 +24,10 @@ import co.edu.udea.os.ahorcado.service.webservice.IRecordWS;
 import co.edu.udea.os.ahorcado.service.webservice.WebServicePath;
 
 /**
- * 
+ *
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class RecordWS extends WebServiceContext implements IRecordWS {
 
@@ -53,7 +54,7 @@ public class RecordWS extends WebServiceContext implements IRecordWS {
 
 			Log.d(TAG, "Response: " + stringResponse);
 
-			return (this.toRecordsArrayFromJSONArray(new JSONArray(super
+			return (this.toRecordsListFromJSONArray(new JSONArray(super
 					.formatToJSONArrayString(stringResponse))));
 		}
 
@@ -78,7 +79,7 @@ public class RecordWS extends WebServiceContext implements IRecordWS {
 
 			Log.d(TAG, "Response: " + stringResponse);
 
-			return (this.toRecordsArrayFromJSONArray(new JSONArray(super
+			return (this.toRecordsListFromJSONArray(new JSONArray(super
 					.formatToJSONArrayString(stringResponse))));
 		}
 
@@ -165,7 +166,7 @@ public class RecordWS extends WebServiceContext implements IRecordWS {
 		return (null);
 	}
 
-	private List<Record> toRecordsArrayFromJSONArray(JSONArray jsonArray)
+	private List<Record> toRecordsListFromJSONArray(JSONArray jsonArray)
 			throws JSONException {
 		List<Record> records = new ArrayList<Record>();
 

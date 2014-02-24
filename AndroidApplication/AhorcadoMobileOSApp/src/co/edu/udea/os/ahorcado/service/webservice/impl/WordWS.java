@@ -22,6 +22,7 @@ import co.edu.udea.os.ahorcado.service.webservice.WebServicePath;
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class WordWS extends WebServiceContext implements IWordWS {
 
@@ -43,7 +44,7 @@ public class WordWS extends WebServiceContext implements IWordWS {
 
 			Log.d(TAG, "Response: " + stringResponse);
 
-			return (this.toWordsArrayFromJSONArray(new JSONArray(super
+			return (this.toWordsListFromJSONArray(new JSONArray(super
 					.formatToJSONArrayString(stringResponse))));
 		}
 
@@ -52,7 +53,7 @@ public class WordWS extends WebServiceContext implements IWordWS {
 		return (null);
 	}
 
-	private List<Word> toWordsArrayFromJSONArray(JSONArray jsonArray)
+	private List<Word> toWordsListFromJSONArray(JSONArray jsonArray)
 			throws JSONException {
 		List<Word> words = new ArrayList<Word>();
 

@@ -15,6 +15,7 @@ import co.edu.udea.os.ahorcado.persistence.entity.Category;
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 final class CategoriesArrayAdapter extends ArrayAdapter<Category> {
 
@@ -26,9 +27,9 @@ final class CategoriesArrayAdapter extends ArrayAdapter<Category> {
 			List<Category> categories) {
 		super(activity.getApplicationContext(), resource, categories);
 
-		this.setResource(resource);
 		this.setActivity(activity);
 		this.setCategories(categories);
+		this.setResource(resource);
 	}
 
 	@Override()

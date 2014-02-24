@@ -70,7 +70,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/score_title_text"
+        android:text="@string/record_title_text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/score_title_text_color" >
     </TextView>

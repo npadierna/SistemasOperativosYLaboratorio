@@ -17,6 +17,7 @@ import android.os.Parcelable;
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class Record implements IEntityContext, IJSONContext, Parcelable,
 		Serializable {
@@ -139,8 +140,7 @@ public class Record implements IEntityContext, IJSONContext, Parcelable,
 	public IJSONContext unpackJsonOjectToEntity(JSONObject jsonObject)
 			throws JSONException {
 		// yyyy-MM-dd'T'HH:mm:ssz
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"yyyy-MM-dd'T'HH:mm:ssz");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		this.setCategoryWords(null);
 
 		StringBuilder date = new StringBuilder(

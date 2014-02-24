@@ -10,6 +10,7 @@
     <!-- Categories Dashboard Activity -->
     <dimen name="categories_grid_view_margin_top">20dp</dimen>
     <dimen name="horizontal_spacing_grid_view">5dp</dimen>
+    <dimen name="user_name_text_view_margin_top">0dp</dimen>
     <dimen name="vertical_spacing_grid_view">8dp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
@@ -18,10 +19,8 @@
 
     <!-- Game Board Activity -->
     <dimen name="chronometer_margin_left">7dp</dimen>
-    <dimen name="header_linear_layout_margin_bottom">25dp</dimen>
     <dimen name="score_margin_left">7dp</dimen>
-    <dimen name="table_row_image_view_margin_bottom">25dp</dimen>
-    <dimen name="table_row_image_view_margin_top">25dp</dimen>
+    <dimen name="table_row_image_view_margin_bottom">10dp</dimen>
 
     <!-- Game Final Activity -->
     <dimen name="category_name_margin_bottom">20dp</dimen>
@@ -31,18 +30,12 @@
     <dimen name="final_result_text_size">35dp</dimen>
     <dimen name="play_again_button_margin_top">25dp</dimen>
     <dimen name="word_name_text_size">30dp</dimen>
+
     <!-- Keyboard Game -->
     <dimen name="key_button_heigth">34dp</dimen>
     <dimen name="key_button_text_size">17dp</dimen>
     <dimen name="key_button_width">34dp</dimen>
 
     <!-- Login Activity -->
-    <dimen name="button_section_table_row">35dp</dimen>
-    <dimen name="image_logo_row_margin_bottom">50dp</dimen>
-    <dimen name="image_logo_row__margin_top">50dp</dimen>
-    <dimen name="password_edit_text_margin_top">13dp</dimen>
-    <dimen name="password_text_view_margin_top">35dp</dimen>
-    <dimen name="user_name_edit_text_margin_top">13dp</dimen>
-    <dimen name="user_name_text_view_margin_top">0dp</dimen>
 
 </resources>

@@ -6,6 +6,6 @@
     <integer name="user_name_edit_text_ems">10</integer>
 
     <!-- Game Board Activity -->
-    <integer name="initial_record_points">1000</integer>
-    <integer name="punishment_points">100</integer>
+    <integer name="initial_bonus_points">6000</integer>
+    <integer name="punishment_bonus_points">1000</integer>
 </resources>

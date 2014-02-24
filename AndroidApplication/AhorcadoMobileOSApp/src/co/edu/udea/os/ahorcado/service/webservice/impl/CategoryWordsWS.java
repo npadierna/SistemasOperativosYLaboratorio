@@ -25,6 +25,7 @@ import co.edu.udea.os.ahorcado.service.webservice.WebServicePath;
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class CategoryWordsWS extends WebServiceContext implements
 		ICategoryWordsWS {
@@ -54,8 +55,8 @@ public class CategoryWordsWS extends WebServiceContext implements
 
 			Log.d(TAG, "Response: " + stringResponse);
 
-			return (this.toCategoriesWordsArrayFromJSONArray(new JSONArray(
-					super.formatToJSONArrayString(stringResponse))));
+			return (this.toCategoriesWordsListFromJSONArray(new JSONArray(super
+					.formatToJSONArrayString(stringResponse))));
 		}
 
 		Log.d(TAG, "Response: NULL.");
@@ -88,7 +89,7 @@ public class CategoryWordsWS extends WebServiceContext implements
 		return (null);
 	}
 
-	private List<CategoryWords> toCategoriesWordsArrayFromJSONArray(
+	private List<CategoryWords> toCategoriesWordsListFromJSONArray(
 			JSONArray jsonArray) throws JSONException {
 		List<CategoryWords> categoriesWords = new ArrayList<CategoryWords>();
 

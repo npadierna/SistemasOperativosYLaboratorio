@@ -38,6 +38,7 @@
     <string name="server_error_title">Error En El Servidor</string>
 
     <!-- Game Board Activity -->
+    <string name="bonus_title_text">Bonus:</string>
     <string name="category_words_error_text_alert_dialog">Palabra No Encontrada</string>
     <string name="category_words_error_title_alert_dialog">No se ha podido encontrar una Palabra para esta Categoría.\nPor favor, intente de nuevo.</string>
     <string name="find_category_words_text_progress_dialog">Espere mientras se busca y se carga una Palabra.</string>
@@ -45,7 +46,7 @@
     <string name="leave_game_text_alert_dialog">Esta acción cerrará el juego actual.\n¿Está seguro de continuar?</string>
     <string name="leave_game_title_alert_dialog">¿Finalizar Juego?</string>
     <string name="hanging_image_view_description">Progreso del Ahorcamiento</string>
-    <string name="score_title_text">Record:</string>
+    <string name="record_title_text">Record:</string>
     <string name="timer_title_text">Tiempo:</string>
 
     <!-- Game Final Activity -->
@@ -62,9 +63,8 @@
     <string name="accept">Aceptar</string>
 
     <!-- Login Activity -->
-    <string name="create_account_button">Crear Cuenta</string>
     <string name="login_button">Iniciar Sesión</string>
-    <string name="logo_text_view_description">Logo principal de la aplicación.</string>
+    <string name="logo_image_view_description">Logo principal de la aplicación.</string>
     <string name="password_hint_edit_text">******</string>
     <string name="password_text_view">Contraseña:</string>
     <string name="login_text_progress_dialog">Conectando al Servidor&#8230;</string>

@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import co.edu.udea.os.ahorcado.R;
-import co.edu.udea.os.ahorcado.activities.login.LoginActivity;
-import co.edu.udea.os.ahorcado.activities.util.ProgressBarCustomized;
-import co.edu.udea.os.ahorcado.persistence.entity.Record;
-import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
-import co.edu.udea.os.ahorcado.threads.record.RecordAsyncTask;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -19,11 +13,18 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import co.edu.udea.os.ahorcado.R;
+import co.edu.udea.os.ahorcado.activities.login.LoginActivity;
+import co.edu.udea.os.ahorcado.activities.util.ProgressBarCustomized;
+import co.edu.udea.os.ahorcado.persistence.entity.Record;
+import co.edu.udea.os.ahorcado.service.config.impl.WebServiceServer;
+import co.edu.udea.os.ahorcado.threads.record.RecordAsyncTask;
 
 /**
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class BestRecordsActivity extends Activity {
 

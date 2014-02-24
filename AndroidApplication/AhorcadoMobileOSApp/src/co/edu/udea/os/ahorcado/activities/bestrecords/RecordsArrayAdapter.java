@@ -17,6 +17,7 @@ import co.edu.udea.os.ahorcado.persistence.entity.Record;
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 final class RecordsArrayAdapter extends ArrayAdapter<Record> {
 

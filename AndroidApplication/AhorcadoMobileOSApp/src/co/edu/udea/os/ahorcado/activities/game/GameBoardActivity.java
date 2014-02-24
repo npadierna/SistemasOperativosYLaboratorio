@@ -37,6 +37,7 @@ import co.edu.udea.os.ahorcado.threads.categorywords.CategoryWordsAsyncTask;
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class GameBoardActivity extends Activity {
 
@@ -77,8 +78,8 @@ public class GameBoardActivity extends Activity {
 
 		this.hangGame = new HangGame(this.category, this.categoryWords,
 				this.player, super.getResources().getInteger(
-						R.integer.initial_record_points), super.getResources()
-						.getInteger(R.integer.punishment_points), null);
+						R.integer.initial_bonus_points), super.getResources()
+						.getInteger(R.integer.punishment_bonus_points), null);
 	}
 
 	@Override()
@@ -131,7 +132,7 @@ public class GameBoardActivity extends Activity {
 	public void onGuessLetter(View view) {
 		Button button = (Button) view;
 
-		Log.d(TAG, "Button Letter Pressed: " + button.getText().toString());
+		Log.d(TAG, "TextView Letter Pressed: " + button.getText().toString());
 
 		this.revealLetter(button.getText().charAt(0));
 
@@ -150,7 +151,7 @@ public class GameBoardActivity extends Activity {
 				.findViewById(R.id.hanging_progress_image_view);
 
 		this.recordTextView = (TextView) super
-				.findViewById(R.id.score_text_view);
+				.findViewById(R.id.bonus_text_view);
 
 		this.wordTextView = (TextView) super
 				.findViewById(R.id.hidden_word_text_view);

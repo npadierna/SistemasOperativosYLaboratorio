@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background_app"
-    android:gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="2"
+    android:weightSum="6"
     tools:context=".activities.game.GameBoardActitivy" >
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/header_linear_layout_margin_bottom"
+        android:orientation="horizontal"
         android:weightSum="4" >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="right|center_vertical"
+            android:gravity="right"
             android:text="@string/timer_title_text"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/chronometer_title_text_color"
@@ -42,31 +43,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="right|center_vertical"
-            android:text="@string/score_title_text"
+            android:gravity="right"
+            android:text="@string/bonus_title_text"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/score_title_text_color"
             android:textStyle="bold" >
         </TextView>
 
         <TextView
-            android:id="@+id/score_text_view"
+            android:id="@+id/bonus_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/score_margin_left"
-            android:layout_weight="2"
-            android:text="@integer/initial_record_points"
+            android:layout_weight="1"
+            android:text="@integer/initial_bonus_points"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/score_text_color"
-            android:weightSum="1" >
+            android:textColor="@color/score_text_color" >
         </TextView>
     </LinearLayout>
 
-    <TableRow
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
-        android:gravity="center_horizontal" >
+        android:layout_height="wrap_content" >
 
         <ImageView
             android:id="@+id/hanging_progress_image_view"
@@ -75,19 +73,17 @@
             android:contentDescription="@string/hanging_image_view_description"
             android:src="@drawable/ic_hanging_state_starting" >
         </ImageView>
-    </TableRow>
+    </LinearLayout>
 
-    <TableRow
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/table_row_image_view_margin_bottom"
-        android:layout_marginTop="@dimen/table_row_image_view_margin_top"
-        android:gravity="center_horizontal" >
+        android:layout_height="wrap_content" >
 
         <TextView
             android:id="@+id/hidden_word_text_view"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/table_row_image_view_margin_bottom"
             android:gravity="center"
             android:text="@string/app_name"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -95,15 +91,13 @@
             android:textScaleX="1.4"
             android:textStyle="bold" >
         </TextView>
-    </TableRow>
+    </LinearLayout>
 
-    <TableRow
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" >
+        android:layout_height="wrap_content" >
 
-        <include layout="@layout/keyboard_game" >
-        </include>
-    </TableRow>
+        <include layout="@layout/keyboard_game" ></include>
+    </LinearLayout>
 
-</TableLayout>
+</LinearLayout>

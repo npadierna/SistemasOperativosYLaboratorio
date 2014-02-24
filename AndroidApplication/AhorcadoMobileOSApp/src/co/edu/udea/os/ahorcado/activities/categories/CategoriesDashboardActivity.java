@@ -38,6 +38,7 @@ import co.edu.udea.os.ahorcado.threads.category.CategoryAsyncTask;
  * 
  * @author Andersson Garc&iacute;a Sotelo
  * @author Neiber Padierna P&eacute;rez
+ * @author Santiago G&oacute;mez Piedrah&iacute;ta
  */
 public class CategoriesDashboardActivity extends Activity {
 
@@ -89,7 +90,7 @@ public class CategoriesDashboardActivity extends Activity {
 
 	@Override()
 	public boolean onCreateOptionsMenu(Menu menu) {
-		super.getMenuInflater().inflate(R.menu.dashboard, menu);
+		super.getMenuInflater().inflate(R.menu.categories_dashboard, menu);
 
 		return (true);
 	}
@@ -154,7 +155,6 @@ public class CategoriesDashboardActivity extends Activity {
 
 			gridView.setAdapter(arrayAdapter);
 			gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
 				@Override()
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
