@@ -132,7 +132,7 @@ public class GameBoardActivity extends Activity {
 	public void onGuessLetter(View view) {
 		Button button = (Button) view;
 
-		Log.d(TAG, "TextView Letter Pressed: " + button.getText().toString());
+		Log.d(TAG, "Button Letter Pressed: " + button.getText().toString());
 
 		this.revealLetter(button.getText().charAt(0));
 
